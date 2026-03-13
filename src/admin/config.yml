@@ -1,8 +1,7 @@
-local_backend: true
+local_backend: false
 
 backend:
-  name: github
-  repo: xtradmk/interesting-america-hp
+  name: git-gateway
   branch: main
 
 media_folder: "src/images/uploads"
