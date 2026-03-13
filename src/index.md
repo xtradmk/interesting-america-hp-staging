@@ -1,84 +1,83 @@
 ---
 layout: base.njk
-title: Welcome
-description: Professional hotel brokerage for sports events in the USA. Accommodation, transfers, and hospitality access for sponsors, federations, and media.
-modules:
-  - type: hero
-    pretitle: "Hotel Brokerage for Sports Events"
-    title: "Professional Accommodation Solutions"
-    description: "We find and secure hotel accommodations for sports events across the USA. From FIFA World Cup 2026 to the LA Olympics 2028 – we handle the logistics so you can focus on the game."
-    cta:
-      text: "Explore Services"
-      url: "/services/"
-      style: primary
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
-    imageAlt: "Modern hotel exterior"
-
-  - type: features
-    title: "Why Choose INTERESTING AMERICA"
-    description: "Two decades of experience connecting sports organizations with the right accommodation"
-    features:
-      - icon: "🏨"
-        title: "Hotel Brokerage"
-        description: "Strategic partnerships with 3-4 star hotels across all major US sports destinations. Competitive rates for group bookings."
-        link:
-          text: "Learn more"
-          url: "/services/#hotels"
-      - icon: "🚐"
-        title: "Group Transfers"
-        description: "Seamless transportation from arrival to departure. Modern fleet, professional drivers, precise scheduling."
-        link:
-          text: "Learn more"
-          url: "/services/#transfers"
-      - icon: "🎫"
-        title: "Hospitality Access"
-        description: "Tickets, VIP tables, and exclusive experiences. We secure access to events that are officially sold out."
-        link:
-          text: "Learn more"
-          url: "/services/#hospitality"
-      - icon: "⚡"
-        title: "Last Minute"
-        description: "Impossible to find? Not for us. Our network solves accommodation challenges when time is running out."
-        link:
-          text: "Learn more"
-          url: "/services/#last-minute"
-
-  - type: services-list
-    title: "Our Services"
-    description: "End-to-end solutions for sports travel accommodation in the USA"
-    services:
-      - title: "Sponsor Accommodation"
-        description: "Premium solutions for Visa, Adidas, and major sponsors. Separate arrangements for executives and staff with budget-appropriate options for each group."
-        features:
-          - "Group rates for 50+ rooms"
-          - "Downtown and stadium proximity"
-          - "Flexible cancellation terms"
-        image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&q=80"
-        featured: false
-      - title: "Media & Broadcast Crews"
-        description: "Long-stay solutions for SRG, ORF, and international broadcasters. Extended-stay suites with workspace, kitchen facilities, and reliable internet."
-        features:
-          - "Extended stay rates"
-          - "In-room workspace setup"
-          - "24/7 support hotline"
-        image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&q=80"
-        featured: true
-      - title: "Federation & Family Travel"
-        description: "Accommodation for DFB, KNVB, and national federations. Block bookings with privacy considerations and group coordination."
-        features:
-          - "Adjacent room blocks"
-          - "Group coordinator support"
-          - "Flexible check-in/out"
-        image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80"
-        featured: false
-
-  - type: cta-banner
-    theme: dark
-    pretitle: "Ready to secure your accommodation?"
-    title: "Let's Talk About Your Event"
-    description: "Get in touch for a tailored proposal. We work with budgets of all sizes and specialize in the accommodation others can't find."
-    cta:
-      text: "Contact Us"
-      url: "/contact/"
-      style: accent
+title: INTERESTING AMERICA
+description: We find impossible to find accommodation at large global sports events.
 ---
+
+<section class="future-landing section fade-in in-view" id="home">
+  <div class="wrap-wide">
+    <p class="future-kicker">INTERESTING AMERICA</p>
+    <h1 class="future-title">We find impossible to find accommodation at large global sports events.</h1>
+    <p class="future-lead">Think Champions League Final, the Football World Cup, Formula 1 and the Olympic Games.</p>
+    <a class="future-link" href="#services">Explore our services</a>
+  </div>
+</section>
+
+<section class="section fade-in" id="about">
+  <div class="wrap two-col">
+    <h2>What are we about?</h2>
+    <div>
+      <p>We also transfer your staff and guests. On arrival, on departure and on match day. And, on your behalf, we get access to hospitality, tickets and tables at the finest venues in town.</p>
+      <p>All this we do for sponsors, sports federations, TV & media, travel agencies and family offices.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in" id="services">
+  <div class="wrap">
+    <h2>Specialising</h2>
+    <div class="cards three">
+      <article class="card">
+        <h3>Hotel Brokerage</h3>
+        <p>Hard-to-find inventory for major events, sourced with speed and precision.</p>
+      </article>
+      <article class="card">
+        <h3>Transfers</h3>
+        <p>Arrival, departure and match-day transport for staff, guests and delegations.</p>
+      </article>
+      <article class="card">
+        <h3>Hospitality Access</h3>
+        <p>Ticketing support and premium venue access through trusted networks.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="wrap">
+    <div class="split-head">
+      <h2>Featured Work</h2>
+      <span>Scroll ↓</span>
+    </div>
+    <div class="cards four">
+      <article class="project"><div class="thumb"></div><h3>Sponsors</h3></article>
+      <article class="project"><div class="thumb"></div><h3>Federations</h3></article>
+      <article class="project"><div class="thumb"></div><h3>TV & Media</h3></article>
+      <article class="project"><div class="thumb"></div><h3>Agencies</h3></article>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="wrap">
+    <h2>Why us</h2>
+    <div class="cards two">
+      <article class="card">
+        <h3>Global events, proven execution</h3>
+        <p>For example: Adidas, ABInBev, Česká Televize, DFB, JTB, Nestle, RedBull, RFEF, Team USA, US Tennis Association, P&G, Televisión Cubana, SRG/SSR, ORF and VISA.</p>
+      </article>
+      <article class="card">
+        <h3>Since 2010</h3>
+        <p>We do this since 2010, with a relationship-driven and operationally sharp approach to sports travel accommodation.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cta fade-in" id="contact">
+  <div class="wrap center">
+    <h2>Work with us</h2>
+    <p>Send your event, room count and timing, we’ll come back with options fast.</p>
+    <a class="btn" href="/contact/">Start the conversation</a>
+  </div>
+</section>
