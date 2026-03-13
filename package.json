@@ -1,0 +1,22 @@
+{
+  "name": "interesting-america-hp",
+  "version": "1.0.0",
+  "description": "INTERESTING AMERICA - Modular 11ty Website",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve --watch",
+    "start": "eleventy --serve",
+    "debug": "DEBUG=* eleventy"
+  },
+  "keywords": [
+    "11ty",
+    "static-site",
+    "modular"
+  ],
+  "author": "INTERESTING AMERICA",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it": "^14.1.1"
+  }
+}

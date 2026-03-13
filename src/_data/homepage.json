@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "INTERESTING AMERICA | Sports Accommodation Solutions",
+    "description": "Finding impossible-to-find accommodation at major US sports events. For sponsors, federations, media, and travel agencies."
+  },
+  "modules": [
+    {
+      "type": "hero",
+      "order": 1,
+      "data": {
+        "headline": "We Find the Impossible.",
+        "subheadline": "Premium accommodation at major US sports events. For sponsors, federations, media, and agencies.",
+        "ctaText": "Our Services",
+        "ctaLink": "/services/",
+        "secondaryCtaText": "Contact Us",
+        "secondaryCtaLink": "/contact/",
+        "image": "/images/hero-stadium.jpg",
+        "imageAlt": "US stadium at sunset"
+      }
+    },
+    {
+      "type": "features",
+      "order": 2,
+      "data": {
+        "headline": "Why INTERESTING AMERICA?",
+        "features": [
+          {
+            "title": "Event Expertise",
+            "icon": "calendar",
+            "text": "Since 2010, we've delivered rooms at the world's biggest sports events. FIFA World Cups, Olympics, Formula 1, Champions League."
+          },
+          {
+            "title": "Impossible to Find",
+            "icon": "key",
+            "text": "When hotels are sold out, we're just getting started. Our network unlocks accommodation others can't access."
+          },
+          {
+            "title": "Full Service",
+            "icon": "users",
+            "text": "From arrival to departure, we handle logistics, transport, and hospitality—so you focus on the event."
+          }
+        ]
+      }
+    },
+    {
+      "type": "text-block",
+      "order": 3,
+      "data": {
+        "headline": "Talk is cheap. We are INTERESTING.",
+        "text": "We find impossible-to-find accommodation at large global sports events. Think Champions League Final, the Football World Cup, Formula 1 and the Olympic Games.\n\nWe also transfer your staff and guests. On arrival, on departure and on match day. And—on your behalf—we get access to hospitality: tickets and tables at the finest venues in town.\n\nAll this we do for sponsors, sports federations, TV \u0026 media, travel agencies and family offices.",
+        "ctaText": "Learn More",
+        "ctaLink": "/about/"
+      }
+    },
+    {
+      "type": "logos",
+      "order": 4,
+      "data": {
+        "headline": "Trusted by",
+        "clients": [
+          "Adidas",
+          "ABInBev",
+          "Česká Televize",
+          "DFB",
+          "JTB",
+          "Nestle",
+          "RedBull",
+          "RFEF",
+          "Team USA",
+          "US Tennis Association",
+          "P\u0026G",
+          "Televisión Cubana",
+          "SRG/SSR",
+          "ORF",
+          "VISA"
+        ]
+      }
+    },
+    {
+      "type": "cta-banner",
+      "order": 5,
+      "data": {
+        "headline": "Planning an event?",
+        "text": "Let's talk about your accommodation needs. We operate across all major US sports markets.",
+        "ctaText": "Get in Touch",
+        "ctaLink": "/contact/",
+        "background": "dark"
+      }
+    }
+  ]
+}

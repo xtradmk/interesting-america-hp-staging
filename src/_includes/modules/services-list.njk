@@ -1,0 +1,22 @@
+<section class="module module--services-list">
+  <div class="container">
+    <h2>{{ module.data.headline }}</h2>
+    
+    <div class="services-grid">
+      {% for service in module.data.services %}
+      <div class="service-card">
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        
+        {% if service.features %}
+        <ul>
+          {% for feature in service.features %}
+          <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

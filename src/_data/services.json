@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "title": "Services | INTERESTING AMERICA",
+    "description": "Comprehensive sports accommodation services: rooms, transfers, hospitality, and event logistics."
+  },
+  "modules": [
+    {
+      "type": "hero",
+      "order": 1,
+      "data": {
+        "headline": "Our Services",
+        "subheadline": "Everything you need for your sports event—accommodation, transfers, and hospitality.",
+        "ctaText": "Request a Quote",
+        "ctaLink": "/contact/"
+      }
+    },
+    {
+      "type": "services-list",
+      "order": 2,
+      "data": {
+        "headline": "What We Do",
+        "services": [
+          {
+            "title": "Accommodation",
+            "description": "From 3-star business hotels for staff to 4-star properties for executives. We secure rooms when others say it's impossible.",
+            "features": ["Block bookings", "Last-minute availability", "Crew rates", "Long-stay options"]
+          },
+          {
+            "title": "Transfers",
+            "description": "Seamless ground transportation for your teams, guests, and equipment. Airport, hotel, stadium—we connect the dots.",
+            "features": ["Airport transfers", "Stadium shuttles", "VIP transport", "Group logistics"]
+          },
+          {
+            "title": "Hospitality",
+            "description": "Access to tickets, suites, and premium experiences. We open doors others can't.",
+            "features": ["Hospitality tickets", "VIP suites", "Private dining", "Exclusive events"]
+          },
+          {
+            "title": "Event Logistics",
+            "description": "End-to-end coordination. Rooming lists, transport schedules, on-site support—we handle the details.",
+            "features": ["Rooming management", "Transport coordination", "On-site staff", "24/7 support"]
+          }
+        ]
+      }
+    },
+    {
+      "type": "text-block",
+      "order": 3,
+      "data": {
+        "headline": "Who We Serve",
+        "text": "**Category 1 (Highest Revenue):** Sponsors (Visa, Adidas) and Agencies (Octagon, GMR, FUSE, iLuka)\n\n**Category 2:** Media (SRG, ORF)—budget long-stay for crews, upscale for journalists\n\n**Category 3:** Agencies—Gold (On Location/Beyond), Silver (Roadtrips), Bronze (ISTAA)\n\n**Category 4:** Federations (DFB, KNVB)—Friends & Families accommodation\n\n**Category 5:** B2C Individuals",
+        "align": "left"
+      }
+    },
+    {
+      "type": "cta-banner",
+      "order": 4,
+      "data": {
+        "headline": "Ready to book?",
+        "text": "Tell us about your event and we'll build a custom accommodation solution.",
+        "ctaText": "Contact Us",
+        "ctaLink": "/contact/",
+        "background": "light"
+      }
+    }
+  ]
+}

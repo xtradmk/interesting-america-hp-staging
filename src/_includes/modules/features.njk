@@ -1,0 +1,14 @@
+<section class="module module--features">
+  <div class="container">
+    <h2>{{ module.data.headline }}</h2>
+    
+    <div class="features-grid">
+      {% for feature in module.data.features %}
+      <div class="feature">
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

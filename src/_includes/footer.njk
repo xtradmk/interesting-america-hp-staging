@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">{{ navigation.brand.name }}</span>
+        <p>{{ navigation.brand.tagline }}</p>
+      </div>
+      
+      <div class="footer-nav">
+        <h3>Navigation</h3>
+        <ul>
+          {% for link in navigation.links %}
+          <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Los Angeles & Berlin</p>
+        <p><a href="mailto:usa@interesting-america.com">usa@interesting-america.com</a></p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ "now" | dateFormat }} {{ navigation.brand.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container">
+    <a href="{{ navigation.homeUrl }}" class="logo">
+      <span class="logo__name">{{ navigation.brand.name }}</span>
+      <span class="logo__tagline">{{ navigation.brand.tagline }}</span>
+    </a>
+    
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        {% for link in navigation.links %}
+        <li class="nav-item">
+          <a href="{{ link.url }}" class="nav-link {% if page.url == link.url %}nav-link--active{% endif %}">
+            {{ link.text }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

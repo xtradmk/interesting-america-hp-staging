@@ -1,0 +1,11 @@
+<section class="module module--logos">
+  <div class="container">
+    <h2>{{ module.data.headline }}</h2>
+    
+    <div class="logos-grid">
+      {% for client in module.data.clients %}
+      <span class="client-logo">{{ client }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>

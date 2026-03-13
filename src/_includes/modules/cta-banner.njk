@@ -1,0 +1,8 @@
+<section class="module module--cta-banner"{% if module.data.background == 'light' %} data-background="light"{% endif %}>
+  <div class="container">
+    <h2>{{ module.data.headline }}</h2>
+    <p>{{ module.data.text }}</p>
+    
+    <a href="{{ module.data.ctaLink }}" class="btn">{{ module.data.ctaText }}</a>
+  </div>
+</section>

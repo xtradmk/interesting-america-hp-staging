@@ -1,0 +1,12 @@
+{
+  "brand": {
+    "name": "INTERESTING AMERICA",
+    "tagline": "Sports Accommodation Solutions"
+  },
+  "links": [
+    { "text": "About", "url": "/about/" },
+    { "text": "Services", "url": "/services/" },
+    { "text": "Contact", "url": "/contact/" }
+  ],
+  "homeUrl": "/"
+}

@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "About | INTERESTING AMERICA",
+    "description": "Learn about INTERESTING AMERICA—your partner for sports accommodation since 2010."
+  },
+  "modules": [
+    {
+      "type": "hero",
+      "order": 1,
+      "data": {
+        "headline": "About Us",
+        "subheadline": "Talk is cheap. We are INTERESTING.",
+        "image": "/images/about-team.jpg",
+        "imageAlt": "INTERESTING AMERICA team"
+      }
+    },
+    {
+      "type": "text-block",
+      "order": 2,
+      "data": {
+        "headline": "Our Story",
+        "text": "Since 2010, INTERESTING SPORTS has been the go-to accommodation partner for the world's biggest sports events. With INTERESTING AMERICA, we bring that expertise to the US market.\n\nWe are the official ISTAA partner alongside ALHI, Hilton and others. Our 2024 Annual Meeting was hosted at FC Barcelona. Now we're focused on Winter Olympics 2026 Milano/Cortina, FIFA World Cup 2026, and LA Olympics 2028.",
+        "align": "left"
+      }
+    },
+    {
+      "type": "features",
+      "order": 3,
+      "data": {
+        "headline": "By the Numbers",
+        "features": [
+          { "title": "14+ Years", "icon": "award", "text": "Delivering accommodation solutions since 2010" },
+          { "title": "4 Continents", "icon": "globe", "text": "Global reach with local expertise" },
+          { "title": "ISTAA Partner", "icon": "shield", "text": "Official partner since 2014" },
+          { "title": "24/7 Support", "icon": "phone", "text": "Round-the-clock event coordination" }
+        ]
+      }
+    }
+  ]
+}

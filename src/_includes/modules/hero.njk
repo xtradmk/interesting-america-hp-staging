@@ -1,0 +1,19 @@
+<section class="module module--hero"{% if module.data.background %} style="background-image: url('{{ module.data.image }}'); background-size: cover; background-position: center;"{% endif %}>
+  <div class="container">
+    <h1>{{ module.data.headline }}</h1>
+    
+    {% if module.data.subheadline %}
+    <p>{{ module.data.subheadline }}</p>
+    {% endif %}
+    
+    {% if module.data.ctaText %}
+    <div class="hero-buttons">
+      <a href="{{ module.data.ctaLink }}" class="btn">{{ module.data.ctaText }}</a>
+      
+      {% if module.data.secondaryCtaText %}
+      <a href="{{ module.data.secondaryCtaLink }}" class="btn btn--secondary">{{ module.data.secondaryCtaText }}</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
