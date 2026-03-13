@@ -5,14 +5,13 @@
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
-      <ul class="nav-list">
+      <ul class="nav-list nav-island">
         {%- for item in site.nav -%}
           <li class="nav-item{% if page.url == item.url %} nav-item--active{% endif %}">
             <a href="{{ item.url }}" class="nav-link">{{ item.text }}</a>
           </li>
         {%- endfor -%}
       </ul>
-      <a class="nav-cta" href="/contact/">Start project</a>
     </nav>
   </div>
 </header>
