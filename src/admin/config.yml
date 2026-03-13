@@ -2,7 +2,7 @@ backend:
   name: github
   repo: xtradmk/interesting-america-hp
   branch: main
-  auth_type: pkce
+  auth_type: implicit
   app_id: "Ov23lihgQkJGG0k8CBH9"
 
 media_folder: "src/images/uploads"
