@@ -1,8 +1,9 @@
-local_backend: false
-
 backend:
-  name: git-gateway
+  name: github
+  repo: xtradmk/interesting-america-hp
   branch: main
+  auth_type: pkce
+  app_id: "YOUR_GITHUB_OAUTH_APP_CLIENT_ID"
 
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
