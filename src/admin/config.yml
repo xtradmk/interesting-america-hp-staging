@@ -1,0 +1,83 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: xtradmk/interesting-america-hp
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - &page_file
+        label: "Home"
+        name: "home"
+        file: "src/index.md"
+        fields: &page_fields
+          - { label: "Layout", name: "layout", widget: "hidden", default: "base.njk" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Page Classes", name: "pageClasses", widget: "string", required: false }
+          - label: "Modules"
+            name: "modules"
+            widget: "list"
+            summary: "{{fields.type}} - {{fields.title}}"
+            fields:
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options: ["hero", "text-block", "features", "services-list", "cta-banner", "contact-form"]
+              - { label: "Theme", name: "theme", widget: "select", options: ["", "alt", "dark"], required: false }
+              - { label: "Pretitle", name: "pretitle", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Content (HTML/Markdown)", name: "content", widget: "markdown", required: false }
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Text", name: "text", widget: "string", required: false }
+                  - { label: "URL", name: "url", widget: "string", required: false }
+                  - { label: "Style", name: "style", widget: "select", options: ["primary", "accent", "outline"], required: false }
+              - { label: "Image URL", name: "image", widget: "string", required: false }
+              - { label: "Image Alt", name: "imageAlt", widget: "string", required: false }
+
+      - <<: *page_file
+        label: "About"
+        name: "about"
+        file: "src/about.md"
+
+      - <<: *page_file
+        label: "Services"
+        name: "services"
+        file: "src/services.md"
+
+      - <<: *page_file
+        label: "Contact"
+        name: "contact"
+        file: "src/contact.md"
+
+  - name: "settings"
+    label: "Global Settings"
+    files:
+      - label: "Site"
+        name: "site"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Author", name: "author", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "string", required: false }
+          - label: "Navigation"
+            name: "nav"
+            widget: "list"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }

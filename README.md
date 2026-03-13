@@ -10,19 +10,15 @@ Part of the INTERESTING SPORTS group. Operating since 2010 with offices in Berli
 
 - **Static Site Generator:** 11ty (Eleventy)
 - **Templating:** Nunjucks
-- **Styling:** Vanilla CSS with CSS custom properties
+- **Styling:** Vanilla CSS
+- **CMS UI:** Decap CMS (`/admin`)
 - **Build:** Node.js/npm
 
 ## Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
 npm run serve
-
-# Build for production
 npm run build
 ```
 
@@ -34,29 +30,40 @@ src/
 ├── _includes/
 │   ├── layouts/        # Page layouts
 │   ├── modules/        # Reusable content modules
-│   ├── header.njk      # Site header
-│   └── footer.njk      # Site footer
-├── css/                # Stylesheets
-├── js/                 # JavaScript
-├── images/             # Static images
-├── index.md            # Home page
-├── about.md            # About page
-├── services.md         # Services page
-└── contact.md          # Contact page
+│   ├── header.njk
+│   └── footer.njk
+├── admin/              # Decap CMS (index.html + config.yml)
+├── css/
+├── js/
+├── images/
+├── index.md
+├── about.md
+├── services.md
+└── contact.md
 ```
 
 ## Content Editing
 
-All pages use a **modular system**. Edit content in the frontmatter of each `.md` file:
+### Option A, CMS UI
+- Open: `/admin`
+- Edit pages/modules and global settings from a backend-like UI
 
-```yaml
-modules:
-  - type: hero
-    title: "Your Headline"
-    description: "Your text"
-```
+### Option B, Files
+- Edit page frontmatter in `src/*.md`
+- Edit global data in `src/_data/site.json`
 
 Available modules: `hero`, `text-block`, `features`, `services-list`, `cta-banner`, `contact-form`
+
+## GitHub Pages Deployment
+
+Workflow is included in:
+- `.github/workflows/deploy-pages.yml`
+
+Important:
+- GitHub Pages on **private repos** may require a paid plan.
+- If Pages is blocked, either:
+  1. make repo public, or
+  2. use Netlify/Vercel free tier for hosting.
 
 ## License
 
