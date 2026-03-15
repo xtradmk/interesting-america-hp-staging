@@ -2,8 +2,8 @@ backend:
   name: github
   repo: xtradmk/interesting-america-hp
   branch: main
-  auth_type: pkce
-  app_id: "Ov23lihgQkJGG0k8CBH9"
+  base_url: https://ia-cms-oauth.davidmauricekoelle.workers.dev
+  auth_endpoint: auth
 
 site_url: "https://xtradmk.github.io/interesting-america-hp/"
 display_url: "https://xtradmk.github.io/interesting-america-hp/"
