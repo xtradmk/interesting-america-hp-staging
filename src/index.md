@@ -34,7 +34,13 @@ description: Accommodation, transfers and hospitality for major global sports ev
 
   <div class="hero-slider-ui" aria-label="Header image controls">
     <button class="hero-slider-btn" type="button" data-hero-prev aria-label="Previous image">‹</button>
-    <div class="hero-slider-dots" data-hero-dots aria-hidden="false"></div>
+    <div class="hero-slider-dots" data-hero-dots aria-hidden="false">
+      <button class="hero-slider-dot is-active" type="button" data-hero-dot="0" aria-label="Go to image 1"></button>
+      <button class="hero-slider-dot" type="button" data-hero-dot="1" aria-label="Go to image 2"></button>
+      <button class="hero-slider-dot" type="button" data-hero-dot="2" aria-label="Go to image 3"></button>
+      <button class="hero-slider-dot" type="button" data-hero-dot="3" aria-label="Go to image 4"></button>
+      <button class="hero-slider-dot" type="button" data-hero-dot="4" aria-label="Go to image 5"></button>
+    </div>
     <button class="hero-slider-btn" type="button" data-hero-next aria-label="Next image">›</button>
   </div>
 </section>

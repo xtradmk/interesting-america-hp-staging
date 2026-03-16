@@ -43,6 +43,7 @@
     const prevBtn = hero?.querySelector('[data-hero-prev]');
     const nextBtn = hero?.querySelector('[data-hero-next]');
     const dotsWrap = hero?.querySelector('[data-hero-dots]');
+    const dots = Array.from(hero?.querySelectorAll('[data-hero-dot]') || []);
     if (!hero || !track || !activeBg || !nextBg || !caption) return;
 
     const slides = [
@@ -60,15 +61,9 @@
     let isAnimating = false;
 
     const renderDots = () => {
-      if (!dotsWrap) return;
-      dotsWrap.innerHTML = '';
-      slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = `hero-slider-dot${index === current ? ' is-active' : ''}`;
-        dot.setAttribute('aria-label', `Go to image ${index + 1}`);
-        dot.addEventListener('click', () => goTo(index));
-        dotsWrap.appendChild(dot);
+      if (!dots.length) return;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === current);
       });
     };
 
@@ -127,6 +122,17 @@
       window.clearInterval(timerId);
       timerId = window.setInterval(stepNext, 10000);
     };
+
+    dots.forEach((dot, index) => {
+      if (index >= slides.length) {
+        dot.style.display = 'none';
+        return;
+      }
+      dot.style.display = 'block';
+      dot.addEventListener('click', () => {
+        goTo(index);
+      });
+    });
 
     prevBtn?.addEventListener('click', () => {
       stepPrev();
