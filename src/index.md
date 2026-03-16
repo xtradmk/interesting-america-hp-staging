@@ -4,9 +4,9 @@ title: INTERESTING AMERICA
 description: Accommodation, transfers and hospitality for major global sports events.
 hero_dimming_percent: 100
 hero_image1: /images/uploads/hero-atl-marriott-marquis.jpg
-hero_caption1: Marriott Marquis, Atlanta, GA
+hero_caption1: Marriott Marquis****, Atlanta, GA
 hero_image2: /images/uploads/hero-st-regis-san-francisco.jpg
-hero_caption2: The St. Regis, San Francisco, CA
+hero_caption2: The St. Regis*****, San Francisco, CA
 hero_image3: /images/uploads/hero-los-angeles-ca.jpg
 hero_caption3: Los Angeles, CA - Host City of the 2028 Summer Olympics
 hero_image4: /images/uploads/hero-dallas-tx.jpg
