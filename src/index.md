@@ -7,8 +7,11 @@ description: Accommodation, transfers and hospitality for major global sports ev
 <section class="hero section hero--photo" id="home" style="--hero-bg:url('{{ '/images/uploads/hero-header-bg.jpg' | url }}')">
   <div class="wrap-wide fade in">
     <div class="hero-copy-block">
-      <p class="eyebrow">INTERESTING AMERICA · GLOBAL SPORTS ACCOMMODATION</p>
-      <h1>We secure rooms for you at major global sports events.</h1>
+      <h1 class="typewriter" data-text="We secure rooms for you at major global sports events.">We secure rooms for you at major global sports events.</h1>
+      <a class="hero-link-cta" href="{{ '/contact/' | url }}">
+        <span class="hero-link-cta__text">Get in Touch</span>
+        <span class="hero-link-cta__icon" aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
 </section>

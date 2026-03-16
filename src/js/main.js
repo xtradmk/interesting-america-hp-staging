@@ -34,6 +34,27 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', syncParallax, { passive: true });
 
+  const runTypewriter = () => {
+    const el = document.querySelector('.typewriter');
+    if (!el) return;
+
+    const fullText = el.dataset.text || el.textContent || '';
+    el.textContent = '';
+
+    let i = 0;
+    const speedMs = 45;
+
+    const tick = () => {
+      if (i >= fullText.length) return;
+      el.textContent += fullText.charAt(i);
+      i += 1;
+      window.setTimeout(tick, speedMs);
+    };
+
+    tick();
+  };
+
   syncHeaderState();
   syncParallax();
+  runTypewriter();
 })();
