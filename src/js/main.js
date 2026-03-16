@@ -139,9 +139,9 @@
     const speedMs = 48;
     const holdMs = 10000;
 
-    const text1 = 'We secure rooms for\nyour groups at major\nglobal sports\nevents.';
-    const text2 = 'We also transfer your\nstaff and guests. On\narrival, on departure and\non match day.';
-    const text3 = 'And — on your behalf —\nwe get access to\nhospitality: tickets and tables\nat the finest venues in town.';
+    const text1 = 'We secure rooms for your\ngroups at major global\nsports events.';
+    const text2 = 'We also transfer your\nstaff and guests. On\narrival, on departure,\nand on match day.';
+    const text3 = 'And on your behalf, we\nget access to hospitality:\ntickets and tables at the\nfinest venues in town.';
 
     const sequence = [text1, text2, text3];
     let seqIndex = 0;
