@@ -36,6 +36,7 @@
 
   const runTypewriter = () => {
     const el = document.querySelector('.typewriter');
+    const cta = document.querySelector('.hero-link-cta');
     if (!el) return;
 
     const fullText = el.dataset.text || el.textContent || '';
@@ -45,7 +46,10 @@
     const speedMs = 45;
 
     const tick = () => {
-      if (i >= fullText.length) return;
+      if (i >= fullText.length) {
+        if (cta) cta.classList.add('is-visible');
+        return;
+      }
       el.textContent += fullText.charAt(i);
       i += 1;
       window.setTimeout(tick, speedMs);
