@@ -4,8 +4,8 @@ title: INTERESTING AMERICA
 description: Accommodation, transfers and hospitality for major global sports events.
 ---
 
-<section class="hero section" id="home">
-  <div class="wrap-wide hero-layout fade in">
+<section class="hero section hero--photo" id="home">
+  <div class="wrap-wide fade in">
     <div class="hero-copy-block">
       <p class="eyebrow">INTERESTING AMERICA · GLOBAL SPORTS ACCOMMODATION</p>
       <h1>We find impossible to find accommodation at large global sports events.</h1>
@@ -18,12 +18,6 @@ description: Accommodation, transfers and hospitality for major global sports ev
         <span class="badge"><span class="dot"></span> Since 2010</span>
         <span class="badge"><span class="dot"></span> Berlin & Los Angeles</span>
         <span class="badge"><span class="dot"></span> Global Major Events</span>
-      </div>
-    </div>
-
-    <div class="hero-media dynamic-media" data-speed="0.18">
-      <div class="placeholder-media placeholder-media--hero">
-        <span>HERO IMAGE PLACEHOLDER</span>
       </div>
     </div>
   </div>
