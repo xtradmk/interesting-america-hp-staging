@@ -13,7 +13,7 @@ description: Accommodation, transfers and hospitality for major global sports ev
 
   <div class="wrap-wide fade in">
     <div class="hero-copy-block">
-      <h1 class="typewriter" data-text="We secure rooms for you at major global sports events.">We secure rooms for you at major global sports events.</h1>
+      <h1 class="typewriter" data-text="We secure rooms for your groups at major global sport events.">We secure rooms for your groups at major global sport events.</h1>
       <a class="hero-link-cta" href="{{ '/contact/' | url }}">
         <span class="hero-link-cta__text">Get in Touch</span>
         <span class="hero-link-cta__icon" aria-hidden="true">
