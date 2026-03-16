@@ -204,21 +204,23 @@
   const initMobileMenu = () => {
     const trigger = document.querySelector('.mobile-menu-trigger');
     const panel = document.querySelector('#mobile-menu-panel');
-    const closeBtn = document.querySelector('.mobile-menu-close');
+    const label = trigger.querySelector('.mobile-menu-trigger__label');
     const links = Array.from(document.querySelectorAll('.mobile-menu-link'));
     const hasHero = !!document.querySelector('.hero--photo');
 
-    if (!hasHero || !trigger || !panel) return;
+    if (!hasHero || !trigger || !panel || !label) return;
 
     const close = () => {
       document.body.classList.remove('mobile-menu-open');
       trigger.setAttribute('aria-expanded', 'false');
+      label.textContent = 'Menu';
       panel.hidden = true;
     };
 
     const open = () => {
       document.body.classList.add('mobile-menu-open');
       trigger.setAttribute('aria-expanded', 'true');
+      label.textContent = 'Close';
       panel.hidden = false;
     };
 
@@ -230,7 +232,6 @@
       }
     });
 
-    closeBtn?.addEventListener('click', close);
     links.forEach((link) => link.addEventListener('click', close));
 
     window.addEventListener('resize', () => {
