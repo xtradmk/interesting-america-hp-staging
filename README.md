@@ -59,6 +59,11 @@ Available modules: `hero`, `text-block`, `features`, `services-list`, `cta-banne
 Workflow is included in:
 - `.github/workflows/deploy-pages.yml`
 
+### Release Policy (MANDATORY)
+- All changes go to **staging first**: `xtradmk/interesting-america-hp-staging`
+- Live repo `xtradmk/interesting-america-hp` is updated only after explicit go-live approval from David
+- No default/automatic live pushes from normal iteration work
+
 Important:
 - GitHub Pages on **private repos** may require a paid plan.
 - If Pages is blocked, either:
