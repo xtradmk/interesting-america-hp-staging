@@ -201,11 +201,12 @@
   const initMobileMenu = () => {
     const trigger = document.querySelector('.mobile-menu-trigger');
     const panel = document.querySelector('#mobile-menu-panel');
+    if (!trigger || !panel) return;
+
     const label = trigger.querySelector('.mobile-menu-trigger__label');
     const links = Array.from(document.querySelectorAll('.mobile-menu-link'));
-    const hasHero = !!document.querySelector('.hero--photo');
 
-    if (!hasHero || !trigger || !panel || !label) return;
+    if (!label) return;
 
     const close = () => {
       document.body.classList.remove('mobile-menu-open');
