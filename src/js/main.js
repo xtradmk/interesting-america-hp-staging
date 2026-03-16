@@ -127,6 +127,7 @@
 
     preload();
     applyCurrentSlide();
+    document.body.classList.add('js-slider-ready');
     restartAuto();
   };
 

@@ -55,11 +55,25 @@ img{max-width:100%;display:block}
 .hero--photo h1{color:#fff}
 .hero-bg-track{position:absolute;inset:0;overflow:hidden;z-index:0}
 .hero-bg{position:absolute;inset:0;background-color:#0a0f1b;background-size:cover;background-position:center 38%;background-repeat:no-repeat;will-change:transform}
-.hero-bg--active{transform:translateX(0)}
-.hero-bg--next{transform:translateX(100%)}
-.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,16,28,.57) 0%,rgba(10,16,28,.46) 45%,rgba(10,16,28,.42) 100%)}
+.hero-bg--active{transform:translateX(0);z-index:2}
+.hero-bg--next{transform:translateX(100%);z-index:2}
+.hero-bg--css{opacity:0;animation:heroCssFade 50s infinite;z-index:0}
+body.js-slider-ready .hero-bg--css{animation:none;opacity:0}
+.hero-bg--1{animation-delay:0s}
+.hero-bg--2{animation-delay:10s}
+.hero-bg--3{animation-delay:20s}
+.hero-bg--4{animation-delay:30s}
+.hero-bg--5{animation-delay:40s}
+.hero-bg-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,16,28,.57) 0%,rgba(10,16,28,.46) 45%,rgba(10,16,28,.42) 100%);z-index:1}
 .hero-bg-track.is-sliding .hero-bg--active{transform:translateX(-100%);transition:transform .9s ease}
 .hero-bg-track.is-sliding .hero-bg--next{transform:translateX(0);transition:transform .9s ease}
+@keyframes heroCssFade{
+  0%{opacity:0}
+  2%{opacity:1}
+  18%{opacity:1}
+  20%{opacity:0}
+  100%{opacity:0}
+}
 .hero-photo-caption{position:absolute;left:calc((100vw - min(1180px, 92vw))/2 - 16px);bottom:14px;z-index:2;margin:0;color:rgba(255,255,255,.9);font-family:var(--sans);font-size:clamp(10px,.9vw,13px);font-weight:500;letter-spacing:-.01em;opacity:.95;transition:opacity .2s ease}
 .hero-photo-caption.is-updating{opacity:0}
 .hero-slider-ui{position:absolute;right:calc((100vw - min(1180px, 92vw))/2);bottom:14px;z-index:2;display:flex;align-items:center;gap:8px}

@@ -6,7 +6,12 @@
   <title>{% if title %}{{ title }} | {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description or site.description }}">
   
-  <link rel="stylesheet" href="{{ '/css/main.css' | url }}?v=20260316-1">
+  <link rel="stylesheet" href="{{ '/css/main.css' | url }}?v=20260316-2">
+  <link rel="preload" as="image" href="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}">
+  <link rel="preload" as="image" href="{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}">
+  <link rel="preload" as="image" href="{{ '/images/uploads/hero-los-angeles-ca.jpg' | url }}">
+  <link rel="preload" as="image" href="{{ '/images/uploads/hero-dallas-tx.jpg' | url }}">
+  <link rel="preload" as="image" href="{{ '/images/uploads/hero-santa-monica-ca.jpg' | url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -21,6 +26,6 @@
   
   {% include "footer.njk" %}
 
-  <script src="{{ '/js/main.js' | url }}?v=20260316-1" defer></script>
+  <script src="{{ '/js/main.js' | url }}?v=20260316-2" defer></script>
 </body>
 </html>
