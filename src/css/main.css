@@ -54,14 +54,14 @@ img{max-width:100%;display:block}
 .hero--photo .wrap-wide{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:100svh}
 .hero--photo h1{color:#fff}
 .eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#4b5563;margin-bottom:16px}
-.hero h1,.h1{font-family:var(--sans);font-size:clamp(33px,4.8vw,72px);line-height:1.02;margin:0;max-width:12ch;font-weight:500;letter-spacing:-.04em}
+.hero h1,.h1{font-family:var(--sans);font-size:clamp(26px,3.9vw,58px);line-height:1.02;margin:0;max-width:12ch;font-weight:500;letter-spacing:-.04em}
 .hero-copy{max-width:63ch;color:#2f3744;font-size:clamp(17px,1.9vw,22px);margin-top:20px}
 .hero-cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.hero-link-cta{display:inline-flex;align-items:center;gap:14px;margin-top:2em;font-family:var(--sans);font-size:clamp(33px,4.8vw,72px);font-weight:500;line-height:1.02;letter-spacing:-.04em;color:#fff;position:relative;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.hero-link-cta{display:inline-flex;align-items:center;gap:14px;margin-top:2em;font-family:var(--sans);font-size:clamp(26px,3.9vw,58px);font-weight:500;line-height:1.02;letter-spacing:-.04em;color:#fff;position:relative;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .22s ease,transform .22s ease}
 .hero-link-cta.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .hero-link-cta__text{position:relative;display:inline-block;padding-bottom:4px}
 .hero-link-cta__text:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
-.hero-link-cta__icon{display:inline-block;font-size:1.1em;line-height:1;font-weight:700;transition:transform .2s ease}
+.hero-link-cta__icon{display:inline-block;font-size:1.1em;line-height:1;font-weight:700;transition:transform .2s ease;border:none;background:transparent;box-shadow:none}
 .hero-link-cta:hover .hero-link-cta__text:after{transform:scaleX(1)}
 .hero-link-cta:hover .hero-link-cta__icon{transform:rotate(45deg)}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:700;font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;transition:.25s}

@@ -43,7 +43,7 @@
     el.textContent = '';
 
     let i = 0;
-    const speedMs = 45;
+    const speedMs = 90;
 
     const tick = () => {
       if (i >= fullText.length) {
