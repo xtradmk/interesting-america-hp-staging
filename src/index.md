@@ -4,7 +4,13 @@ title: INTERESTING AMERICA
 description: Accommodation, transfers and hospitality for major global sports events.
 ---
 
-<section class="hero section hero--photo" id="home" style="--hero-bg:url('{{ '/images/uploads/hero-header-bg.jpg' | url }}')">
+<section class="hero section hero--photo" id="home" data-image-one="{{ '/images/uploads/hero-header-bg.jpg' | url }}" data-image-two="{{ '/images/uploads/hero-header-bg.jpg' | url }}">
+  <div class="hero-bg-track" aria-hidden="true">
+    <div class="hero-bg hero-bg--active"></div>
+    <div class="hero-bg hero-bg--next"></div>
+    <div class="hero-bg-overlay"></div>
+  </div>
+
   <div class="wrap-wide fade in">
     <div class="hero-copy-block">
       <h1 class="typewriter" data-text="We secure rooms for you at major global sports events.">We secure rooms for you at major global sports events.</h1>
@@ -18,6 +24,8 @@ description: Accommodation, transfers and hospitality for major global sports ev
       </a>
     </div>
   </div>
+
+  <p class="hero-photo-caption" id="hero-photo-caption">The Beverly Hills Hotel, Beverly Hills, CA</p>
 </section>
 
 <section class="section story-section">

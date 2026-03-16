@@ -34,6 +34,54 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', syncParallax, { passive: true });
 
+  const initHeroSlider = () => {
+    const hero = document.querySelector('.hero--photo');
+    const track = hero?.querySelector('.hero-bg-track');
+    const activeBg = hero?.querySelector('.hero-bg--active');
+    const nextBg = hero?.querySelector('.hero-bg--next');
+    const caption = hero?.querySelector('#hero-photo-caption');
+    if (!hero || !track || !activeBg || !nextBg || !caption) return;
+
+    const slides = [
+      {
+        image: hero.dataset.imageOne,
+        caption: 'The Beverly Hills Hotel, Beverly Hills, CA'
+      },
+      {
+        image: hero.dataset.imageTwo,
+        caption: 'Atlanta Marriott Marquis, Atlanta, GA'
+      }
+    ];
+
+    let current = 0;
+    activeBg.style.backgroundImage = `url('${slides[current].image}')`;
+    caption.textContent = slides[current].caption;
+
+    window.setInterval(() => {
+      const next = (current + 1) % slides.length;
+      nextBg.style.transform = 'translateX(100%)';
+      nextBg.style.backgroundImage = `url('${slides[next].image}')`;
+      // force layout flush before transition
+      void nextBg.offsetWidth;
+
+      track.classList.add('is-sliding');
+      caption.classList.add('is-updating');
+
+      window.setTimeout(() => {
+        caption.textContent = slides[next].caption;
+        caption.classList.remove('is-updating');
+      }, 220);
+
+      window.setTimeout(() => {
+        track.classList.remove('is-sliding');
+        activeBg.style.transform = 'translateX(0)';
+        activeBg.style.backgroundImage = `url('${slides[next].image}')`;
+        nextBg.style.transform = 'translateX(100%)';
+        current = next;
+      }, 950);
+    }, 15000);
+  };
+
   const runTypewriter = () => {
     const el = document.querySelector('.typewriter');
     const cta = document.querySelector('.hero-link-cta');
@@ -60,5 +108,6 @@
 
   syncHeaderState();
   syncParallax();
+  initHeroSlider();
   runTypewriter();
 })();
