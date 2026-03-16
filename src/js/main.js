@@ -44,11 +44,11 @@
     if (!hero || !activeBg || !nextBg || !caption) return;
 
     const slides = [
-      { image: hero.dataset.image1, caption: 'Marriott Marquis, Atlanta, GA' },
-      { image: hero.dataset.image2, caption: 'The St. Regis, San Francisco, CA' },
-      { image: hero.dataset.image3, caption: 'Los Angeles, CA' },
-      { image: hero.dataset.image4, caption: 'Dallas, TX' },
-      { image: hero.dataset.image5, caption: 'Santa Monica, CA' }
+      { image: hero.dataset.image1, caption: hero.dataset.caption1 || 'Marriott Marquis, Atlanta, GA' },
+      { image: hero.dataset.image2, caption: hero.dataset.caption2 || 'The St. Regis, San Francisco, CA' },
+      { image: hero.dataset.image3, caption: hero.dataset.caption3 || 'Los Angeles, CA' },
+      { image: hero.dataset.image4, caption: hero.dataset.caption4 || 'Dallas, TX' },
+      { image: hero.dataset.image5, caption: hero.dataset.caption5 || 'Santa Monica, CA' }
     ].filter((slide) => slide.image);
 
     if (!slides.length) return;

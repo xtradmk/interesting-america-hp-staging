@@ -25,6 +25,17 @@ collections:
           - { label: "Layout", name: "layout", widget: "hidden", default: "base.njk" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Hero Dimming (%)", name: "hero_dimming_percent", widget: "number", min: 0, max: 100, step: 1, default: 100 }
+          - { label: "Hero Image 1", name: "hero_image1", widget: "image" }
+          - { label: "Hero Caption 1", name: "hero_caption1", widget: "string" }
+          - { label: "Hero Image 2", name: "hero_image2", widget: "image" }
+          - { label: "Hero Caption 2", name: "hero_caption2", widget: "string" }
+          - { label: "Hero Image 3", name: "hero_image3", widget: "image" }
+          - { label: "Hero Caption 3", name: "hero_caption3", widget: "string" }
+          - { label: "Hero Image 4", name: "hero_image4", widget: "image" }
+          - { label: "Hero Caption 4", name: "hero_caption4", widget: "string" }
+          - { label: "Hero Image 5", name: "hero_image5", widget: "image" }
+          - { label: "Hero Caption 5", name: "hero_caption5", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
       - label: "About"

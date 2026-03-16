@@ -2,22 +2,39 @@
 layout: base.njk
 title: INTERESTING AMERICA
 description: Accommodation, transfers and hospitality for major global sports events.
+hero_dimming_percent: 100
+hero_image1: /images/uploads/hero-atl-marriott-marquis.jpg
+hero_caption1: Marriott Marquis, Atlanta, GA
+hero_image2: /images/uploads/hero-st-regis-san-francisco.jpg
+hero_caption2: The St. Regis, San Francisco, CA
+hero_image3: /images/uploads/hero-los-angeles-ca.jpg
+hero_caption3: Los Angeles, CA - Host City of the 2028 Summer Olympics
+hero_image4: /images/uploads/hero-dallas-tx.jpg
+hero_caption4: Dallas, TX - 2026 Soccer World Cup Host City
+hero_image5: /images/uploads/hero-santa-monica-ca.jpg
+hero_caption5: Santa Monica, CA
 ---
 
 <section class="hero section hero--photo" id="home"
-  data-image1="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}"
-  data-image2="{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}"
-  data-image3="{{ '/images/uploads/hero-los-angeles-ca.jpg' | url }}"
-  data-image4="{{ '/images/uploads/hero-dallas-tx.jpg' | url }}"
-  data-image5="{{ '/images/uploads/hero-santa-monica-ca.jpg' | url }}">
+  style="--hero-overlay-opacity: {{ (hero_dimming_percent or 100) / 100 }}"
+  data-image1="{{ hero_image1 | url }}"
+  data-caption1="{{ hero_caption1 }}"
+  data-image2="{{ hero_image2 | url }}"
+  data-caption2="{{ hero_caption2 }}"
+  data-image3="{{ hero_image3 | url }}"
+  data-caption3="{{ hero_caption3 }}"
+  data-image4="{{ hero_image4 | url }}"
+  data-caption4="{{ hero_caption4 }}"
+  data-image5="{{ hero_image5 | url }}"
+  data-caption5="{{ hero_caption5 }}">
   <div class="hero-bg-track" aria-hidden="true">
-    <div class="hero-bg hero-bg--active" style="background-image:url('{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}')"></div>
-    <div class="hero-bg hero-bg--next" style="background-image:url('{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--1" style="background-image:url('{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--2" style="background-image:url('{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--3" style="background-image:url('{{ '/images/uploads/hero-los-angeles-ca.jpg' | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--4" style="background-image:url('{{ '/images/uploads/hero-dallas-tx.jpg' | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--5" style="background-image:url('{{ '/images/uploads/hero-santa-monica-ca.jpg' | url }}')"></div>
+    <div class="hero-bg hero-bg--active" style="background-image:url('{{ hero_image1 | url }}')"></div>
+    <div class="hero-bg hero-bg--next" style="background-image:url('{{ hero_image2 | url }}')"></div>
+    <div class="hero-bg hero-bg--css hero-bg--1" style="background-image:url('{{ hero_image1 | url }}')"></div>
+    <div class="hero-bg hero-bg--css hero-bg--2" style="background-image:url('{{ hero_image2 | url }}')"></div>
+    <div class="hero-bg hero-bg--css hero-bg--3" style="background-image:url('{{ hero_image3 | url }}')"></div>
+    <div class="hero-bg hero-bg--css hero-bg--4" style="background-image:url('{{ hero_image4 | url }}')"></div>
+    <div class="hero-bg hero-bg--css hero-bg--5" style="background-image:url('{{ hero_image5 | url }}')"></div>
     <div class="hero-bg-overlay"></div>
   </div>
 
@@ -35,7 +52,7 @@ description: Accommodation, transfers and hospitality for major global sports ev
     </div>
   </div>
 
-  <p class="hero-photo-caption" id="hero-photo-caption">Marriott Marquis, Atlanta, GA</p>
+  <p class="hero-photo-caption" id="hero-photo-caption">{{ hero_caption1 }}</p>
 
   <div class="hero-slider-ui" aria-label="Header image controls">
     <button class="hero-slider-btn" type="button" data-hero-prev aria-label="Previous image">‹</button>
