@@ -1,77 +1,63 @@
 ---
 layout: base.njk
-title: INTERESTING AMERICA
-description: Accommodation, transfers and hospitality for major global sports events.
-hide_footer: true
-hero_dimming_percent: 100
-hero_image1: /images/uploads/hero-atl-marriott-marquis.jpg
-hero_caption1: Marriott Marquis**** · Atlanta, GA
-hero_image2: /images/uploads/hero-st-regis-san-francisco.jpg
-hero_caption2: The St. Regis***** · San Francisco, CA
-hero_image3: /images/uploads/hero-los-angeles-ca.jpg
-hero_caption3: Los Angeles, CA · Host City of the 2028 Summer Olympics
-hero_image4: /images/uploads/hero-dallas-tx.jpg
-hero_caption4: Dallas, TX · 2026 Soccer World Cup Host City
-hero_image5: /images/uploads/hero-santa-monica-ca.jpg
-hero_caption5: Santa Monica, CA
-hero_image6: /images/uploads/hero-maracana-2014.jpg
-hero_caption6: Maracana Stadium, Rio de Janiero, Brazil · 2014 World Cup Final Venue
-hero_image7: /images/uploads/hero-colony-hotel-mia.jpg
-hero_caption7: The Colony Hotel*** · Miami Beach, FL
-hero_image8: /images/uploads/hero-sofi-2025.jpg
-hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Venue
+title: About
+description: INTERESTING AMERICA secures accommodation, transfers and hospitality access for major global sports events.
 ---
 
-<section class="hero section hero--photo" id="home"
-  style="--hero-overlay-opacity: {{ (hero_dimming_percent or 100) / 100 }}"
-  data-image1="{{ hero_image1 | url }}"
-  data-caption1="{{ hero_caption1 }}"
-  data-image2="{{ hero_image2 | url }}"
-  data-caption2="{{ hero_caption2 }}"
-  data-image3="{{ hero_image3 | url }}"
-  data-caption3="{{ hero_caption3 }}"
-  data-image4="{{ hero_image4 | url }}"
-  data-caption4="{{ hero_caption4 }}"
-  data-image5="{{ hero_image5 | url }}"
-  data-caption5="{{ hero_caption5 }}"
-  data-image6="{{ hero_image6 | url }}"
-  data-caption6="{{ hero_caption6 }}"
-  data-image7="{{ hero_image7 | url }}"
-  data-caption7="{{ hero_caption7 }}"
-  data-image8="{{ hero_image8 | url }}"
-  data-caption8="{{ hero_caption8 }}">
-  <div class="hero-bg-track" aria-hidden="true">
-    <div class="hero-bg hero-bg--active" style="background-image:url('{{ hero_image1 | url }}')"></div>
-    <div class="hero-bg hero-bg--next" style="background-image:url('{{ hero_image2 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--1" style="background-image:url('{{ hero_image1 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--2" style="background-image:url('{{ hero_image2 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--3" style="background-image:url('{{ hero_image3 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--4" style="background-image:url('{{ hero_image4 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--5" style="background-image:url('{{ hero_image5 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--6" style="background-image:url('{{ hero_image6 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--7" style="background-image:url('{{ hero_image7 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--8" style="background-image:url('{{ hero_image8 | url }}')"></div>
-    <div class="hero-bg-overlay"></div>
+<section class="section subpage-hero">
+  <div class="wrap fade in">
+    <p class="eyebrow">ABOUT</p>
+    <h1 class="h1">Execution first, noise last.</h1>
+    <p class="section-lead">INTERESTING AMERICA is the US execution arm of INTERESTING SPORTS. We secure room inventory, transport and hospitality access under major-event pressure, fast, precise, and relationship-led.</p>
   </div>
+</section>
 
-  <div class="wrap-wide fade in">
-    <div class="hero-copy-block">
-      <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
-      <a class="hero-link-cta" href="{{ '/contact/' | url }}">
-        <span class="hero-link-cta__text">Get in Touch</span>
-        <span class="hero-link-cta__icon" aria-hidden="true">
-          <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-            <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
-          </svg>
-        </span>
-      </a>
+<section class="section story-section">
+  <div class="wrap story-grid fade">
+    <div class="story-static">
+      <p class="eyebrow">TRACK RECORD</p>
+      <h2 class="h2">Built in major event cycles, not in theory.</h2>
+      <p class="section-lead">Since 2010, our group has supported accommodation and operations across Olympics, World Cups and other high-demand windows where speed and quality must coexist.</p>
+      <ul class="clean-list">
+        <li>Official ISTAA partner since 2014</li>
+        <li>Berlin and Los Angeles operating footprint</li>
+        <li>Sponsor, media, federation and agency workflows</li>
+      </ul>
+    </div>
+    <div class="story-dynamic dynamic-media" data-speed="0.09">
+      <div class="panel">
+        <h3>How we work</h3>
+        <p>We qualify quickly, structure realistic options, and execute with clear accountability from shortlist to check-out.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <p class="hero-photo-caption" id="hero-photo-caption">{{ hero_caption1 }}</p>
+<section class="section">
+  <div class="wrap fade">
+    <p class="eyebrow">WHY CLIENTS STAY</p>
+    <h2 class="h2">Commercially sharp, operationally calm.</h2>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Decision Speed</h3>
+        <p>Clear option architecture with trade-offs, so teams decide faster without sacrificing quality.</p>
+      </article>
+      <article class="card">
+        <h3>Access Advantage</h3>
+        <p>Relationship-driven access to inventory and hospitality where public supply looks sold out.</p>
+      </article>
+      <article class="card">
+        <h3>Controlled Delivery</h3>
+        <p>Structured handoff and execution discipline across booking, arrival, stay and departure.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-  <div class="hero-slider-ui" aria-label="Header image controls">
-    <button class="hero-slider-btn" type="button" data-hero-prev aria-label="Previous image">‹</button>
-    <button class="hero-slider-btn" type="button" data-hero-next aria-label="Next image">›</button>
+<section class="section">
+  <div class="wrap fade">
+    <h2 class="h2">If you are under timeline pressure, we are useful.</h2>
+    <p class="section-lead">Share your event, room volume and timeline, we will respond with feasible options and next steps.</p>
+    <a class="btn btn-primary" href="{{ '/contact/' | url }}">Start an Inquiry</a>
   </div>
 </section>

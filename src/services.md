@@ -1,77 +1,78 @@
 ---
 layout: base.njk
-title: INTERESTING AMERICA
-description: Accommodation, transfers and hospitality for major global sports events.
-hide_footer: true
-hero_dimming_percent: 100
-hero_image1: /images/uploads/hero-atl-marriott-marquis.jpg
-hero_caption1: Marriott Marquis**** · Atlanta, GA
-hero_image2: /images/uploads/hero-st-regis-san-francisco.jpg
-hero_caption2: The St. Regis***** · San Francisco, CA
-hero_image3: /images/uploads/hero-los-angeles-ca.jpg
-hero_caption3: Los Angeles, CA · Host City of the 2028 Summer Olympics
-hero_image4: /images/uploads/hero-dallas-tx.jpg
-hero_caption4: Dallas, TX · 2026 Soccer World Cup Host City
-hero_image5: /images/uploads/hero-santa-monica-ca.jpg
-hero_caption5: Santa Monica, CA
-hero_image6: /images/uploads/hero-maracana-2014.jpg
-hero_caption6: Maracana Stadium, Rio de Janiero, Brazil · 2014 World Cup Final Venue
-hero_image7: /images/uploads/hero-colony-hotel-mia.jpg
-hero_caption7: The Colony Hotel*** · Miami Beach, FL
-hero_image8: /images/uploads/hero-sofi-2025.jpg
-hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Venue
+title: Services
+description: Targeted hotel, transfer and hospitality solutions for sports event groups.
 ---
 
-<section class="hero section hero--photo" id="home"
-  style="--hero-overlay-opacity: {{ (hero_dimming_percent or 100) / 100 }}"
-  data-image1="{{ hero_image1 | url }}"
-  data-caption1="{{ hero_caption1 }}"
-  data-image2="{{ hero_image2 | url }}"
-  data-caption2="{{ hero_caption2 }}"
-  data-image3="{{ hero_image3 | url }}"
-  data-caption3="{{ hero_caption3 }}"
-  data-image4="{{ hero_image4 | url }}"
-  data-caption4="{{ hero_caption4 }}"
-  data-image5="{{ hero_image5 | url }}"
-  data-caption5="{{ hero_caption5 }}"
-  data-image6="{{ hero_image6 | url }}"
-  data-caption6="{{ hero_caption6 }}"
-  data-image7="{{ hero_image7 | url }}"
-  data-caption7="{{ hero_caption7 }}"
-  data-image8="{{ hero_image8 | url }}"
-  data-caption8="{{ hero_caption8 }}">
-  <div class="hero-bg-track" aria-hidden="true">
-    <div class="hero-bg hero-bg--active" style="background-image:url('{{ hero_image1 | url }}')"></div>
-    <div class="hero-bg hero-bg--next" style="background-image:url('{{ hero_image2 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--1" style="background-image:url('{{ hero_image1 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--2" style="background-image:url('{{ hero_image2 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--3" style="background-image:url('{{ hero_image3 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--4" style="background-image:url('{{ hero_image4 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--5" style="background-image:url('{{ hero_image5 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--6" style="background-image:url('{{ hero_image6 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--7" style="background-image:url('{{ hero_image7 | url }}')"></div>
-    <div class="hero-bg hero-bg--css hero-bg--8" style="background-image:url('{{ hero_image8 | url }}')"></div>
-    <div class="hero-bg-overlay"></div>
+<section class="section subpage-hero">
+  <div class="wrap fade in">
+    <p class="eyebrow">SERVICES</p>
+    <h1 class="h1">Small menu, serious execution.</h1>
+    <p class="section-lead">We focus on the pieces that move outcomes, accommodation, transfers and hospitality access. No bloat, no vague consulting packages.</p>
   </div>
+</section>
 
-  <div class="wrap-wide fade in">
-    <div class="hero-copy-block">
-      <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
-      <a class="hero-link-cta" href="{{ '/contact/' | url }}">
-        <span class="hero-link-cta__text">Get in Touch</span>
-        <span class="hero-link-cta__icon" aria-hidden="true">
-          <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-            <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
-          </svg>
-        </span>
-      </a>
+<section class="section story-section">
+  <div class="wrap fade">
+    <div class="grid-3">
+      <article class="card">
+        <h3>Hotel Brokerage</h3>
+        <p>Strategic city and stadium locations, aligned to your traveler mix and operational constraints.</p>
+        <ul>
+          <li>Group blocks and last-minute rooms</li>
+          <li>Staff vs VIP segmentation</li>
+          <li>Contract and cancellation structuring</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Transfers</h3>
+        <p>Coordinated movement from airport to hotel to venue, designed around event-day reality.</p>
+        <ul>
+          <li>Arrival and departure planning</li>
+          <li>Match-day shuttle logic</li>
+          <li>VIP and crew routing</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Hospitality Access</h3>
+        <p>Access to premium ticket and table inventory via trusted partner relationships.</p>
+        <ul>
+          <li>Hospitality ticket pathways</li>
+          <li>Premium venue access</li>
+          <li>Guest-experience alignment</li>
+        </ul>
+      </article>
     </div>
   </div>
+</section>
 
-  <p class="hero-photo-caption" id="hero-photo-caption">{{ hero_caption1 }}</p>
+<section class="section">
+  <div class="wrap story-grid fade">
+    <div class="story-static">
+      <p class="eyebrow">PROCESS</p>
+      <h2 class="h2">From brief to execution in four steps.</h2>
+      <ol class="clean-list">
+        <li>Qualification, event, volume, budget, timeline</li>
+        <li>Feasibility framing, what is realistic, what is risky</li>
+        <li>Structured options, clear trade-offs</li>
+        <li>Execution and coordination through check-out</li>
+      </ol>
+    </div>
+    <div class="story-dynamic dynamic-media" data-speed="0.08">
+      <div class="panel">
+        <h3>What we need to move fast</h3>
+        <p>Event + city, rooming split, date window, budget range, decision deadline, and service scope.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="hero-slider-ui" aria-label="Header image controls">
-    <button class="hero-slider-btn" type="button" data-hero-prev aria-label="Previous image">‹</button>
-    <button class="hero-slider-btn" type="button" data-hero-next aria-label="Next image">›</button>
+<section class="section">
+  <div class="wrap fade">
+    <h2 class="h2">Need options this week?</h2>
+    <p class="section-lead">Use the inquiry funnel and we will return a practical first architecture quickly.</p>
+    <a class="btn btn-primary" href="{{ '/contact/' | url }}">Open Inquiry Form</a>
   </div>
 </section>
