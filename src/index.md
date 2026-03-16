@@ -31,6 +31,12 @@ description: Accommodation, transfers and hospitality for major global sports ev
   </div>
 
   <p class="hero-photo-caption" id="hero-photo-caption">Marriott Marquis, Atlanta, GA</p>
+
+  <div class="hero-slider-ui" aria-label="Header image controls">
+    <button class="hero-slider-btn" type="button" data-hero-prev aria-label="Previous image">‹</button>
+    <div class="hero-slider-dots" data-hero-dots aria-hidden="false"></div>
+    <button class="hero-slider-btn" type="button" data-hero-next aria-label="Next image">›</button>
+  </div>
 </section>
 
 <section class="section story-section">

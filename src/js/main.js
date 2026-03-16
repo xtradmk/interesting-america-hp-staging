@@ -40,61 +40,106 @@
     const activeBg = hero?.querySelector('.hero-bg--active');
     const nextBg = hero?.querySelector('.hero-bg--next');
     const caption = hero?.querySelector('#hero-photo-caption');
+    const prevBtn = hero?.querySelector('[data-hero-prev]');
+    const nextBtn = hero?.querySelector('[data-hero-next]');
+    const dotsWrap = hero?.querySelector('[data-hero-dots]');
     if (!hero || !track || !activeBg || !nextBg || !caption) return;
 
     const slides = [
-      {
-        image: hero.dataset.image1,
-        caption: 'Marriott Marquis, Atlanta, GA'
-      },
-      {
-        image: hero.dataset.image2,
-        caption: 'The St. Regis, San Francisco, CA'
-      },
-      {
-        image: hero.dataset.image3,
-        caption: 'Los Angeles, CA'
-      },
-      {
-        image: hero.dataset.image4,
-        caption: 'Dallas, TX'
-      },
-      {
-        image: hero.dataset.image5,
-        caption: 'Santa Monica, CA'
-      }
-    ];
+      { image: hero.dataset.image1, caption: 'Marriott Marquis, Atlanta, GA' },
+      { image: hero.dataset.image2, caption: 'The St. Regis, San Francisco, CA' },
+      { image: hero.dataset.image3, caption: 'Los Angeles, CA' },
+      { image: hero.dataset.image4, caption: 'Dallas, TX' },
+      { image: hero.dataset.image5, caption: 'Santa Monica, CA' }
+    ].filter((slide) => slide.image);
 
-    const usableSlides = slides.filter((slide) => slide.image);
-    if (!usableSlides.length) return;
+    if (!slides.length) return;
 
     let current = 0;
-    activeBg.style.backgroundImage = `url('${usableSlides[current].image}')`;
-    caption.textContent = usableSlides[current].caption;
+    let timerId;
+    let isAnimating = false;
 
-    window.setInterval(() => {
-      const next = (current + 1) % usableSlides.length;
-      nextBg.style.transform = 'translateX(100%)';
-      nextBg.style.backgroundImage = `url('${usableSlides[next].image}')`;
-      // force layout flush before transition
+    const renderDots = () => {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `hero-slider-dot${index === current ? ' is-active' : ''}`;
+        dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+        dot.addEventListener('click', () => goTo(index));
+        dotsWrap.appendChild(dot);
+      });
+    };
+
+    const applyCurrentSlide = () => {
+      activeBg.style.backgroundImage = `url('${slides[current].image}')`;
+      caption.textContent = slides[current].caption;
+      renderDots();
+    };
+
+    const transitionTo = (nextIndex, direction = 'next') => {
+      if (isAnimating || nextIndex === current) return;
+      isAnimating = true;
+
+      const fromX = direction === 'next' ? '100%' : '-100%';
+      const toX = direction === 'next' ? '-100%' : '100%';
+
+      nextBg.style.transition = 'none';
+      activeBg.style.transition = 'none';
+      nextBg.style.transform = `translateX(${fromX})`;
+      nextBg.style.backgroundImage = `url('${slides[nextIndex].image}')`;
       void nextBg.offsetWidth;
 
-      track.classList.add('is-sliding');
-      caption.classList.add('is-updating');
+      activeBg.style.transition = 'transform .9s ease';
+      nextBg.style.transition = 'transform .9s ease';
+      activeBg.style.transform = `translateX(${toX})`;
+      nextBg.style.transform = 'translateX(0)';
 
+      caption.classList.add('is-updating');
       window.setTimeout(() => {
-        caption.textContent = usableSlides[next].caption;
+        caption.textContent = slides[nextIndex].caption;
         caption.classList.remove('is-updating');
       }, 220);
 
       window.setTimeout(() => {
-        track.classList.remove('is-sliding');
+        activeBg.style.transition = 'none';
+        nextBg.style.transition = 'none';
         activeBg.style.transform = 'translateX(0)';
-        activeBg.style.backgroundImage = `url('${usableSlides[next].image}')`;
+        activeBg.style.backgroundImage = `url('${slides[nextIndex].image}')`;
         nextBg.style.transform = 'translateX(100%)';
-        current = next;
-      }, 950);
-    }, 15000);
+        current = nextIndex;
+        renderDots();
+        isAnimating = false;
+      }, 930);
+    };
+
+    const goTo = (index) => {
+      const direction = index > current ? 'next' : 'prev';
+      transitionTo(index, direction);
+      restartAuto();
+    };
+
+    const stepNext = () => transitionTo((current + 1) % slides.length, 'next');
+    const stepPrev = () => transitionTo((current - 1 + slides.length) % slides.length, 'prev');
+
+    const restartAuto = () => {
+      window.clearInterval(timerId);
+      timerId = window.setInterval(stepNext, 10000);
+    };
+
+    prevBtn?.addEventListener('click', () => {
+      stepPrev();
+      restartAuto();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      stepNext();
+      restartAuto();
+    });
+
+    applyCurrentSlide();
+    restartAuto();
   };
 
   const runTypewriter = () => {
