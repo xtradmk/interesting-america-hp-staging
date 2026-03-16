@@ -47,7 +47,7 @@
 
     const tick = () => {
       if (i >= fullText.length) {
-        if (cta) cta.classList.add('is-visible');
+        if (cta) window.setTimeout(() => cta.classList.add('is-visible'), 1000);
         return;
       }
       el.textContent += fullText.charAt(i);
