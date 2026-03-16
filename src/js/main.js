@@ -207,7 +207,7 @@
     const close = () => {
       document.body.classList.remove('mobile-menu-open');
       trigger.setAttribute('aria-expanded', 'false');
-      label.textContent = 'Menü';
+      label.textContent = 'Menu';
       panel.hidden = true;
     };
 
