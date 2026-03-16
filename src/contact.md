@@ -8,13 +8,14 @@ pageClasses: subpage-collective
 <section class="collective-hero section">
   <div class="wrap fade in">
     <p class="collective-kicker">Contact</p>
-    <h1 class="collective-title">Funnel entry, send the full brief once.</h1>
+    <h1 class="collective-title">Submit one clean brief, get practical options fast.</h1>
   </div>
 </section>
 
-<section class="collective-text section">
+<section class="collective-invert section">
   <div class="wrap fade">
-    <p>Complete inputs mean faster and sharper first options. Incomplete briefs go to slower queue.</p>
+    <h2>Funnel Entry</h2>
+    <p>Complete briefs are prioritized. Incomplete briefs move slower.</p>
   </div>
 </section>
 

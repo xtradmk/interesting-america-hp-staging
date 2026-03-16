@@ -8,7 +8,7 @@ pageClasses: subpage-collective
 <section class="collective-hero section">
   <div class="wrap fade in">
     <p class="collective-kicker">Services</p>
-    <h1 class="collective-title">Three core services, zero unnecessary complexity.</h1>
+    <h1 class="collective-title">Three service lines, built for major event pressure.</h1>
   </div>
 </section>
 
@@ -16,29 +16,29 @@ pageClasses: subpage-collective
   <div class="wrap fade">
     <article>
       <h2>Hotel Brokerage</h2>
-      <p>City and stadium proximity, guest segmentation, contract structure.</p>
+      <p>Room blocks by location strategy, guest profile and timeline risk.</p>
     </article>
     <article>
       <h2>Transfers</h2>
-      <p>Arrival, departure and event-day routing across teams and guests.</p>
+      <p>Arrival, departure and event-day movement for teams and guests.</p>
     </article>
     <article>
       <h2>Hospitality Access</h2>
-      <p>Ticket and table pathways through trusted partner relationships.</p>
+      <p>Premium ticket and table pathways via trusted relationships.</p>
     </article>
   </div>
 </section>
 
-<section class="collective-text section">
+<section class="collective-invert section">
   <div class="wrap fade">
-    <p>Workflow is simple, qualification, feasibility framing, option architecture, execution.</p>
-    <p>Use the inquiry form with full context, we can move materially faster.</p>
+    <h2>Execution Model</h2>
+    <p>Brief, feasibility, options, execution. No noise, no unnecessary layers.</p>
   </div>
 </section>
 
 <section class="collective-cta section">
   <div class="wrap fade">
-    <p>Need options in the next days, not weeks?</p>
-    <a class="btn btn-primary" href="{{ '/contact/' | url }}">Open Inquiry Form</a>
+    <p>Need options this week?</p>
+    <a class="btn btn-primary" href="{{ '/contact/' | url }}">Open Inquiry</a>
   </div>
 </section>
