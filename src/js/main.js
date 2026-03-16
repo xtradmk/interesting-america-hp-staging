@@ -207,14 +207,12 @@
     const close = () => {
       document.body.classList.remove('mobile-menu-open');
       trigger.setAttribute('aria-expanded', 'false');
-      trigger.querySelector('.mobile-menu-trigger__label').textContent = 'Menu';
       panel.hidden = true;
     };
 
     const open = () => {
       document.body.classList.add('mobile-menu-open');
       trigger.setAttribute('aria-expanded', 'true');
-      trigger.querySelector('.mobile-menu-trigger__label').textContent = 'Close';
       panel.hidden = false;
     };
 
