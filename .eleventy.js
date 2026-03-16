@@ -5,18 +5,22 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
-  
+
   // Watch targets
   eleventyConfig.addWatchTarget("./src/css/");
   eleventyConfig.addWatchTarget("./src/js/");
-  
+
   // Year shortcode for footer
   eleventyConfig.addShortcode("year", () => {
     return new Date().getFullYear();
   });
 
+  const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+  const autoPathPrefix = repoName ? `/${repoName}/` : "/interesting-america-hp/";
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || autoPathPrefix;
+
   return {
-    pathPrefix: "/interesting-america-hp/",
+    pathPrefix,
     dir: {
       input: "src",
       output: "_site",
