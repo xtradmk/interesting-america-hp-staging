@@ -8,12 +8,17 @@ pageClasses: subpage-collective
 <section class="collective-hero section">
   <div class="wrap fade in">
     <p class="collective-kicker">Contact</p>
-    <h1 class="collective-title">Funnel entry, submit your request in one pass.</h1>
-    <p class="collective-intro">Give us the key event variables, we return practical options faster and cleaner.</p>
+    <h1 class="collective-title">Funnel entry, send the full brief once.</h1>
   </div>
 </section>
 
-<section class="collective-block section">
+<section class="collective-text section">
+  <div class="wrap fade">
+    <p>Complete inputs mean faster and sharper first options. Incomplete briefs go to slower queue.</p>
+  </div>
+</section>
+
+<section class="collective-form-block section">
   <div class="wrap fade">
     <form class="collective-form" name="event-inquiry" method="POST" data-netlify="true" netlify-honeypot="company_website">
       <input type="hidden" name="form-name" value="event-inquiry">
@@ -32,13 +37,13 @@ pageClasses: subpage-collective
         <label>Budget per Room/Night (USD)<input type="text" name="budget"></label>
         <label>Main Guest Mix<select name="guest_mix"><option value="" selected disabled>Select mix</option><option>Sponsor guests + staff</option><option>Media crews + journalists</option><option>Federation + families</option><option>Agency travelers</option><option>Mixed</option></select></label>
         <label>Required Services<select name="services_scope"><option value="" selected disabled>Select scope</option><option>Hotel only</option><option>Hotel + transfers</option><option>Hotel + hospitality access</option><option>Full package</option></select></label>
-        <label class="span-2">Request Details*<textarea name="request_details" rows="5" required placeholder="Room split, level, location priorities, constraints"></textarea></label>
+        <label class="span-2">Request Details*<textarea name="request_details" rows="6" required placeholder="Room split, level, location priorities, constraints"></textarea></label>
         <label class="span-2">Decision Deadline<input type="text" name="decision_deadline" placeholder="e.g. Friday 16:00 CET"></label>
       </div>
 
       <div class="collective-form-actions">
         <button class="btn btn-primary" type="submit">Submit Inquiry</button>
-        <p>Direct email: <a href="mailto:usa@interesting-america.com">usa@interesting-america.com</a></p>
+        <p>Direct email, <a href="mailto:usa@interesting-america.com">usa@interesting-america.com</a></p>
       </div>
     </form>
   </div>
