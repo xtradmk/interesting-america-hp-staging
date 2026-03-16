@@ -61,7 +61,11 @@ img{max-width:100%;display:block}
 .hero-link-cta.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .hero-link-cta__text{position:relative;display:inline-block;padding-bottom:4px}
 .hero-link-cta__text:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
-.hero-link-cta__icon{display:inline-grid;place-items:center;width:1.02em;height:1.02em;border:2px solid #fff;border-radius:0;font-size:1.2em;line-height:1;font-weight:800;transition:transform .2s ease;font-family:var(--sans)}
+.hero-link-cta__icon{display:inline-block;width:1.02em;height:1.02em;line-height:1;transition:transform .2s ease}
+.hero-link-cta__icon svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-linecap:square;stroke-linejoin:miter}
+.hero-link-cta__icon--minimal svg{stroke-width:1.6}
+.hero-link-cta__icon--bold svg{stroke-width:2.6}
+.hero-link-cta__icon--editorial svg{stroke-width:2.15}
 .hero-link-cta:hover .hero-link-cta__text:after{transform:scaleX(1)}
 .hero-link-cta:hover .hero-link-cta__icon{transform:rotate(45deg)}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:700;font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;transition:.25s}
