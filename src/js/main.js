@@ -20,9 +20,10 @@
 
     parallaxItems.forEach((item) => {
       const speed = Number(item.dataset.speed || 0.18);
+      const maxOffset = Number(item.dataset.maxOffset || 54);
       const rect = item.getBoundingClientRect();
       const offset = (window.innerHeight * 0.5 - rect.top) * speed;
-      item.style.transform = `translateY(${Math.max(Math.min(offset, 30), -30).toFixed(1)}px)`;
+      item.style.transform = `translate3d(0, ${Math.max(Math.min(offset, maxOffset), -maxOffset).toFixed(1)}px, 0)`;
     });
   };
 
