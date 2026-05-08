@@ -2,178 +2,113 @@
 layout: base.njk
 title: Services
 description: Services by INTERESTING AMERICA
-pageClasses: subpage-editorial page-services
+pageClasses: subpage-studio page-services
 templateEngineOverride: njk
 ---
 
-<section class="editorial-hero">
-  <div class="editorial-shell fade in">
-    <div class="editorial-hero__grid">
-      <div>
-        <p class="editorial-kicker">Services</p>
-        <h1 class="editorial-title">Three service lines. One composed execution model.</h1>
-      </div>
+<section class="studio-hero">
+  <div class="studio-shell fade in">
+    <p class="studio-kicker">Services</p>
 
-      <div class="editorial-hero__side">
-        <p class="editorial-intro">We are built for assignments where hotel inventory, movement planning, and guest experience affect each other. The scope can stay modular. The thinking stays connected.</p>
+    <div class="studio-hero__grid">
+      <h1 class="studio-title">Three connected service lines for event weeks that leave little room for improvisation.</h1>
 
-        <div class="editorial-meta">
-          <div class="editorial-meta__item">
-            <span>Primary Focus</span>
-            <strong>Major sports events</strong>
-          </div>
-          <div class="editorial-meta__item">
-            <span>Typical Clients</span>
-            <strong>Sponsors, agencies, media, federations</strong>
-          </div>
-          <div class="editorial-meta__item">
-            <span>Delivery Style</span>
-            <strong>Fast, direct, accountable</strong>
-          </div>
-        </div>
+      <div class="studio-hero__aside">
+        <p class="studio-intro">Our work is modular in scope, but integrated in thinking. Hotel decisions affect movement. Movement affects guest experience. Hospitality often belongs in the same conversation.</p>
+        <a class="studio-link" href="{{ '/contact/' | url }}">Open an inquiry</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section editorial-lead">
-  <div class="editorial-shell editorial-lead__grid fade">
-    <p class="editorial-label">Service Logic</p>
-
-    <div class="editorial-copy">
-      <p>The work is designed for event weeks where a room block is never just a room block. Venue geography, arrival peaks, hosting requirements, and approval timing all sit inside the same decision.</p>
-      <p>That is why each service line is clear on paper but tightly connected in practice.</p>
+<section class="studio-band studio-band--white">
+  <div class="studio-shell fade">
+    <div class="studio-statement">
+      <p class="studio-label">Service Logic</p>
+      <p class="studio-statement__lead">Each service stands on its own. The value increases when they are designed together from the start.</p>
     </div>
   </div>
 </section>
 
-<section class="section editorial-service-list">
-  <div class="editorial-shell fade">
-    <article class="editorial-service-row">
-      <div class="editorial-service-row__text">
-        <span class="editorial-index">01</span>
-        <p class="editorial-service-row__eyebrow">Hotel Brokerage</p>
-        <h2>Room blocks shaped around who the guests are and how the event week actually works.</h2>
-        <p>We search, compare, negotiate, and structure hotel options with attention to location strategy, guest standard, commercial flexibility, and decision timing.</p>
+<section class="studio-band studio-band--white">
+  <div class="studio-shell fade">
+    <div class="studio-card-grid">
+      <article class="studio-card">
+        <span class="studio-count">01</span>
+        <h3>Hotel Brokerage</h3>
+        <p>Room blocks structured around location strategy, guest level, contracting flexibility, and timing pressure.</p>
+      </article>
 
-        <ul class="editorial-list editorial-list--compact">
-          <li>Shortlists built around venue logic, not just availability.</li>
-          <li>Commercial comparison with trade-offs made explicit.</li>
-          <li>Support from first optioning through final rooming alignment.</li>
-        </ul>
-      </div>
+      <article class="studio-card">
+        <span class="studio-count">02</span>
+        <h3>Transfers</h3>
+        <p>Arrival, departure, and event-day movement planned with enough precision to protect the stay itself.</p>
+      </article>
 
-      <figure class="editorial-frame editorial-frame--tall dynamic-media editorial-service-row__media" data-speed="0.22" data-max-offset="58">
-        <img src="{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}" alt="The St. Regis in San Francisco" style="object-position:center 38%;">
-        <figcaption>High-standard group accommodation</figcaption>
-      </figure>
-    </article>
-
-    <article class="editorial-service-row editorial-service-row--reverse">
-      <div class="editorial-service-row__text">
-        <span class="editorial-index">02</span>
-        <p class="editorial-service-row__eyebrow">Transfers</p>
-        <h2>Movement planning that protects timing, guest comfort, and event-day composure.</h2>
-        <p>Arrival and departure flows, venue runs, and city-to-city movement are mapped with the same discipline as the stay itself, especially when transport shapes the hotel decision.</p>
-
-        <ul class="editorial-list editorial-list--compact">
-          <li>Airport, hotel, venue, and hospitality routing.</li>
-          <li>Movement logic for VIP guests, staff, and mixed groups.</li>
-          <li>Operational coordination that keeps the schedule calm.</li>
-        </ul>
-      </div>
-
-      <figure class="editorial-frame editorial-frame--landscape dynamic-media editorial-service-row__media" data-speed="0.18" data-max-offset="46">
-        <img src="{{ '/images/uploads/hero-sofi-2025.jpg' | url }}" alt="Stadium exterior in Inglewood" style="object-position:center 56%;">
-        <figcaption>Venue access and event-day routing</figcaption>
-      </figure>
-    </article>
-
-    <article class="editorial-service-row">
-      <div class="editorial-service-row__text">
-        <span class="editorial-index">03</span>
-        <p class="editorial-service-row__eyebrow">Hospitality Access</p>
-        <h2>Premium entry points for clients who need the guest experience to land at the right level.</h2>
-        <p>When hospitality is part of the assignment, we help identify credible ticket and table pathways through trusted relationships and a practical sense of what the program needs to feel complete.</p>
-
-        <ul class="editorial-list editorial-list--compact">
-          <li>Premium access pathways for hosted guests and decision-makers.</li>
-          <li>Support where hotel, transport, and hospitality need to align.</li>
-          <li>A cleaner, more coherent guest journey across the whole week.</li>
-        </ul>
-      </div>
-
-      <figure class="editorial-frame editorial-frame--wide dynamic-media editorial-service-row__media" data-speed="0.16" data-max-offset="42">
-        <img src="{{ '/images/uploads/hero-santa-monica-ca.jpg' | url }}" alt="Palm lined boulevard in Santa Monica" style="object-position:center 55%;">
-        <figcaption>Guest-facing programs with a hospitality layer</figcaption>
-      </figure>
-    </article>
+      <article class="studio-card">
+        <span class="studio-count">03</span>
+        <h3>Hospitality Access</h3>
+        <p>Premium guest-facing pathways when the assignment needs more than accommodation and transport alone.</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="section editorial-process">
-  <div class="editorial-shell fade">
-    <div class="editorial-note__grid editorial-note__grid--process">
-      <p class="editorial-label">How It Moves</p>
-      <h2 class="editorial-display editorial-display--medium">Brief, market validation, option architecture, delivery.</h2>
+<section class="studio-band">
+  <div class="studio-shell studio-media-pair fade">
+    <div class="studio-copy-block">
+      <p class="studio-label">Integrated Execution</p>
+      <h2 class="studio-heading">The hotel is often the center of the system, not the whole system.</h2>
+      <p class="studio-body">That is why we look at venue access, guest hierarchy, movement windows, and hosting requirements before we call an option “right.” The best decision is the one that still works operationally once the week begins.</p>
     </div>
 
-    <div class="editorial-process__grid">
-      <article class="editorial-process__step">
-        <span>01</span>
+    <figure class="studio-image-frame studio-image-frame--wide">
+      <img src="{{ '/images/uploads/hero-sofi-2025.jpg' | url }}" alt="Stadium exterior in Inglewood" style="object-position:center 56%;">
+      <figcaption>Event-day movement and venue logic</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="studio-band studio-band--white">
+  <div class="studio-shell fade">
+    <div class="studio-process-grid">
+      <article class="studio-process-step">
+        <span class="studio-count">01</span>
         <h3>Brief</h3>
-        <p>We align event, city, dates, guest mix, budget band, and decision speed.</p>
+        <p>We align event, city, dates, room count, guest mix, and decision window.</p>
       </article>
 
-      <article class="editorial-process__step">
-        <span>02</span>
-        <h3>Feasibility</h3>
-        <p>The market is checked quickly so reality is visible before time is lost.</p>
+      <article class="studio-process-step">
+        <span class="studio-count">02</span>
+        <h3>Validate</h3>
+        <p>The market is checked quickly so feasibility is visible before time is lost.</p>
       </article>
 
-      <article class="editorial-process__step">
-        <span>03</span>
-        <h3>Options</h3>
-        <p>Paths are presented with the trade-offs already clarified.</p>
+      <article class="studio-process-step">
+        <span class="studio-count">03</span>
+        <h3>Shape</h3>
+        <p>Options are presented with the trade-offs already clarified and ranked.</p>
       </article>
 
-      <article class="editorial-process__step">
-        <span>04</span>
-        <h3>Execution</h3>
-        <p>The chosen route is carried into contracting, rooming, and live delivery.</p>
+      <article class="studio-process-step">
+        <span class="studio-count">04</span>
+        <h3>Deliver</h3>
+        <p>The chosen path moves into contracting, rooming, and operational execution.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section editorial-gallery editorial-gallery--services">
-  <div class="editorial-shell editorial-gallery__grid fade">
-    <figure class="editorial-frame editorial-frame--landscape dynamic-media" data-speed="0.2" data-max-offset="48">
-      <img src="{{ '/images/uploads/hero-dallas-tx.jpg' | url }}" alt="Dallas skyline" style="object-position:center 50%;">
-      <figcaption>Host-city decisions with timing pressure</figcaption>
-    </figure>
-
-    <figure class="editorial-frame editorial-frame--portrait dynamic-media editorial-frame--lower" data-speed="0.24" data-max-offset="64">
-      <img src="{{ '/images/uploads/hero-colony-hotel-mia.jpg' | url }}" alt="The Colony Hotel in Miami Beach" style="object-position:center 48%;">
-      <figcaption>Guest standard and destination character</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section editorial-cta">
-  <div class="editorial-shell editorial-cta__grid fade">
+<section class="studio-band">
+  <div class="studio-shell studio-cta fade">
     <div>
-      <p class="editorial-label">Inquiry</p>
-      <h2 class="editorial-display editorial-display--medium">Need one city, multiple host cities, or a single decisive shortlist?</h2>
+      <p class="studio-label">Next Step</p>
+      <h2 class="studio-heading">If the assignment is already active, we can step in fast.</h2>
     </div>
 
-    <a class="editorial-cta__link" href="{{ '/contact/' | url }}">
-      <span>Open an inquiry</span>
-      <span class="editorial-cta__icon" aria-hidden="true">
-        <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-          <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
-        </svg>
-      </span>
-    </a>
+    <div class="studio-cta__actions">
+      <a class="studio-button" href="{{ '/contact/' | url }}">Open an inquiry</a>
+      <a class="studio-link" href="{{ '/about/' | url }}">Read more about how we work</a>
+    </div>
   </div>
 </section>
