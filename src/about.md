@@ -2,106 +2,54 @@
 layout: base.njk
 title: About
 description: About INTERESTING AMERICA
-pageClasses: subpage-studio page-about
+pageClasses: subpage-home page-about
 templateEngineOverride: njk
+hero_dimming_percent: 100
+hero_image1: /images/uploads/hero-st-regis-san-francisco.jpg
+hero_caption1: The St. Regis***** · San Francisco, CA
+hero_image2: /images/uploads/hero-los-angeles-ca.jpg
+hero_caption2: Los Angeles, CA · Host City of the 2028 Summer Olympics
+hero_image3: /images/uploads/hero-dallas-tx.jpg
+hero_caption3: Dallas, TX · 2026 Soccer World Cup Host City
+hero_kicker: About
+hero_title: We plan and deliver<br>accommodation,<br>transfers, and<br>hospitality in the U.S.
+hero_copy: INTERESTING AMERICA is the U.S. execution arm of INTERESTING SPORTS for sponsors, agencies, media teams and federations.
+hero_link_label: Explore Services
+hero_link_url: /services/
 ---
 
-<section class="studio-hero">
-  <div class="studio-shell fade in">
-    <p class="studio-kicker">About</p>
+{% include "modules/subpage-home-hero.njk" %}
 
-    <div class="studio-hero__grid">
-      <h1 class="studio-title">We structure accommodation, transfers, and hospitality for sports-event groups in the United States.</h1>
+<section class="story-section subpage-home-section" id="about-content">
+  <div class="wrap-wide">
+    <div class="story-grid">
+      <div class="story-static fade">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title">We work where timelines compress and the wrong hotel decision affects the whole event week.</h2>
+        <p class="section-lead">Our role is to turn venue geography, guest profile, budget reality and operational pressure into one clear execution path for the U.S. market.</p>
 
-      <div class="studio-hero__aside">
-        <p class="studio-intro">INTERESTING AMERICA is the American execution arm of INTERESTING SPORTS. We support sponsors, agencies, media teams, and federations that need a calm, workable setup in high-pressure host cities.</p>
-        <a class="studio-link" href="{{ '/contact/' | url }}">Start a project brief</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="studio-band studio-band--white">
-  <div class="studio-shell fade">
-    <div class="studio-statement">
-      <p class="studio-label">Positioning</p>
-      <p class="studio-statement__lead">The assignment is rarely just about inventory. It is about building the right stay around venue geography, guest hierarchy, timing pressure, and decision reality.</p>
-    </div>
-  </div>
-</section>
-
-<section class="studio-band">
-  <div class="studio-shell studio-split fade">
-    <div class="studio-copy-block">
-      <p class="studio-label">What We Bring</p>
-      <h2 class="studio-heading">A U.S. market partner with a precise way of working.</h2>
-      <p class="studio-body">We qualify the brief carefully, make trade-offs visible early, and keep the path from shortlist to arrival coherent for everyone involved.</p>
-
-      <div class="studio-mini-list">
-        <div>
-          <span>Established</span>
-          <strong>2010</strong>
-        </div>
-        <div>
-          <span>Operating From</span>
-          <strong>Berlin &amp; Los Angeles</strong>
-        </div>
-        <div>
-          <span>Core Scope</span>
-          <strong>Hotels, transfers, hospitality</strong>
+        <div class="subpage-home-rows">
+          <article>
+            <h3>Clear qualification</h3>
+            <p>We start with event, city, dates, room volume, guest mix, and the actual decision window.</p>
+          </article>
+          <article>
+            <h3>Options with hierarchy</h3>
+            <p>Shortlists are built around what still works once transport logic and guest standard are fully considered.</p>
+          </article>
+          <article>
+            <h3>Delivery through arrival</h3>
+            <p>The same thread carries into contracting, rooming and the live stay itself.</p>
+          </article>
         </div>
       </div>
-    </div>
 
-    <figure class="studio-image-frame studio-image-frame--tall">
-      <img src="{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}" alt="The St. Regis in San Francisco" style="object-position:center 42%;">
-      <figcaption>The St. Regis, San Francisco</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="studio-band studio-band--white">
-  <div class="studio-shell fade">
-    <div class="studio-list">
-      <article class="studio-list__item">
-        <span class="studio-count">01</span>
-        <div>
-          <h3>Qualify the brief properly.</h3>
-          <p>Event, city, dates, room volume, guest mix, decision speed, and non-negotiables come first.</p>
-        </div>
-      </article>
-
-      <article class="studio-list__item">
-        <span class="studio-count">02</span>
-        <div>
-          <h3>Shape options with hierarchy.</h3>
-          <p>We compare not only availability, but also walkability, transport logic, guest standard, and commercial flexibility.</p>
-        </div>
-      </article>
-
-      <article class="studio-list__item">
-        <span class="studio-count">03</span>
-        <div>
-          <h3>Carry the decision into delivery.</h3>
-          <p>The same thread continues through contracting, rooming, and the operational realities of the stay itself.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="studio-band">
-  <div class="studio-shell studio-media-pair fade">
-    <figure class="studio-image-frame studio-image-frame--wide">
-      <img src="{{ '/images/uploads/hero-los-angeles-ca.jpg' | url }}" alt="Los Angeles skyline" style="object-position:center 50%;">
-      <figcaption>Host-city context and market timing</figcaption>
-    </figure>
-
-    <div class="studio-copy-block">
-      <p class="studio-label">Coverage</p>
-      <h2 class="studio-heading">We work where clarity matters more than volume.</h2>
-      <p class="studio-body">For international teams entering American host cities, our value is not noise or unnecessary layering. It is giving the brief a clear structure and moving the right decision forward.</p>
-      <a class="studio-button studio-button--secondary" href="{{ '/services/' | url }}">View services</a>
+      <div class="story-dynamic fade">
+        <figure class="subpage-home-figure dynamic-media" data-speed="0.16" data-max-offset="34">
+          <img src="{{ '/images/uploads/hero-los-angeles-ca.jpg' | url }}" alt="Los Angeles skyline" style="object-position:center 50%;">
+          <figcaption>Los Angeles, CA · Long-horizon host-city planning</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
