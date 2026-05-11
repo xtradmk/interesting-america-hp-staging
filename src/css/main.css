@@ -207,6 +207,17 @@ body.subpage-home main{overflow:hidden}
 .subpage-home-side-note .clean-list li{position:relative;margin:0;padding:13px 0 13px 22px;border-top:1px solid var(--line);font-family:var(--sans);font-size:16px;line-height:1.55;color:#1f2937}
 .subpage-home-side-note .clean-list li::before{content:"";position:absolute;left:0;top:1.05em;width:8px;height:8px;border-radius:50%;background:#0b1020}
 
+.error-grid{grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr)}
+.error-panel{display:grid;gap:10px;padding:24px 26px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);box-shadow:0 16px 34px rgba(15,23,42,.06)}
+.error-panel__label{margin:0;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5d6980}
+.error-panel__path{margin:0;font-family:var(--sans);font-size:clamp(22px,2.8vw,34px);line-height:1.05;font-weight:500;letter-spacing:-.04em;color:#0b1020;word-break:break-word}
+.error-panel__note{margin:0;font-family:var(--sans);font-size:15px;line-height:1.6;color:#526177}
+.error-panel__note a{text-decoration:underline;text-underline-offset:4px}
+.error-links{margin-top:26px}
+.error-route-list a{display:inline-flex;align-items:center;gap:10px}
+.error-route-list a::after{content:"↗";font-size:14px;line-height:1;transform:rotate(0deg);transition:transform .2s ease}
+.error-route-list a:hover::after{transform:translateX(2px) translateY(-1px)}
+
 .site-footer{padding:58px 0 28px;background:#0a0f1b;color:#d6dde8;border-top:1px solid #1f2736;font-family:var(--sans)}
 .footer-content{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:18px;align-items:start;border-bottom:1px solid #222b3a;padding-bottom:24px}
 .footer-brand .logo__text{font-weight:800;color:#fff}
@@ -388,6 +399,8 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .subpage-home-section .section-lead{max-width:none;font-size:18px}
   .subpage-home-rows article{gap:10px;padding:18px 0 22px}
   .subpage-home-rows h3{max-width:none;font-size:clamp(22px,7.6vw,30px)}
+  .error-panel{padding:20px}
+  .error-panel__path{font-size:clamp(20px,7.5vw,28px)}
   .subpage-home-figure{border-radius:22px}
   .subpage-home-figure img{min-height:320px}
   .subpage-home-contact-grid .inquiry-form{padding:20px;border-radius:22px}
