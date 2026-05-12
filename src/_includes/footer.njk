@@ -12,23 +12,25 @@
           <button class="footer-newsletter__button" type="submit">Subscribe</button>
         </form>
       </div>
-
-      <div class="footer-brand">
-        <img src="{{ '/images/uploads/interesting-sports-black-.png' | url }}" alt="{{ site.name }}" class="footer-logo__img">
-      </div>
     </div>
 
     <div class="footer-bottom">
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <ul>
-          <li><a href="{{ '/' | url }}">Home</a></li>
-          {%- for item in site.nav -%}
-            <li><a href="{{ item.url | url }}">{{ item.text }}</a></li>
-          {%- endfor -%}
-          <li><a href="{{ '/t-c/' | url }}">T&amp;C</a></li>
-          <li><a href="{{ '/privacy-policy/' | url }}">Privacy Policy</a></li>
-        </ul>
-      </nav>
+      <div class="footer-bottom__main">
+        <div class="footer-brand">
+          <img src="{{ '/images/uploads/interesting-sports-black-.png' | url }}" alt="{{ site.name }}" class="footer-logo__img">
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul>
+            <li><a href="{{ '/' | url }}">Home</a></li>
+            {%- for item in site.nav -%}
+              <li><a href="{{ item.url | url }}">{{ item.text }}</a></li>
+            {%- endfor -%}
+            <li><a href="{{ '/t-c/' | url }}">T&amp;C</a></li>
+            <li><a href="{{ '/privacy-policy/' | url }}">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="footer-legal">
         <p>© {% year %} {{ site.name }}. All rights reserved.</p>
