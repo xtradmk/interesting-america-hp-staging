@@ -20,7 +20,9 @@
 
   <div class="wrap-wide fade in">
     <div class="hero-copy-block hero-copy-block--subpage">
-      <p class="hero-kicker">{{ hero_kicker }}</p>
+      {% if hero_kicker %}
+        <p class="hero-kicker">{{ hero_kicker }}</p>
+      {% endif %}
       <h1 class="hero-page-title">{{ hero_title | safe }}</h1>
       {% if hero_copy %}
         <p class="hero-page-copy">{{ hero_copy }}</p>

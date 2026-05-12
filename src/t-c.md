@@ -12,7 +12,6 @@ hero_image2: /images/uploads/hero-maracana-2014.jpg
 hero_caption2: Maracana Stadium, Rio de Janeiro, Brazil · Reference Venue Context
 hero_image3: /images/uploads/hero-santa-monica-ca.jpg
 hero_caption3: Santa Monica, CA · Illustrative destination imagery
-hero_kicker: T&C
 hero_title: Terms & Conditions<br>for using our website<br>and submitting<br>project inquiries.
 hero_copy: This page is a website draft and should be reviewed by legal counsel before final publication.
 hero_link_label: Contact Us
@@ -24,8 +23,6 @@ hero_link_url: /contact/
 <section class="story-section legal-text-section" id="terms-content">
   <div class="wrap-wide">
     <div class="legal-text-block fade">
-      <p class="legal-text-eyebrow">T&amp;C</p>
-      <h2 class="legal-text-title">These terms govern the use of this website and the submission of project inquiries.</h2>
       <div class="legal-text-flow">
         <p>Below is a concise draft structure for publication. It is written for clarity, but it is not a substitute for formal legal review.</p>
         <h3>Use of Website</h3>

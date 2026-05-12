@@ -11,7 +11,6 @@ hero_image2: /images/uploads/hero-los-angeles-ca.jpg
 hero_caption2: Los Angeles, CA · Host City of the 2028 Summer Olympics
 hero_image3: /images/uploads/hero-dallas-tx.jpg
 hero_caption3: Dallas, TX · 2026 Soccer World Cup Host City
-hero_kicker: About
 hero_title: We plan and deliver<br>accommodation,<br>transfers, and<br>hospitality in the U.S.
 hero_copy: INTERESTING AMERICA is the U.S. execution arm of INTERESTING SPORTS for sponsors, agencies, media teams and federations.
 hero_link_label: Explore Services

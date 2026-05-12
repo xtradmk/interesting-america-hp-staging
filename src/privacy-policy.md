@@ -12,7 +12,6 @@ hero_image2: /images/uploads/hero-dallas-tx.jpg
 hero_caption2: Dallas, TX · 2026 Soccer World Cup Host City
 hero_image3: /images/uploads/hero-santa-monica-ca.jpg
 hero_caption3: Santa Monica, CA · Illustrative destination imagery
-hero_kicker: Privacy Policy
 hero_title: Privacy Policy<br>for website use,<br>contact forms,<br>and newsletter signups.
 hero_copy: How we collect, use, disclose, and safeguard information when you visit this website or communicate with us.
 hero_link_label: Contact Us
@@ -24,8 +23,6 @@ hero_link_url: /contact/
 <section class="story-section legal-text-section" id="privacy-content">
   <div class="wrap-wide">
     <div class="legal-text-block fade">
-      <p class="legal-text-eyebrow">Privacy Policy</p>
-      <h2 class="legal-text-title">This policy explains how information may be collected, used, disclosed, and safeguarded through this website.</h2>
       <div class="legal-text-flow">
         <p><strong>Effective Date: May 12, 2026</strong></p>
         <p>INTERESTING AMERICA, LLC (“INTERESTING AMERICA,” “we,” “us,” or “our”), respects your privacy and is committed to protecting personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website or communicate with us.</p>

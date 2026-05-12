@@ -11,7 +11,6 @@ hero_image2: /images/uploads/hero-atl-marriott-marquis.jpg
 hero_caption2: Marriott Marquis**** · Atlanta, GA
 hero_image3: /images/uploads/hero-colony-hotel-mia.jpg
 hero_caption3: The Colony Hotel*** · Miami Beach, FL
-hero_kicker: Services
 hero_title: Hotel blocks,<br>transfers,<br>hospitality access,<br>one clear flow.
 hero_copy: Three connected service lines for event weeks that leave little room for improvisation.
 hero_link_label: Start an Inquiry
