@@ -14,7 +14,7 @@ hero_image3: /images/uploads/hero-santa-monica-ca.jpg
 hero_caption3: Santa Monica, CA · Illustrative destination imagery
 hero_kicker: Privacy Policy
 hero_title: Privacy Policy<br>for website use,<br>contact forms,<br>and newsletter signups.
-hero_copy: This page is a draft structure and should be reviewed by legal counsel before final publication.
+hero_copy: How we collect, use, disclose, and safeguard information when you visit this website or communicate with us.
 hero_link_label: Contact Us
 hero_link_url: /contact/
 ---
@@ -25,21 +25,61 @@ hero_link_url: /contact/
   <div class="wrap-wide">
     <div class="legal-text-block fade">
       <p class="legal-text-eyebrow">Privacy Policy</p>
-      <h2 class="legal-text-title">This policy explains what information may be collected through this website and how it may be used.</h2>
+      <h2 class="legal-text-title">This policy explains how information may be collected, used, disclosed, and safeguarded through this website.</h2>
       <div class="legal-text-flow">
-        <p>The structure below is intended as a clear draft for publication. It should be reviewed, adapted, and finalized with appropriate legal advice.</p>
-        <h3>Information You Provide</h3>
-        <p>When you contact us or submit an inquiry, we may receive information such as your name, company, email address, phone number, event details, and project requirements.</p>
-        <h3>How Information Is Used</h3>
-        <p>Submitted information may be used to respond to inquiries, assess project scope, prepare accommodation or transport options, and maintain communication regarding requested services.</p>
-        <h3>Newsletter Signups</h3>
-        <p>If you subscribe to updates, your email address may be used to send occasional communications relevant to hospitality, accommodation, transport, and major sports-event planning.</p>
-        <h3>Analytics and Technical Data</h3>
-        <p>Technical information such as browser type, device characteristics, referral source, and approximate usage patterns may be collected to understand and improve website performance.</p>
-        <h3>Retention and Disclosure</h3>
-        <p>Information may be retained only as long as reasonably necessary for communication, business operations, legal compliance, or internal recordkeeping, and is not sold as standalone personal data.</p>
-        <h3>Contact</h3>
-        <p>Questions regarding privacy, stored data, or website communication can be directed to <a href="mailto:america@interesting.global">america@interesting.global</a>.</p>
+        <p><strong>Effective Date: May 12, 2026</strong></p>
+        <p>INTERESTING AMERICA, LLC (“INTERESTING AMERICA,” “we,” “us,” or “our”), respects your privacy and is committed to protecting personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website or communicate with us.</p>
+        <p>This Privacy Policy applies to information collected through this website and through communications you send to us by email, contact form, or other direct contact methods made available through the website.</p>
+
+        <h3>Information We Collect</h3>
+        <p>We may collect information that you choose to provide to us directly, such as your name, email address, phone number, company name, and the contents of any message or inquiry you send to us.</p>
+        <p>Certain technical information may also be collected automatically as part of the normal operation, security, hosting, and delivery of the website. This may include your IP address, browser type, device information, referring page, pages visited, and the date and time of access.</p>
+
+        <h3>How We Use Information</h3>
+        <p>We may use personal information to operate, maintain, and secure the website; respond to your inquiries; communicate with you; provide information about our services; send newsletters, updates, and marketing communications where permitted by applicable law; maintain our business records; and comply with legal obligations.</p>
+        <p>We do not use personal information collected through this website for third-party advertising purposes.</p>
+
+        <h3>Cookies and Tracking Technologies</h3>
+        <p>We do not use cookies, analytics tools, advertising pixels, or similar tracking technologies on this website.</p>
+        <p>We do not permit third parties to collect personal information about your online activities over time and across different websites through this website.</p>
+
+        <h3>Do Not Track</h3>
+        <p>Some web browsers may transmit “Do Not Track” signals. Because there is no universally accepted standard for how to respond to such signals, this website does not currently respond to Do Not Track browser signals. However, we do not use cookies, analytics tools, advertising pixels, or other cross-site tracking technologies on this website.</p>
+
+        <h3>How We Disclose Information</h3>
+        <p>We do not sell or rent personal information. We do not share personal information with third parties for their own independent marketing or advertising purposes.</p>
+        <p>We may disclose information to service providers or infrastructure providers only as reasonably necessary to host, secure, maintain, or operate the website or our communications. We may also use email communication or email marketing providers, including Mailchimp, to send communications on our behalf.</p>
+        <p>We may also disclose information if required by law, regulation, legal process, or governmental request, or where necessary to protect our rights, property, safety, or legal interests.</p>
+
+        <h3>Email Communications</h3>
+        <p>If you provide your contact information to us, we may send you service-related communications or, where permitted by law, marketing communications about our services.</p>
+        <p>We may use third-party service providers, including Mailchimp, to manage and send certain communications on our behalf. We may also send communications directly using our own internal business tools and systems.</p>
+        <p>You may opt out of marketing emails at any time by using the unsubscribe link included in the message, where available, or by contacting us directly.</p>
+
+        <h3>Data Retention</h3>
+        <p>We retain personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy, including responding to inquiries, maintaining business records, sending relevant communications, and complying with legal obligations.</p>
+
+        <h3>Safeguarding Information</h3>
+        <p>We use reasonable administrative, technical, and organizational measures designed to protect personal information against unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the Internet or method of electronic storage is completely secure, and we cannot guarantee absolute security.</p>
+
+        <h3>International Visitors</h3>
+        <p>INTERESTING AMERICA is based in Los Angeles, California, United States, and our website may be accessed by individuals worldwide. If you contact us from outside the United States, your information may be transferred to and processed in the United States.</p>
+
+        <h3>Third-Party Links</h3>
+        <p>This website may contain links to third-party websites or services for your convenience. We are not responsible for the privacy, security, or content practices of third-party websites, and this Privacy Policy does not apply to information collected by those third parties.</p>
+
+        <h3>Children’s Privacy</h3>
+        <p>This website is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If we learn that we have received personal information from a child under 13, we will delete it as required by applicable law.</p>
+
+        <h3>Your Choices</h3>
+        <p>You may choose not to provide personal information to us. If you have contacted us and would like to request that we update or delete your information, you may contact us using the details below, and we will review your request in accordance with applicable law.</p>
+
+        <h3>Changes to This Privacy Policy</h3>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with a revised Effective Date.</p>
+
+        <h3>Contact Us</h3>
+        <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+        <p><strong>INTERESTING AMERICA, LLC</strong><br>1427 N Wilcox Avenue, 2nd floor, Hollywood, CA 90028-8123 Los Angeles, U.S.A.<br>america[at]interesting.global</p>
       </div>
     </div>
   </div>

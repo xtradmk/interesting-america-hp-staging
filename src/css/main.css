@@ -510,6 +510,8 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
 @media (min-width:801px){
   .page-about .hero--subpage,
   .page-services .hero--subpage,
+  .page-terms .hero--subpage,
+  .page-privacy .hero--subpage,
   .page-contact .hero--subpage{
     height:60svh;
     min-height:60svh;
@@ -517,6 +519,8 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
 
   .page-about .hero--subpage .wrap-wide,
   .page-services .hero--subpage .wrap-wide,
+  .page-terms .hero--subpage .wrap-wide,
+  .page-privacy .hero--subpage .wrap-wide,
   .page-contact .hero--subpage .wrap-wide{
     min-height:60svh;
     align-items:end;
