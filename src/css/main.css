@@ -178,13 +178,21 @@ body.subpage-home main{overflow:hidden}
 .hero-link-cta--static{opacity:1;transform:translateY(0);pointer-events:auto}
 
 .page-about .hero-kicker,
-.page-services .hero-kicker{margin:0 0 12px}
+.page-services .hero-kicker,
+.page-terms .hero-kicker,
+.page-privacy .hero-kicker{margin:0 0 12px}
 .page-about .hero-page-title,
-.page-services .hero-page-title{max-width:16ch;font-size:clamp(18px,2.2vw,30px);line-height:1.05;letter-spacing:-.035em}
+.page-services .hero-page-title,
+.page-terms .hero-page-title,
+.page-privacy .hero-page-title{max-width:16ch;font-size:clamp(18px,2.2vw,30px);line-height:1.05;letter-spacing:-.035em}
 .page-about .hero-page-copy,
-.page-services .hero-page-copy{margin-top:12px;max-width:34ch;font-size:clamp(14px,1.1vw,16px);line-height:1.45}
+.page-services .hero-page-copy,
+.page-terms .hero-page-copy,
+.page-privacy .hero-page-copy{margin-top:12px;max-width:34ch;font-size:clamp(14px,1.1vw,16px);line-height:1.45}
 .page-about .hero-link-cta--static,
-.page-services .hero-link-cta--static{margin-top:.85em;font-size:clamp(18px,2.2vw,28px)}
+.page-services .hero-link-cta--static,
+.page-terms .hero-link-cta--static,
+.page-privacy .hero-link-cta--static{margin-top:.85em;font-size:clamp(18px,2.2vw,28px)}
 
 .subpage-home-section{padding:clamp(88px,10vw,148px) 0}
 .page-contact .subpage-home-section--contact-entry{padding-top:clamp(112px,12vw,156px)}
@@ -223,6 +231,15 @@ body.subpage-home main{overflow:hidden}
 .subpage-home-side-note .clean-list{list-style:none;margin:0;padding:0}
 .subpage-home-side-note .clean-list li{position:relative;margin:0;padding:13px 0 13px 22px;border-top:1px solid var(--line);font-family:var(--sans);font-size:16px;line-height:1.55;color:#1f2937}
 .subpage-home-side-note .clean-list li::before{content:"";position:absolute;left:0;top:1.05em;width:8px;height:8px;border-radius:50%;background:#0b1020}
+
+.legal-text-section{padding:clamp(88px,10vw,148px) 0;background:#fff}
+.legal-text-block{width:min(900px,100%);font-family:var(--sans);color:#0b1020}
+.legal-text-eyebrow{margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#4f5c6e}
+.legal-text-title{margin:0 0 28px;max-width:18ch;font-size:clamp(34px,4.1vw,58px);line-height:.96;font-weight:500;letter-spacing:-.05em;color:#0b1020}
+.legal-text-flow{max-width:840px}
+.legal-text-flow h3{margin:32px 0 10px;font-size:clamp(18px,1.75vw,24px);line-height:1.2;font-weight:600;letter-spacing:-.02em;color:#0b1020}
+.legal-text-flow p{margin:0;font-size:clamp(16px,1.3vw,20px);line-height:1.72;letter-spacing:-.01em;color:#111827}
+.legal-text-flow p + p{margin-top:20px}
 
 .error-grid{grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr)}
 .error-panel{display:grid;gap:10px;padding:24px 26px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fff 0%,#f8fbff 100%);box-shadow:0 16px 34px rgba(15,23,42,.06)}
@@ -434,6 +451,10 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .subpage-home-section{padding:62px 0}
   .subpage-home-section .section-title{max-width:none;font-size:clamp(32px,10vw,44px)}
   .subpage-home-section .section-lead{max-width:none;font-size:18px}
+  .legal-text-section{padding:62px 0}
+  .legal-text-title{max-width:none;font-size:clamp(30px,9.4vw,42px)}
+  .legal-text-flow h3{margin:26px 0 10px;font-size:20px}
+  .legal-text-flow p{font-size:17px;line-height:1.68}
   .subpage-home-rows article{gap:10px;padding:18px 0 22px}
   .subpage-home-rows h3{max-width:none;font-size:clamp(22px,7.6vw,30px)}
   .error-panel{padding:20px}
@@ -503,13 +524,17 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   }
 
   .page-about .hero-copy-block--subpage,
-  .page-services .hero-copy-block--subpage{
+  .page-services .hero-copy-block--subpage,
+  .page-terms .hero-copy-block--subpage,
+  .page-privacy .hero-copy-block--subpage{
     width:min(420px,78%);
     padding-top:0;
   }
 
   .page-about .hero-page-title,
-  .page-services .hero-page-title{
+  .page-services .hero-page-title,
+  .page-terms .hero-page-title,
+  .page-privacy .hero-page-title{
     max-width:16ch;
     font-size:clamp(18px,2.2vw,30px);
     line-height:1.05;
@@ -517,7 +542,9 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   }
 
   .page-about .hero-page-copy,
-  .page-services .hero-page-copy{
+  .page-services .hero-page-copy,
+  .page-terms .hero-page-copy,
+  .page-privacy .hero-page-copy{
     margin-top:12px;
     max-width:34ch;
     font-size:clamp(14px,1.1vw,16px);
@@ -525,7 +552,9 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   }
 
   .page-about .hero-link-cta--static,
-  .page-services .hero-link-cta--static{
+  .page-services .hero-link-cta--static,
+  .page-terms .hero-link-cta--static,
+  .page-privacy .hero-link-cta--static{
     margin-top:.85em;
     font-size:clamp(18px,2.2vw,28px);
   }

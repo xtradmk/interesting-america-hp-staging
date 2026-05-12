@@ -21,47 +21,25 @@ hero_link_url: /contact/
 
 {% include "modules/subpage-home-hero.njk" %}
 
-<section class="story-section subpage-home-section" id="terms-content">
+<section class="story-section legal-text-section" id="terms-content">
   <div class="wrap-wide">
-    <div class="story-grid">
-      <div class="story-static fade">
-        <p class="eyebrow">T&amp;C</p>
-        <h2 class="section-title">These terms govern the use of this website and the submission of project inquiries.</h2>
-        <p class="section-lead">Below is a concise draft structure for publication. It is written for clarity, but it is not a substitute for formal legal review.</p>
-
-        <div class="subpage-home-rows subpage-home-legal">
-          <article>
-            <h3>Use of Website</h3>
-            <p>This website is provided for general information about INTERESTING AMERICA and its services. Content may be updated, removed, or revised without notice.</p>
-          </article>
-          <article>
-            <h3>Project Inquiries</h3>
-            <p>Submitting an inquiry does not create a binding commercial agreement. Scope, pricing, availability, and timelines are confirmed only through direct written agreement.</p>
-          </article>
-          <article>
-            <h3>Information Accuracy</h3>
-            <p>We aim to keep website information accurate and current, but we do not guarantee that all content is complete, current, or free from error at all times.</p>
-          </article>
-          <article>
-            <h3>Third-Party Content</h3>
-            <p>Hotel, venue, and destination references may include third-party names, imagery, or market context. Such references remain subject to external availability and change.</p>
-          </article>
-          <article>
-            <h3>Liability</h3>
-            <p>To the extent permitted by law, INTERESTING AMERICA is not liable for losses arising from reliance on website content alone without written commercial confirmation.</p>
-          </article>
-          <article>
-            <h3>Contact</h3>
-            <p>Questions regarding these terms or any website inquiry can be directed to <a href="mailto:america@interesting.global">america@interesting.global</a>.</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="story-dynamic fade">
-        <figure class="subpage-home-figure dynamic-media" data-speed="0.12" data-max-offset="26">
-          <img src="{{ '/images/uploads/hero-maracana-2014.jpg' | url }}" alt="Maracana Stadium in Rio de Janeiro" style="object-position:center 50%;">
-          <figcaption>Reference imagery and venue context remain illustrative unless contractually confirmed</figcaption>
-        </figure>
+    <div class="legal-text-block fade">
+      <p class="legal-text-eyebrow">T&amp;C</p>
+      <h2 class="legal-text-title">These terms govern the use of this website and the submission of project inquiries.</h2>
+      <div class="legal-text-flow">
+        <p>Below is a concise draft structure for publication. It is written for clarity, but it is not a substitute for formal legal review.</p>
+        <h3>Use of Website</h3>
+        <p>This website is provided for general information about INTERESTING AMERICA and its services. Content may be updated, removed, or revised without notice.</p>
+        <h3>Project Inquiries</h3>
+        <p>Submitting an inquiry does not create a binding commercial agreement. Scope, pricing, availability, and timelines are confirmed only through direct written agreement.</p>
+        <h3>Information Accuracy</h3>
+        <p>We aim to keep website information accurate and current, but we do not guarantee that all content is complete, current, or free from error at all times.</p>
+        <h3>Third-Party Content</h3>
+        <p>Hotel, venue, and destination references may include third-party names, imagery, or market context. Such references remain subject to external availability and change.</p>
+        <h3>Liability</h3>
+        <p>To the extent permitted by law, INTERESTING AMERICA is not liable for losses arising from reliance on website content alone without written commercial confirmation.</p>
+        <h3>Contact</h3>
+        <p>Questions regarding these terms or any website inquiry can be directed to <a href="mailto:america@interesting.global">america@interesting.global</a>.</p>
       </div>
     </div>
   </div>
