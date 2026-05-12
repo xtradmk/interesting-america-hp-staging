@@ -57,6 +57,7 @@ hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Ve
   <div class="wrap-wide fade in">
     <div class="hero-copy-block">
       <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
+      <p class="hero-page-copy hero-home-subcopy">Here we play: 2026 World Cup, 2027 Champions League Final, 2027 America's Cup, 2028 Summer Olympics, 2030 Winter Olympics.</p>
       <a class="hero-link-cta" href="{{ '/contact/' | url }}">
         <span class="hero-link-cta__text">Get in Touch</span>
         <span class="hero-link-cta__icon" aria-hidden="true">
