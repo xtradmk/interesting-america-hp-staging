@@ -12,7 +12,7 @@ hero_image2: /images/uploads/hero-maracana-2014.jpg
 hero_caption2: Maracana Stadium, Rio de Janeiro, Brazil · Reference Venue Context
 hero_image3: /images/uploads/hero-santa-monica-ca.jpg
 hero_caption3: Santa Monica, CA · Illustrative destination imagery
-hero_title: INTERESTING AMERICA<br>Terms of Use and<br>Standard Commercial Terms
+hero_title: INTERESTING AMERICA<br>Terms of Use and<br><span class="hero-mobile-hide">Standard </span>Commercial Terms
 hero_link_label: Contact Us
 hero_link_url: /contact/
 ---

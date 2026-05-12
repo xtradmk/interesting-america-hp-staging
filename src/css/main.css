@@ -445,6 +445,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .subpage-home .hero-copy-block--subpage .hero-page-title{margin:0;max-width:15ch;font-size:clamp(28px,8.4vw,38px);line-height:1.08;letter-spacing:-.04em}
   .subpage-home .hero-copy-block--subpage .hero-page-copy{margin:0;max-width:none;font-size:17px;line-height:1.48;letter-spacing:-.02em}
   .subpage-home .hero-copy-block--subpage .hero-link-cta--static{margin-top:0;font-size:clamp(20px,7vw,32px)}
+  .page-terms .hero-mobile-hide{display:none}
   .hero-home-subcopy{max-width:none;font-size:17px}
   .page-contact .subpage-home-section--contact-entry{padding-top:92px}
   .hero-photo-caption{display:none}
