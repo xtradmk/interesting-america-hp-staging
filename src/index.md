@@ -60,6 +60,7 @@ hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Ve
       <div class="hero-home-reveal">
         <p class="hero-page-copy hero-home-subcopy">
           <span>2026 World Cup</span>
+          <span>2027 Super Bowl</span>
           <span>2027 Champions League Final</span>
           <span>2028 Summer Olympics</span>
         </p>
