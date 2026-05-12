@@ -24,12 +24,18 @@ hero_link_url: /contact/
     <div class="legal-text-block fade">
       <div class="legal-text-flow">
         <p><strong>Effective Date: May 12, 2026</strong></p>
-        <p>These Standard Commercial Terms ("Commercial Terms") apply to all business inquiries, quotations, sourcing activities, accommodation arrangements, hospitality services, ground services, ticket-adjacent support, consulting services, and related commercial dealings offered, arranged, or supplied by INTERESTING AMERICA, LLC ("INTERESTING AMERICA," "we," "us," or "our"), unless expressly superseded in a signed writing.</p>
-        <p>These Commercial Terms apply exclusively to business customers and business-related transactions.</p>
+        <p>These Terms &amp; Conditions ("Terms") govern your access to and use of the INTERESTING AMERICA website and also set out the general terms that apply to business inquiries, proposals, sourcing activities, Accommodation Proposals ("APs"), statements of work, confirmations, invoices, and related services provided by INTERESTING AMERICA, LLC ("INTERESTING SPORTS," "we," "us," or "our").</p>
+        <p>This website and our services are intended exclusively for business and professional use. No consumer bookings are offered through this website, and no booking or purchase is completed directly through the website itself.</p>
+        <p>By accessing or using this website, or by engaging with us in connection with a business inquiry, proposal, or project, you acknowledge that these Terms apply, subject to any separate signed agreement, signed addendum, or project-specific written confirmation that expressly supersedes them in whole or in part.</p>
 
-        <h3>Scope</h3>
-        <p>These Commercial Terms apply to all requests, sourcing work, hotel options, preliminary quotations, formal proposals, Accommodation Proposals ("APs"), statements of work, confirmations, invoices, and related project communications issued by INTERESTING AMERICA.</p>
+        <h3>1. Website Use</h3>
+        <p>You may use this website only for lawful business purposes and in accordance with these Terms.</p>
+        <p>You may not misuse the website, attempt unauthorized access, interfere with its operation, or use the website in any way that could damage, disable, overburden, or impair it.</p>
+        <p>You may not scrape, crawl, copy, harvest, monitor, index, extract, reproduce, republish, distribute, or use any website content, business information, sourcing structures, proposal formats, hotel-related information, or other materials made available through the website for competitive purposes or for any unauthorized commercial purpose without our prior written consent.</p>
+        <p>All content on this website is provided for general informational purposes only. References to destinations, accommodations, hospitality services, event-related services, room availability, or pricing do not constitute a binding offer, guaranteed availability, or final quotation and may be changed or withdrawn at any time without notice.</p>
+        <p>No business relationship, reservation, room hold, or contractual commitment arises solely from your use of this website, submission of an inquiry, or review of preliminary information made available through the website.</p>
 
+        <h3>2. Commercial Terms</h3>
         <h3>Inquiry Stage and Indicative Information</h3>
         <p>At the inquiry, sourcing, and preliminary proposal stage, any hotel options, rates, availability, room types, inventory references, contacts, or related information shared by INTERESTING AMERICA are indicative only, non-binding, and subject to change unless expressly confirmed in writing.</p>
         <p>Unless expressly stated otherwise in writing, no rooms, services, or inventory are held or blocked on the customer's behalf at this stage.</p>
@@ -120,7 +126,13 @@ hero_link_url: /contact/
         <p>No waiver of any right or breach is a continuing waiver.</p>
         <p>These Commercial Terms, together with any applicable AP, SOW, Addendum, invoice, signed agreement, and written project communication, form the parties' agreement for the relevant matter unless expressly superseded in writing.</p>
 
-        <h3>Contact</h3>
+        <h3>3. General Terms</h3>
+        <p>These Terms are governed by the laws of the State of California, without regard to conflict of laws principles.</p>
+        <p>Any dispute arising out of or relating to these Terms, the website, or any business inquiry, proposal, AP, statement of work, service, or related commercial dealing with INTERESTING AMERICA shall be brought exclusively in the state or federal courts located in Los Angeles County, California, and each party submits to the exclusive jurisdiction of those courts.</p>
+        <p>We may update these Terms from time to time by posting a revised version on this website. The version in effect at the time of the relevant website use, inquiry, proposal, or project interaction will apply, unless otherwise expressly agreed in writing.</p>
+        <p>If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will remain in full force and effect.</p>
+        <p>No waiver by INTERESTING AMERICA of any provision of these Terms, or of any breach of these Terms, shall be deemed a further or continuing waiver of that provision or breach or a waiver of any other provision or breach.</p>
+        <p>For questions regarding these Terms, please contact:</p>
         <p><strong>INTERESTING AMERICA, LLC</strong><br>1427 Wilcox Ave, Hollywood, CA 90028-8123 Los Angeles, U.S.A.<br>america[at]interesting.global</p>
       </div>
     </div>
