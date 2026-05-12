@@ -1,11 +1,7 @@
 <footer class="site-footer">
   <div class="container footer-shell">
     <div class="footer-content">
-      <div class="footer-brand">
-        <img src="{{ '/images/uploads/interesting-sports-black-.png' | url }}" alt="{{ site.name }}" class="footer-logo__img">
-      </div>
-
-      <div class="footer-signup">
+      <div class="footer-signup-row">
         <p class="footer-copy">Sign up now and stay updated about accommodation, transfers, and hospitality at the major global sports events:</p>
 
         <form class="footer-newsletter" data-newsletter-form aria-label="Newsletter subscription form">
@@ -16,10 +12,13 @@
           <button class="footer-newsletter__button" type="submit">Subscribe</button>
         </form>
       </div>
+
+      <div class="footer-brand">
+        <img src="{{ '/images/uploads/interesting-sports-black-.png' | url }}" alt="{{ site.name }}" class="footer-logo__img">
+      </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© {% year %} {{ site.name }}. All rights reserved.</p>
       <nav class="footer-nav" aria-label="Footer navigation">
         <ul>
           <li><a href="{{ '/' | url }}">Home</a></li>
@@ -27,8 +26,13 @@
             <li><a href="{{ item.url | url }}">{{ item.text }}</a></li>
           {%- endfor -%}
           <li><a href="{{ '/t-c/' | url }}">T&amp;C</a></li>
+          <li><a href="{{ '/privacy-policy/' | url }}">Privacy Policy</a></li>
         </ul>
       </nav>
+
+      <div class="footer-legal">
+        <p>© {% year %} {{ site.name }}. All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>
