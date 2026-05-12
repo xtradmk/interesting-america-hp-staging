@@ -291,7 +291,7 @@
 
       const subject = encodeURIComponent('Newsletter subscription');
       const body = encodeURIComponent(`Please add this email address to the newsletter list:\n\n${email}`);
-      window.location.href = `mailto:usa@interesting-america.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:america@interesting.global?subject=${subject}&body=${body}`;
     });
   };
 

@@ -4,3 +4,6 @@ compatibility_date = "2026-03-15"
 
 [vars]
 ALLOWED_ORIGIN = "https://xtradmk.github.io"
+ADDITIONAL_ALLOWED_ORIGINS = "https://interestingamerica.com,http://localhost:8080,http://127.0.0.1:8080"
+CONTACT_FROM_EMAIL = "website@interesting.global"
+CONTACT_TO_EMAIL = "america@interesting.global"

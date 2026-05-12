@@ -52,7 +52,7 @@ hero_link_url: /contact/
           </article>
           <article>
             <h3>Contact</h3>
-            <p>Questions regarding these terms or any website inquiry can be directed to <a href="mailto:usa@interesting-america.com">usa@interesting-america.com</a>.</p>
+            <p>Questions regarding these terms or any website inquiry can be directed to <a href="mailto:america@interesting.global">america@interesting.global</a>.</p>
           </article>
         </div>
       </div>

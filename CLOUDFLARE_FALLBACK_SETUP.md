@@ -45,3 +45,20 @@ backend:
 - Edit + publish test change
 
 If this works, you can stay on this setup permanently.
+
+## 5) Contact form backend
+
+The contact form in `src/contact.md` posts to the same Worker under `/contact-submit`.
+
+Set these additional Worker secrets / vars before testing the form:
+
+- `RESEND_API_KEY` (secret)
+- `CONTACT_FROM_EMAIL` (verified sender, e.g. `website@interesting.global`)
+- `CONTACT_TO_EMAIL=america@interesting.global`
+- `ADDITIONAL_ALLOWED_ORIGINS` for any non-GitHub-Pages host you want to accept, e.g. `https://interestingamerica.com`
+
+Behavior after deployment:
+
+- valid inquiry -> email is sent to `america@interesting.global`
+- browser is redirected to `/thank-you/`
+- invalid or failed submissions return a fallback error page with a link back to the contact form
