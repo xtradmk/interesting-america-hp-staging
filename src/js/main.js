@@ -271,10 +271,33 @@
     }, redirectNote ? 900 : 0);
   };
 
+  const initFooterNewsletter = () => {
+    const form = document.querySelector('[data-newsletter-form]');
+    if (!form) return;
+
+    const emailInput = form.querySelector('input[type="email"]');
+    if (!emailInput) return;
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const email = emailInput.value.trim();
+      if (!email) {
+        emailInput.focus();
+        return;
+      }
+
+      const subject = encodeURIComponent('Newsletter subscription');
+      const body = encodeURIComponent(`Please add this email address to the newsletter list:\n\n${email}`);
+      window.location.href = `mailto:usa@interesting-america.com?subject=${subject}&body=${body}`;
+    });
+  };
+
   syncHeaderState();
   syncParallax();
   initHeroSlider();
   runTypewriter();
   initMobileMenu();
   initErrorPage();
+  initFooterNewsletter();
 })();
