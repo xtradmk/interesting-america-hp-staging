@@ -18,9 +18,7 @@ hero_link_label: Jump to Inquiry
 hero_link_url: /contact/#contact-form
 ---
 
-{% include "modules/subpage-home-hero.njk" %}
-
-<section class="story-section subpage-home-section" id="contact-form">
+<section class="story-section subpage-home-section subpage-home-section--contact-entry" id="contact-form">
   <div class="wrap-wide">
     <div class="story-grid subpage-home-contact-grid">
       <div class="story-static fade">

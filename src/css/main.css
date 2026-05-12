@@ -177,7 +177,17 @@ body.subpage-home main{overflow:hidden}
 .page-404 .hero-kicker,.page-thank-you .hero-kicker{margin:0 0 22px;font-size:clamp(18px,1.7vw,24px);font-weight:400;line-height:1.48;letter-spacing:-.02em;text-transform:none}
 .hero-link-cta--static{opacity:1;transform:translateY(0);pointer-events:auto}
 
+.page-about .hero-kicker,
+.page-services .hero-kicker{margin:0 0 12px}
+.page-about .hero-page-title,
+.page-services .hero-page-title{max-width:16ch;font-size:clamp(18px,2.2vw,30px);line-height:1.05;letter-spacing:-.035em}
+.page-about .hero-page-copy,
+.page-services .hero-page-copy{margin-top:12px;max-width:34ch;font-size:clamp(14px,1.1vw,16px);line-height:1.45}
+.page-about .hero-link-cta--static,
+.page-services .hero-link-cta--static{margin-top:.85em;font-size:clamp(18px,2.2vw,28px)}
+
 .subpage-home-section{padding:clamp(88px,10vw,148px) 0}
+.page-contact .subpage-home-section--contact-entry{padding-top:clamp(112px,12vw,156px)}
 .subpage-home-section .story-grid{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(26px,4vw,68px);align-items:start}
 .subpage-home-section .story-static{display:block}
 .subpage-home-section .eyebrow{margin-bottom:18px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;color:#4f5c6e}
@@ -414,6 +424,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .hero-copy-block--subpage .hero-link-cta--static{margin-top:0;font-size:clamp(20px,7vw,32px)}
   .hero-home-subcopy{max-width:none;font-size:17px}
   .page-404 .hero-kicker,.page-thank-you .hero-kicker{font-size:17px;max-width:28ch}
+  .page-contact .subpage-home-section--contact-entry{padding-top:92px}
   .hero-photo-caption{display:none}
   .hero-slider-ui{display:none}
   .placeholder-media{min-height:260px}
@@ -492,35 +503,31 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   }
 
   .page-about .hero-copy-block--subpage,
-  .page-services .hero-copy-block--subpage,
-  .page-contact .hero-copy-block--subpage{
-    width:min(560px,92%);
+  .page-services .hero-copy-block--subpage{
+    width:min(420px,78%);
     padding-top:0;
   }
 
   .page-about .hero-page-title,
-  .page-services .hero-page-title,
-  .page-contact .hero-page-title{
+  .page-services .hero-page-title{
     max-width:16ch;
-    font-size:clamp(26px,3.9vw,58px);
-    line-height:1.02;
-    letter-spacing:-.04em;
+    font-size:clamp(18px,2.2vw,30px);
+    line-height:1.05;
+    letter-spacing:-.035em;
   }
 
   .page-about .hero-page-copy,
-  .page-services .hero-page-copy,
-  .page-contact .hero-page-copy{
-    margin-top:18px;
+  .page-services .hero-page-copy{
+    margin-top:12px;
     max-width:34ch;
-    font-size:clamp(17px,1.9vw,22px);
-    line-height:1.48;
+    font-size:clamp(14px,1.1vw,16px);
+    line-height:1.45;
   }
 
   .page-about .hero-link-cta--static,
-  .page-services .hero-link-cta--static,
-  .page-contact .hero-link-cta--static{
-    margin-top:1.2em;
-    font-size:clamp(26px,3.9vw,58px);
+  .page-services .hero-link-cta--static{
+    margin-top:.85em;
+    font-size:clamp(18px,2.2vw,28px);
   }
 
   .mobile-menu-trigger,.mobile-menu-panel{display:none !important}
@@ -539,6 +546,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .hero-copy-block--subpage{padding-top:0}
   .hero-copy-block--subpage .hero-link-cta--static{margin-top:0;font-size:clamp(16px,5.4vw,25px)}
   .hero-copy-block--subpage .hero-page-copy{font-size:15px}
+  .page-contact .subpage-home-section--contact-entry{padding-top:78px}
   .page-404 .hero-kicker,.page-thank-you .hero-kicker{font-size:15px}
   .subpage-editorial .mobile-menu-trigger{bottom:auto;height:38px}
   .subpage-editorial .mobile-menu-panel{bottom:auto;top:calc(100% + 8px)}
