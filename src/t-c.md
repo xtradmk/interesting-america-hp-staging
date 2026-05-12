@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: T&C
+title: Terms & Conditions
 description: Terms & Conditions
 pageClasses: subpage-home page-terms
 templateEngineOverride: njk
@@ -12,8 +12,7 @@ hero_image2: /images/uploads/hero-maracana-2014.jpg
 hero_caption2: Maracana Stadium, Rio de Janeiro, Brazil · Reference Venue Context
 hero_image3: /images/uploads/hero-santa-monica-ca.jpg
 hero_caption3: Santa Monica, CA · Illustrative destination imagery
-hero_title: INTERESTING AMERICA Standard Commercial Terms
-hero_copy: B2B Hospitality, Accommodation and Related Services
+hero_title: INTERESTING AMERICA<br>Terms of Use and<br>Standard Commercial Terms
 hero_link_label: Contact Us
 hero_link_url: /contact/
 ---
@@ -25,7 +24,7 @@ hero_link_url: /contact/
     <div class="legal-text-block fade">
       <div class="legal-text-flow">
         <p><strong>Effective Date: May 12, 2026</strong></p>
-        <p>These Standard Commercial Terms &amp; Conditions ("Commercial Terms") apply to all business inquiries, quotations, sourcing activities, accommodation arrangements, hospitality services, ground services, ticket-adjacent support, consulting services, and related commercial dealings offered, arranged, or supplied by INTERESTING AMERICA, LLC ("INTERESTING AMERICA," "we," "us," or "our"), unless expressly superseded in a signed writing.</p>
+        <p>These Standard Commercial Terms ("Commercial Terms") apply to all business inquiries, quotations, sourcing activities, accommodation arrangements, hospitality services, ground services, ticket-adjacent support, consulting services, and related commercial dealings offered, arranged, or supplied by INTERESTING AMERICA, LLC ("INTERESTING AMERICA," "we," "us," or "our"), unless expressly superseded in a signed writing.</p>
         <p>These Commercial Terms apply exclusively to business customers and business-related transactions.</p>
 
         <h3>Scope</h3>

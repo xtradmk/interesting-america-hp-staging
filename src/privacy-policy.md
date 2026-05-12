@@ -76,7 +76,7 @@ hero_link_url: /contact/
 
         <h3>Contact Us</h3>
         <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
-        <p><strong>INTERESTING AMERICA, LLC</strong><br>1427 N Wilcox Avenue, 2nd floor, Hollywood, CA 90028-8123 Los Angeles, U.S.A.<br>america[at]interesting.global</p>
+        <p><strong>INTERESTING AMERICA, LLC</strong><br>1427 Wilcox Ave, Hollywood, CA 90028-8123 Los Angeles, U.S.A.<br>america[at]interesting.global</p>
       </div>
     </div>
   </div>
