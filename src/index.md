@@ -57,7 +57,7 @@ hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Ve
   <div class="wrap-wide fade in">
     <div class="hero-copy-block hero-copy-block--home">
       <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
-      <p class="hero-page-copy hero-home-subcopy">
+      <p class="hero-home-subcopy">
         <span>2026 World Cup</span>
         <span>2027 Super Bowl</span>
         <span>2027 Champions League Final</span>
