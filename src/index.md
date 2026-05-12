@@ -57,22 +57,20 @@ hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Ve
   <div class="wrap-wide fade in">
     <div class="hero-copy-block hero-copy-block--home">
       <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
-      <div class="hero-home-reveal">
-        <p class="hero-page-copy hero-home-subcopy">
-          <span>2026 World Cup</span>
-          <span>2027 Super Bowl</span>
-          <span>2027 Champions League Final</span>
-          <span>2028 Summer Olympics</span>
-        </p>
-        <a class="hero-link-cta" href="{{ '/contact/' | url }}">
-          <span class="hero-link-cta__text">Get in Touch</span>
-          <span class="hero-link-cta__icon" aria-hidden="true">
-            <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-              <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
-            </svg>
-          </span>
-        </a>
-      </div>
+      <p class="hero-page-copy hero-home-subcopy">
+        <span>2026 World Cup</span>
+        <span>2027 Super Bowl</span>
+        <span>2027 Champions League Final</span>
+        <span>2028 Summer Olympics</span>
+      </p>
+      <a class="hero-link-cta hero-link-cta--home" href="{{ '/contact/' | url }}">
+        <span class="hero-link-cta__text">Get in Touch</span>
+        <span class="hero-link-cta__icon" aria-hidden="true">
+          <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+            <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+          </svg>
+        </span>
+      </a>
     </div>
   </div>
 
