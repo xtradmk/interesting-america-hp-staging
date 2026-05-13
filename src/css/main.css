@@ -214,11 +214,11 @@ body.subpage-home main{overflow:hidden}
 .subpage-home-rows p{margin:0;max-width:32ch;font-family:var(--sans);font-size:16px;line-height:1.65;color:#556173}
 .subpage-home-legal article{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
 
-.subpage-home-figure{position:relative;margin:0;overflow:hidden;border-radius:28px;border:1px solid rgba(11,16,32,.08);background:#0a0f1b;box-shadow:0 24px 54px rgba(15,23,42,.13)}
-.subpage-home-figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,27,0) 36%,rgba(10,15,27,.54) 100%);pointer-events:none}
+.subpage-home-figure{position:relative;margin:0;overflow:hidden;border-radius:28px;border:none;background:transparent;box-shadow:none}
+.subpage-home-figure::after{display:none}
 .subpage-home-figure img{width:100%;min-height:560px;object-fit:cover;transform:scale(1.035);transition:transform .55s ease}
 .subpage-home-figure:hover img{transform:scale(1.07)}
-.subpage-home-figure figcaption{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;margin:0;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#fff;text-shadow:0 8px 20px rgba(0,0,0,.28)}
+.subpage-home-figure figcaption{display:none}
 
 .subpage-home-contact-grid{grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr)}
 .subpage-home-contact-grid .inquiry-form{padding:28px;border-radius:28px;box-shadow:0 18px 42px rgba(15,23,42,.08)}
@@ -320,11 +320,11 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
 
 .editorial-gallery__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,2.6vw,38px);align-items:end}
 .editorial-gallery__stack{display:grid;gap:22px}
-.editorial-frame{position:relative;overflow:hidden;border-radius:30px;background:#e9e3d8;border:1px solid rgba(11,15,23,.08);box-shadow:0 32px 66px rgba(15,23,42,.08)}
-.editorial-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,11,0) 36%,rgba(5,7,11,.42) 100%);pointer-events:none}
+.editorial-frame{position:relative;overflow:hidden;border-radius:30px;background:transparent;border:none;box-shadow:none}
+.editorial-frame:after{display:none}
 .editorial-frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.045);transition:transform .6s ease}
 .editorial-frame:hover img{transform:scale(1.07)}
-.editorial-frame figcaption{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#fff;text-shadow:0 8px 22px rgba(0,0,0,.35)}
+.editorial-frame figcaption{display:none}
 .editorial-frame--portrait{aspect-ratio:.82}
 .editorial-frame--tall{aspect-ratio:.72}
 .editorial-frame--landscape{aspect-ratio:1.28}
@@ -440,7 +440,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .hero h1,.h1{font-size:clamp(28px,8.4vw,38px);max-width:15ch;min-height:calc(1.08em * 4);line-height:1.08}
   .hero-link-cta{font-size:clamp(20px,7vw,32px);margin-top:1.2em}
   .hero-link-cta--home{margin-top:0}
-  .hero-copy-block--subpage{width:min(560px,90%);padding-top:0;display:grid;justify-items:start;align-content:start;grid-auto-rows:max-content;row-gap:var(--home-hero-gap)}
+  .hero-copy-block--subpage{width:min(560px,90%);padding-top:0;display:grid;justify-items:start;align-content:start;grid-auto-rows:max-content;row-gap:var(--home-hero-gap,16px)}
   .subpage-home .hero-copy-block--subpage .hero-kicker{margin:0;max-width:28ch;font-size:17px;font-weight:400;line-height:1.48;letter-spacing:-.02em;text-transform:none}
   .subpage-home .hero-copy-block--subpage .hero-page-title{margin:0;max-width:15ch;font-size:clamp(28px,8.4vw,38px);line-height:1.08;letter-spacing:-.04em}
   .subpage-home .hero-copy-block--subpage .hero-page-copy{margin:0;max-width:none;font-size:17px;line-height:1.48;letter-spacing:-.02em}
@@ -820,27 +820,21 @@ body.subpage-studio main{
 }
 .studio-image-frame{
   margin:0;
-  background:#fff;
-  border:1px solid #e1e1e1;
+  background:transparent;
+  border:none;
   border-radius:0;
   overflow:hidden;
-  transition:box-shadow .2s ease,border-color .2s ease;
+  transition:none;
 }
 .studio-image-frame:hover{
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  box-shadow:none;
 }
 .studio-image-frame img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
-.studio-image-frame figcaption{
-  padding:12px 16px;
-  font-size:12px;
-  line-height:1.4;
-  color:#a3a3a3;
-  background:#fff;
-}
+.studio-image-frame figcaption{display:none}
 .studio-image-frame--tall{
   aspect-ratio:.78;
 }
