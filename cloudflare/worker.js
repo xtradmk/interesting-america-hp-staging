@@ -14,8 +14,12 @@ const KNOWN_CONTACT_FIELDS = [
   ["request_details", "Request Details"],
   ["decision_deadline", "Decision Deadline"],
 ];
+const KNOWN_NEWSLETTER_FIELDS = [
+  ["email", "Email Address"],
+];
 
 const CONTACT_FIELD_LABELS = new Map(KNOWN_CONTACT_FIELDS);
+const NEWSLETTER_FIELD_LABELS = new Map(KNOWN_NEWSLETTER_FIELDS);
 const REQUIRED_CONTACT_FIELDS = new Set([
   "full_name",
   "company",
@@ -27,6 +31,9 @@ const REQUIRED_CONTACT_FIELDS = new Set([
   "rooms_total",
   "request_details",
 ]);
+const REQUIRED_NEWSLETTER_FIELDS = new Set([
+  "email",
+]);
 const RESERVED_FORM_FIELDS = new Set(["success_path", "company_website"]);
 const MAX_FORM_FIELDS = 50;
 const MAX_FIELD_NAME_LENGTH = 80;
@@ -34,7 +41,6 @@ const MAX_FIELD_VALUE_LENGTH = 1200;
 const TELEGRAM_TEXT_LIMIT = 4000;
 const DISCORD_FIELD_VALUE_LIMIT = 1024;
 const DISCORD_FIELD_NAME_LIMIT = 256;
-const NOTIFICATION_SOURCE = "Website Contact Form";
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const recentSubmissionAttempts = new Map();
@@ -143,8 +149,8 @@ function sanitizeFieldName(rawName) {
   });
 }
 
-function humanizeFieldName(name) {
-  return CONTACT_FIELD_LABELS.get(name)
+function humanizeFieldName(name, fieldLabels = new Map()) {
+  return fieldLabels.get(name)
     || name
       .replace(/[_-]+/g, " ")
       .replace(/\s+/g, " ")
@@ -194,7 +200,7 @@ function consumeRateLimit(clientIp) {
   return { allowed: true };
 }
 
-function renderErrorPage(title, message, returnUrl, status = 500) {
+function renderErrorPage(title, message, returnUrl, status = 500, returnLabel = "Back to the previous page") {
   return htmlResponse(`<!doctype html>
 <html lang="en">
   <head>
@@ -215,14 +221,14 @@ function renderErrorPage(title, message, returnUrl, status = 500) {
       <div class="panel">
         <h1>${escapeHtml(title)}</h1>
         <p>${escapeHtml(message)}</p>
-        <p><a href="${escapeHtml(returnUrl)}">Back to the inquiry form</a></p>
+        <p><a href="${escapeHtml(returnUrl)}">${escapeHtml(returnLabel)}</a></p>
       </div>
     </main>
   </body>
 </html>`, status);
 }
 
-function collectFormFields(formData) {
+function collectFormFields(formData, fieldLabels = new Map()) {
   const fieldsByName = new Map();
 
   for (const [rawName, rawValue] of formData.entries()) {
@@ -249,7 +255,7 @@ function collectFormFields(formData) {
 
     fieldsByName.set(name, {
       name,
-      label: humanizeFieldName(name),
+      label: humanizeFieldName(name, fieldLabels),
       value,
     });
   }
@@ -261,7 +267,7 @@ function fieldsToPayload(fields) {
   return Object.fromEntries(fields.map((field) => [field.name, field.value]));
 }
 
-function validateSubmission(payload) {
+function validateContactSubmission(payload) {
   const missingFields = [...REQUIRED_CONTACT_FIELDS].filter((field) => !payload[field]);
   if (missingFields.length) {
     return {
@@ -290,7 +296,56 @@ function validateSubmission(payload) {
   return { valid: true };
 }
 
-function buildSubmissionRecord(req, fields) {
+function validateNewsletterSubmission(payload) {
+  const missingFields = [...REQUIRED_NEWSLETTER_FIELDS].filter((field) => !payload[field]);
+  if (missingFields.length) {
+    return {
+      valid: false,
+      message: "Please provide your email address.",
+      status: 400,
+    };
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email || "")) {
+    return {
+      valid: false,
+      message: "Please provide a valid email address.",
+      status: 400,
+    };
+  }
+
+  return { valid: true };
+}
+
+const CONTACT_FORM_CONFIG = {
+  eventPrefix: "contact_submission",
+  source: "Website Contact Form",
+  notificationTitle: "New Website Form Submission",
+  fieldLabels: CONTACT_FIELD_LABELS,
+  fallbackReturnPath: "/contact/",
+  returnLabel: "Back to the inquiry form",
+  validationTitle: "Please complete the required fields",
+  configErrorTitle: "Contact notifications are not configured yet",
+  configErrorMessage: "The notification backend is missing required configuration. Please try again later.",
+  deliveryFailureTitle: "We could not deliver your submission",
+  validate: validateContactSubmission,
+};
+
+const NEWSLETTER_FORM_CONFIG = {
+  eventPrefix: "newsletter_submission",
+  source: "Website Footer Newsletter Signup",
+  notificationTitle: "New Website Newsletter Signup",
+  fieldLabels: NEWSLETTER_FIELD_LABELS,
+  fallbackReturnPath: "/",
+  returnLabel: "Back to the previous page",
+  validationTitle: "Please check the email field",
+  configErrorTitle: "Newsletter notifications are not configured yet",
+  configErrorMessage: "The notification backend is missing required configuration. Please try again later.",
+  deliveryFailureTitle: "We could not deliver your signup",
+  validate: validateNewsletterSubmission,
+};
+
+function buildSubmissionRecord(req, fields, formConfig) {
   const referer = sanitizeText(req.headers.get("Referer"), {
     singleLine: true,
     maxLength: 500,
@@ -298,7 +353,9 @@ function buildSubmissionRecord(req, fields) {
 
   return {
     id: crypto.randomUUID(),
-    source: NOTIFICATION_SOURCE,
+    eventPrefix: formConfig.eventPrefix,
+    source: formConfig.source,
+    notificationTitle: formConfig.notificationTitle,
     submittedAt: new Date().toISOString(),
     pageUrl: referer || "",
     clientIp: getClientIp(req),
@@ -310,7 +367,7 @@ function buildSubmissionRecord(req, fields) {
 
 function buildNotificationLines(submission) {
   const headerLines = [
-    "New Website Form Submission",
+    submission.notificationTitle,
     `Source: ${submission.source}`,
     `Submission ID: ${submission.id}`,
     `Submitted: ${submission.submittedAt}`,
@@ -348,10 +405,10 @@ function buildDiscordPayload(submission) {
 
   return {
     allowed_mentions: { parse: [] },
-    content: "New Website Form Submission",
+    content: submission.notificationTitle,
     embeds: [
       {
-        title: "New Website Form Submission",
+        title: submission.notificationTitle,
         description,
         color: 2248278,
         timestamp: submission.submittedAt,
@@ -454,7 +511,7 @@ function getNotificationChannels(env) {
 async function dispatchNotifications(channels, env, submission) {
   const results = await Promise.allSettled(channels.map(async (channel) => {
     const result = await channel.send(env, submission);
-    logEvent("info", "contact_submission_notification_succeeded", {
+    logEvent("info", `${submission.eventPrefix}_notification_succeeded`, {
       submissionId: submission.id,
       channel: channel.name,
       result,
@@ -472,7 +529,7 @@ async function dispatchNotifications(channels, env, submission) {
       message: result.reason instanceof Error ? result.reason.message : "Unknown notification failure.",
     };
 
-    logEvent("error", "contact_submission_notification_failed", {
+    logEvent("error", `${submission.eventPrefix}_notification_failed`, {
       submissionId: submission.id,
       channel: failure.channel,
       message: failure.message,
@@ -495,7 +552,7 @@ async function dispatchNotifications(channels, env, submission) {
   };
 }
 
-async function handleContactSubmit(req, env) {
+async function handleFormSubmission(req, env, formConfig) {
   if (req.method !== "POST") {
     return new Response("Method not allowed", {
       status: 405,
@@ -513,11 +570,11 @@ async function handleContactSubmit(req, env) {
 
   const formData = await req.formData();
   const successPath = String(formData.get("success_path") || "/thank-you/");
-  const returnUrl = getSafeReturnUrl(req, requestOrigin, "/contact/");
+  const returnUrl = getSafeReturnUrl(req, requestOrigin, formConfig.fallbackReturnPath);
   const clientIp = getClientIp(req);
 
   if (String(formData.get("company_website") || "").trim()) {
-    logEvent("info", "contact_submission_honeypot_blocked", {
+    logEvent("info", `${formConfig.eventPrefix}_honeypot_blocked`, {
       clientIp,
     });
     return Response.redirect(buildRedirectUrl(requestOrigin, successPath), 303);
@@ -525,7 +582,7 @@ async function handleContactSubmit(req, env) {
 
   const rateLimit = consumeRateLimit(clientIp);
   if (!rateLimit.allowed) {
-    logEvent("error", "contact_submission_rate_limited", {
+    logEvent("error", `${formConfig.eventPrefix}_rate_limited`, {
       clientIp,
       retryAfterSeconds: rateLimit.retryAfterSeconds,
     });
@@ -534,12 +591,13 @@ async function handleContactSubmit(req, env) {
       "Please wait a few minutes before trying again.",
       returnUrl,
       429,
+      formConfig.returnLabel,
     );
   }
 
-  const fields = collectFormFields(formData);
-  const submission = buildSubmissionRecord(req, fields);
-  logEvent("info", "contact_submission_received", {
+  const fields = collectFormFields(formData, formConfig.fieldLabels);
+  const submission = buildSubmissionRecord(req, fields, formConfig);
+  logEvent("info", `${submission.eventPrefix}_received`, {
     submissionId: submission.id,
     source: submission.source,
     pageUrl: submission.pageUrl,
@@ -547,24 +605,25 @@ async function handleContactSubmit(req, env) {
     fieldCount: submission.fields.length,
   });
 
-  const validation = validateSubmission(submission.payload);
+  const validation = formConfig.validate(submission.payload);
   if (!validation.valid) {
-    logEvent("error", "contact_submission_validation_failed", {
+    logEvent("error", `${submission.eventPrefix}_validation_failed`, {
       submissionId: submission.id,
       clientIp: submission.clientIp,
       message: validation.message,
     });
     return renderErrorPage(
-      "Please complete the required fields",
+      formConfig.validationTitle,
       validation.message,
       returnUrl,
       validation.status,
+      formConfig.returnLabel,
     );
   }
 
   const notificationConfig = getNotificationChannels(env);
   for (const incompleteChannel of notificationConfig.missing) {
-    logEvent("error", "contact_submission_config_missing", {
+    logEvent("error", `${submission.eventPrefix}_config_missing`, {
       submissionId: submission.id,
       channel: incompleteChannel.channel,
       missingConfig: incompleteChannel.missingConfig,
@@ -573,17 +632,18 @@ async function handleContactSubmit(req, env) {
 
   if (!notificationConfig.channels.length) {
     return renderErrorPage(
-      "Contact notifications are not configured yet",
-      "The notification backend is missing required configuration. Please try again later.",
+      formConfig.configErrorTitle,
+      formConfig.configErrorMessage,
       returnUrl,
       500,
+      formConfig.returnLabel,
     );
   }
 
   try {
     const notificationResult = await dispatchNotifications(notificationConfig.channels, env, submission);
     if (notificationResult.failures.length) {
-      logEvent("error", "contact_submission_partial_delivery", {
+      logEvent("error", `${submission.eventPrefix}_partial_delivery`, {
         submissionId: submission.id,
         succeededChannels: notificationResult.succeededChannels,
         failedChannels: notificationResult.failures.map((failure) => failure.channel),
@@ -591,24 +651,33 @@ async function handleContactSubmit(req, env) {
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown notification error.";
-    logEvent("error", "contact_submission_delivery_failed", {
+    logEvent("error", `${submission.eventPrefix}_delivery_failed`, {
       submissionId: submission.id,
       clientIp: submission.clientIp,
       message,
     });
     return renderErrorPage(
-      "We could not deliver your submission",
+      formConfig.deliveryFailureTitle,
       `The notification pipeline returned an error: ${message}`,
       returnUrl,
       502,
+      formConfig.returnLabel,
     );
   }
 
-  logEvent("info", "contact_submission_completed", {
+  logEvent("info", `${submission.eventPrefix}_completed`, {
     submissionId: submission.id,
     clientIp: submission.clientIp,
   });
   return Response.redirect(buildRedirectUrl(requestOrigin, successPath), 303);
+}
+
+async function handleContactSubmit(req, env) {
+  return handleFormSubmission(req, env, CONTACT_FORM_CONFIG);
+}
+
+async function handleNewsletterSubmit(req, env) {
+  return handleFormSubmission(req, env, NEWSLETTER_FORM_CONFIG);
 }
 
 export default {
@@ -617,6 +686,10 @@ export default {
 
     if (url.pathname === "/contact-submit") {
       return handleContactSubmit(req, env);
+    }
+
+    if (url.pathname === "/newsletter-subscribe") {
+      return handleNewsletterSubmit(req, env);
     }
 
     if (url.pathname === "/auth") {

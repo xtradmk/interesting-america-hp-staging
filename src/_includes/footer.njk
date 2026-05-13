@@ -4,7 +4,9 @@
       <div class="footer-signup-row">
         <p class="footer-copy">Sign up now and stay updated about accommodation, transfers, and hospitality at the major global sports events:</p>
 
-        <form class="footer-newsletter" data-newsletter-form aria-label="Newsletter subscription form">
+        <form class="footer-newsletter" data-newsletter-form method="POST" action="{{ integrations.newsletterFormEndpoint }}" aria-label="Newsletter subscription form">
+          <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}">
+          <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
           <label class="footer-newsletter__field" for="footer-newsletter-email">
             <span class="sr-only">Email address</span>
             <input id="footer-newsletter-email" type="email" name="email" autocomplete="email" placeholder="Email address" required>
