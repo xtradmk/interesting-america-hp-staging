@@ -182,7 +182,7 @@ body.subpage-home main{overflow:hidden}
 .page-404 .hero-kicker,.page-thank-you .hero-kicker{margin:0 0 22px;font-size:clamp(18px,1.7vw,24px);font-weight:400;line-height:1.48;letter-spacing:-.02em;text-transform:none}
 .hero-link-cta--static{opacity:1;transform:translateY(0);pointer-events:auto}
 
-.page-thank-you .hero-copy-block--subpage{--home-hero-gap:clamp(18px,1.8vw,24px);display:grid;justify-items:start;align-content:start;grid-auto-rows:max-content;row-gap:var(--home-hero-gap);width:min(560px,92%);padding-top:0}
+.page-thank-you .hero-copy-block--subpage{--home-hero-gap:clamp(18px,1.8vw,24px);display:grid;justify-items:start;align-content:start;grid-template-rows:max-content max-content max-content;row-gap:var(--home-hero-gap);width:min(560px,92%);padding-top:0}
 .page-thank-you .hero-kicker,
 .page-thank-you .hero-page-title,
 .page-thank-you .hero-page-copy,
@@ -455,7 +455,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .subpage-home .hero-copy-block--subpage .hero-page-title{margin:0;max-width:15ch;font-size:clamp(28px,8.4vw,38px);line-height:1.08;letter-spacing:-.04em}
   .subpage-home .hero-copy-block--subpage .hero-page-copy{margin:0;max-width:none;font-size:17px;line-height:1.48;letter-spacing:-.02em}
   .subpage-home .hero-copy-block--subpage .hero-link-cta--static{margin-top:0;font-size:clamp(20px,7vw,32px)}
-  .page-thank-you .hero-copy-block--subpage{--home-hero-gap:16px}
+  .page-thank-you .hero-copy-block--subpage{--home-hero-gap:16px;grid-template-rows:max-content max-content max-content}
   .page-thank-you .hero-kicker,
   .page-thank-you .hero-page-copy{max-width:none;font-size:17px}
   .page-thank-you .hero-page-title{font-size:clamp(28px,8.4vw,38px);line-height:1.08}
