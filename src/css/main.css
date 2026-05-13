@@ -435,12 +435,12 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .grid-2,.grid-3,.grid-4,.stat-row,.clients{grid-template-columns:1fr}
   .hero{height:100svh;min-height:100svh}
   .hero--photo .wrap-wide{min-height:100svh;align-items:center}
-  .hero-copy-block{width:min(560px,90%)}
+  .hero-copy-block{width:min(560px,80%)}
   .hero-copy-block--home{--home-hero-gap:16px;display:grid;justify-items:start;align-content:start;grid-auto-rows:max-content;row-gap:var(--home-hero-gap)}
   .hero h1,.h1{font-size:clamp(28px,8.4vw,38px);max-width:15ch;min-height:calc(1.08em * 4);line-height:1.08}
   .hero-link-cta{font-size:clamp(20px,7vw,32px);margin-top:1.2em}
   .hero-link-cta--home{margin-top:0}
-  .hero-copy-block--subpage{width:min(560px,90%);padding-top:0;display:grid;justify-items:start;align-content:start;grid-auto-rows:max-content;row-gap:var(--home-hero-gap,16px)}
+  .hero-copy-block--subpage{width:min(560px,80%);padding-top:0;display:grid;justify-items:start;align-content:start;grid-auto-rows:max-content;row-gap:var(--home-hero-gap,16px)}
   .subpage-home .hero-copy-block--subpage .hero-kicker{margin:0;max-width:28ch;font-size:17px;font-weight:400;line-height:1.48;letter-spacing:-.02em;text-transform:none}
   .subpage-home .hero-copy-block--subpage .hero-page-title{margin:0;max-width:15ch;font-size:clamp(28px,8.4vw,38px);line-height:1.08;letter-spacing:-.04em}
   .subpage-home .hero-copy-block--subpage .hero-page-copy{margin:0;max-width:none;font-size:17px;line-height:1.48;letter-spacing:-.02em}
