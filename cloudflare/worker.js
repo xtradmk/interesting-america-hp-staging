@@ -389,41 +389,69 @@ async function sendTelegramNotification(env, submission) {
 }
 
 async function sendDiscordNotification(env, submission) {
-  const webhookUrl = new URL(env.DISCORD_WEBHOOK_URL);
-  webhookUrl.searchParams.set("wait", "true");
-
-  const response = await fetch(webhookUrl.toString(), {
+  const response = await fetch(`https://discord.com/api/v10/channels/${env.DISCORD_CHANNEL_ID}/messages`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
     },
     body: JSON.stringify(buildDiscordPayload(submission)),
   });
 
+  const result = await response.json().catch(() => null);
   if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(errorText.slice(0, 200) || `Discord returned ${response.status}`);
+    const errorText = result?.message || `Discord returned ${response.status}`;
+    throw new Error(String(errorText).slice(0, 200));
   }
 
   return {
+    messageId: result?.id,
     status: response.status,
   };
 }
 
-function getMissingNotificationConfig(env) {
-  return [
-    "TELEGRAM_BOT_TOKEN",
-    "TELEGRAM_CHAT_ID",
-    "DISCORD_WEBHOOK_URL",
-  ].filter((key) => !env[key]);
+function getNotificationChannels(env) {
+  const channels = [];
+  const missing = [];
+
+  if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+    channels.push({ name: "telegram", send: sendTelegramNotification });
+  } else if (env.TELEGRAM_BOT_TOKEN || env.TELEGRAM_CHAT_ID) {
+    missing.push({
+      channel: "telegram",
+      missingConfig: [
+        !env.TELEGRAM_BOT_TOKEN ? "TELEGRAM_BOT_TOKEN" : null,
+        !env.TELEGRAM_CHAT_ID ? "TELEGRAM_CHAT_ID" : null,
+      ].filter(Boolean),
+    });
+  } else {
+    missing.push({
+      channel: "telegram",
+      missingConfig: ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID"],
+    });
+  }
+
+  if (env.DISCORD_BOT_TOKEN && env.DISCORD_CHANNEL_ID) {
+    channels.push({ name: "discord", send: sendDiscordNotification });
+  } else if (env.DISCORD_BOT_TOKEN || env.DISCORD_CHANNEL_ID) {
+    missing.push({
+      channel: "discord",
+      missingConfig: [
+        !env.DISCORD_BOT_TOKEN ? "DISCORD_BOT_TOKEN" : null,
+        !env.DISCORD_CHANNEL_ID ? "DISCORD_CHANNEL_ID" : null,
+      ].filter(Boolean),
+    });
+  } else {
+    missing.push({
+      channel: "discord",
+      missingConfig: ["DISCORD_BOT_TOKEN", "DISCORD_CHANNEL_ID"],
+    });
+  }
+
+  return { channels, missing };
 }
 
-async function dispatchNotifications(env, submission) {
-  const channels = [
-    { name: "telegram", send: sendTelegramNotification },
-    { name: "discord", send: sendDiscordNotification },
-  ];
-
+async function dispatchNotifications(channels, env, submission) {
   const results = await Promise.allSettled(channels.map(async (channel) => {
     const result = await channel.send(env, submission);
     logEvent("info", "contact_submission_notification_succeeded", {
@@ -453,9 +481,18 @@ async function dispatchNotifications(env, submission) {
     return [failure];
   });
 
-  if (failures.length) {
+  const succeededChannels = results.flatMap((result, index) => (
+    result.status === "fulfilled" ? [channels[index].name] : []
+  ));
+
+  if (!succeededChannels.length) {
     throw new Error(`Notification delivery failed for: ${failures.map((failure) => failure.channel).join(", ")}`);
   }
+
+  return {
+    succeededChannels,
+    failures,
+  };
 }
 
 async function handleContactSubmit(req, env) {
@@ -525,12 +562,16 @@ async function handleContactSubmit(req, env) {
     );
   }
 
-  const missingNotificationConfig = getMissingNotificationConfig(env);
-  if (missingNotificationConfig.length) {
+  const notificationConfig = getNotificationChannels(env);
+  for (const incompleteChannel of notificationConfig.missing) {
     logEvent("error", "contact_submission_config_missing", {
       submissionId: submission.id,
-      missingConfig: missingNotificationConfig,
+      channel: incompleteChannel.channel,
+      missingConfig: incompleteChannel.missingConfig,
     });
+  }
+
+  if (!notificationConfig.channels.length) {
     return renderErrorPage(
       "Contact notifications are not configured yet",
       "The notification backend is missing required configuration. Please try again later.",
@@ -540,7 +581,14 @@ async function handleContactSubmit(req, env) {
   }
 
   try {
-    await dispatchNotifications(env, submission);
+    const notificationResult = await dispatchNotifications(notificationConfig.channels, env, submission);
+    if (notificationResult.failures.length) {
+      logEvent("error", "contact_submission_partial_delivery", {
+        submissionId: submission.id,
+        succeededChannels: notificationResult.succeededChannels,
+        failedChannels: notificationResult.failures.map((failure) => failure.channel),
+      });
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown notification error.";
     logEvent("error", "contact_submission_delivery_failed", {
