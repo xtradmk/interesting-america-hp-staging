@@ -4,70 +4,122 @@ title: Contact
 description: Contact INTERESTING AMERICA
 pageClasses: subpage-home page-contact
 templateEngineOverride: njk
-hero_dimming_percent: 100
-hero_image1: /images/uploads/hero-colony-hotel-mia.jpg
-hero_caption1: The Colony Hotel*** · Miami Beach, FL
-hero_image2: /images/uploads/hero-dallas-tx.jpg
-hero_caption2: Dallas, TX · 2026 Soccer World Cup Host City
-hero_image3: /images/uploads/hero-st-regis-san-francisco.jpg
-hero_caption3: The St. Regis***** · San Francisco, CA
-hero_kicker: Contact
-hero_title: Send one clean<br>brief. We come back<br>with options<br>you can use.
-hero_copy: "A concise first message is enough to start: event, city, dates, room volume, guest mix, decision timing and any non-negotiables."
-hero_link_label: Jump to Inquiry
-hero_link_url: /contact/#contact-form
 ---
 
 <section class="story-section subpage-home-section subpage-home-section--contact-entry" id="contact-form">
   <div class="wrap-wide">
-    <div class="story-grid subpage-home-contact-grid">
-      <div class="story-static fade">
-        <p class="eyebrow">Contact</p>
-        <h2 class="section-title">One complete brief is enough for us to start moving.</h2>
-        <p class="section-lead">If email is easier than forms, write to <a href="mailto:america@interesting.global">america@interesting.global</a>. Otherwise use the inquiry form below.</p>
+    <div class="contact-funnel fade">
+      <p class="contact-funnel__intro">If email is easier, write to <a href="mailto:america@interesting.global">america@interesting.global</a>. Otherwise use the inquiry form below.</p>
 
-        <form class="panel inquiry-form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}">
-          <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}">
-          <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
+      <form class="contact-funnel__form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}">
+        <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}">
+        <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
 
-          <div class="form-grid">
-            <label>Full Name*<input type="text" name="full_name" required></label>
-            <label>Company*<input type="text" name="company" required></label>
-            <label>Work Email*<input type="email" name="email" required></label>
-            <label>Phone / WhatsApp<input type="text" name="phone"></label>
-            <label>Event*<select name="event" required><option value="" selected disabled>Select event</option><option>FIFA World Cup 2026</option><option>Winter Olympics 2026</option><option>LA Olympics 2028</option><option>Other major event</option></select></label>
-            <label>Host City / Area*<input type="text" name="city_area" required></label>
-            <label>Check-in*<input type="date" name="check_in" required></label>
-            <label>Check-out*<input type="date" name="check_out" required></label>
-            <label>Total Rooms*<input type="number" name="rooms_total" min="1" required></label>
-            <label>Budget per Room / Night (USD)<input type="text" name="budget"></label>
-            <label>Main Guest Mix<select name="guest_mix"><option value="" selected disabled>Select mix</option><option>Sponsor guests + staff</option><option>Media crews + journalists</option><option>Federation + families</option><option>Agency travelers</option><option>Mixed</option></select></label>
-            <label>Required Services<select name="services_scope"><option value="" selected disabled>Select scope</option><option>Hotel only</option><option>Hotel + transfers</option><option>Hotel + hospitality access</option><option>Full package</option></select></label>
-            <label class="form-span-2">Request Details*<textarea name="request_details" rows="6" required placeholder="Room split, level, location priorities, constraints"></textarea></label>
-            <label class="form-span-2">Decision Deadline<input type="text" name="decision_deadline" placeholder="e.g. Friday 16:00 CET"></label>
-          </div>
+        <div class="contact-funnel__grid">
+          <label>
+            <span>Full Name*</span>
+            <input type="text" name="full_name" required>
+          </label>
+          <label>
+            <span>Company*</span>
+            <input type="text" name="company" required>
+          </label>
+          <label>
+            <span>Work Email*</span>
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            <span>Phone / WhatsApp</span>
+            <input type="text" name="phone">
+          </label>
+          <label>
+            <span>Event*</span>
+            <select name="event" required>
+              <option value="" selected disabled>Select event</option>
+              <option>World Cup 2026</option>
+              <option>Women's World Cup 2027</option>
+              <option>Champions League Final 2027</option>
+              <option>Summer Olympics 2028</option>
+              <option>Winter Olympics 2030</option>
+            </select>
+          </label>
+          <label>
+            <span>Host City / Area*</span>
+            <input type="text" name="city_area" required>
+          </label>
+          <label>
+            <span>Check-in*</span>
+            <input type="date" name="check_in" required>
+          </label>
+          <label>
+            <span>Check-out*</span>
+            <input type="date" name="check_out" required>
+          </label>
 
-          <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Submit Inquiry</button>
-            <p class="form-note">Direct email also works: <a href="mailto:america@interesting.global">america@interesting.global</a></p>
-          </div>
-        </form>
-      </div>
+          <label class="contact-funnel__field--full contact-funnel__toggle">
+            <input type="checkbox" name="varying_dates" data-varying-dates-toggle>
+            <span>Check-in and check-out dates are varying across the different rooms</span>
+          </label>
 
-      <div class="story-dynamic fade">
-        <figure class="subpage-home-figure dynamic-media" data-speed="0.14" data-max-offset="30">
-          <img src="{{ '/images/uploads/hero-dallas-tx.jpg' | url }}" alt="Dallas skyline" style="object-position:center 50%;">
-          <figcaption>American host-city context and quick-turn event sourcing</figcaption>
-        </figure>
+          <p class="contact-funnel__hint contact-funnel__field--full" data-varying-dates-note hidden>Please provide the earliest check-in date and the latest check-out date in the form and additional details in the text box below.</p>
 
-        <div class="subpage-home-side-note">
-          <p>Best starting points:</p>
-          <ul class="clean-list">
-            <li>Event, city, dates and room volume</li>
-            <li>Guest mix and target standard</li>
-            <li>Budget band and decision deadline</li>
-          </ul>
+          <label>
+            <span>Total Rooms*</span>
+            <input type="number" name="rooms_total" min="1" required>
+          </label>
+          <label>
+            <span>Budget per Room / Night (USD)</span>
+            <input type="text" name="budget">
+          </label>
+          <label>
+            <span>Main Guest Mix</span>
+            <select name="guest_mix">
+              <option value="" selected disabled>Select mix</option>
+              <option>Sponsor guests + staff</option>
+              <option>Media crews + journalists</option>
+              <option>Federation + families</option>
+              <option>Agency travelers</option>
+              <option>Mixed</option>
+            </select>
+          </label>
+          <label>
+            <span>Required Services</span>
+            <select name="services_scope">
+              <option value="" selected disabled>Select scope</option>
+              <option>Hotel only</option>
+              <option>Hotel + transfers</option>
+              <option>Hotel + hospitality access</option>
+              <option>Full package</option>
+            </select>
+          </label>
+          <label class="contact-funnel__field--full">
+            <span>Request Details*</span>
+            <textarea name="request_details" rows="6" required placeholder="Room split, level, location priorities, constraints, and any varying date details"></textarea>
+          </label>
+          <label class="contact-funnel__field--full">
+            <span>Decision Deadline</span>
+            <input type="text" name="decision_deadline" placeholder="e.g. Friday 16:00 CET">
+          </label>
         </div>
+
+        <div class="contact-funnel__actions">
+          <button class="contact-funnel__submit" type="submit">
+            <span class="hero-link-cta__text">Submit Inquiry</span>
+            <span class="hero-link-cta__icon" aria-hidden="true">
+              <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+                <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </button>
+          <p class="contact-funnel__note">Direct email also works: <a href="mailto:america@interesting.global">america@interesting.global</a></p>
+        </div>
+      </form>
+
+      <div class="contact-funnel__trust" aria-label="SSL secured submission">
+        <svg viewBox="0 0 24 24" role="presentation" focusable="false" aria-hidden="true">
+          <path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 0 1 6 0v3H9Zm3 3a2 2 0 0 1 1 3.732V19h-2v-2.268A2 2 0 0 1 12 13Z" fill="currentColor"></path>
+        </svg>
+        <span>SSL secured submission</span>
       </div>
     </div>
   </div>

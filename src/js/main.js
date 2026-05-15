@@ -314,6 +314,19 @@
     close();
   };
 
+  const initContactFormToggles = () => {
+    const toggle = document.querySelector('[data-varying-dates-toggle]');
+    const note = document.querySelector('[data-varying-dates-note]');
+    if (!toggle || !note) return;
+
+    const sync = () => {
+      note.hidden = !toggle.checked;
+    };
+
+    toggle.addEventListener('change', sync);
+    sync();
+  };
+
   const initErrorPage = () => {
     if (!document.body.classList.contains('page-404')) return;
 
@@ -351,5 +364,6 @@
   initHeroSlider();
   runTypewriter();
   initMobileMenu();
+  initContactFormToggles();
   initErrorPage();
 })();
