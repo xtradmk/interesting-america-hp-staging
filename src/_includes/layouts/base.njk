@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.url == '/' %}{{ site.name }}{% elif title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
   <meta name="description" content="{{ description or site.description }}">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ '/images/uploads/favicon-512.png' | url }}">
+  <link rel="shortcut icon" href="{{ '/images/uploads/favicon-512.png' | url }}">
+  <link rel="apple-touch-icon" href="{{ '/images/uploads/favicon-512.png' | url }}">
   
   <link rel="stylesheet" href="{{ '/css/main.css' | url }}?v=20260515-13">
   <link rel="preload" as="image" href="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}">
