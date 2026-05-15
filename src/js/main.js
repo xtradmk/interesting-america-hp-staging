@@ -85,8 +85,8 @@
 
       const rect = el.getBoundingClientRect();
       const start = window.innerHeight * 0.86;
-      const end = -rect.height * 0.22;
-      const progress = clamp((start - rect.top) / (start - end), 0, 1);
+      const endTop = window.innerHeight * 0.5 - rect.height;
+      const progress = clamp((start - rect.top) / (start - endTop), 0, 1);
       const scaled = progress * (chars.length + 3);
 
       chars.forEach((char, index) => {
