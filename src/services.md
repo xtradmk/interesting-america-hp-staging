@@ -21,25 +21,71 @@ hero_link_url: /contact/
 
 <section class="story-section story-section--reverse subpage-home-section" id="services-content">
   <div class="wrap-wide">
-    <div class="services-showcase">
-      <figure class="services-showcase__media dynamic-media" data-speed="0.14" data-max-offset="30">
-        <img src="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}" alt="Interior of the Marriott Marquis in Atlanta" style="object-position:center 38%;">
-      </figure>
+    <div class="services-showcase-stack">
+      <div class="services-showcase">
+        <figure class="services-showcase__media dynamic-media" data-speed="0.18" data-max-offset="39">
+          <img src="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}" alt="Interior of the Marriott Marquis in Atlanta" style="object-position:center 38%;">
+        </figure>
 
-      <div class="services-showcase__content">
-        <h2 class="services-showcase__headline" data-letter-reveal>
-          We secure rooms for your groups at major global sports events.
-        </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <div class="services-showcase__content">
+          <h2 class="services-showcase__headline" data-letter-reveal>
+            We secure rooms for your groups at major global sports events.
+          </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
-        <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">
-          <span class="hero-link-cta__text">Get in Touch</span>
-          <span class="hero-link-cta__icon" aria-hidden="true">
-            <svg viewBox="0 0 19 19" role="presentation" focusable="false">
-              <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
-            </svg>
-          </span>
-        </a>
+          <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">
+            <span class="hero-link-cta__text">Get in Touch</span>
+            <span class="hero-link-cta__icon" aria-hidden="true">
+              <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+                <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="services-showcase services-showcase--reverse">
+        <figure class="services-showcase__media dynamic-media" data-speed="0.18" data-max-offset="39">
+          <img src="{{ '/images/uploads/hero-sofi-2025.jpg' | url }}" alt="Exterior stadium context in Inglewood" style="object-position:center 42%;">
+        </figure>
+
+        <div class="services-showcase__content">
+          <h2 class="services-showcase__headline" data-letter-reveal>
+            We also transfer your staff and guests. On arrival, on departure, and on match day.
+          </h2>
+          <p>We provide reliable air and ground transportation tailored to the demands of sports events. From airport pickups, shuttle services to hotel-to-stadium transfers, we focus on understanding your needs and delivering solutions that cover every aspect of your event. Whether you require precision logistics for a global championship or a smaller, highly customized setup, we handle pre-event and post-event travel end to end. Sedans, SUVs, minibuses, and motor coaches available.</p>
+
+          <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">
+            <span class="hero-link-cta__text">Get in Touch</span>
+            <span class="hero-link-cta__icon" aria-hidden="true">
+              <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+                <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="services-showcase">
+        <figure class="services-showcase__media dynamic-media" data-speed="0.18" data-max-offset="39">
+          <img src="{{ '/images/uploads/hero-colony-hotel-mia.jpg' | url }}" alt="Hospitality setting in Miami Beach" style="object-position:center 42%;">
+        </figure>
+
+        <div class="services-showcase__content">
+          <h2 class="services-showcase__headline" data-letter-reveal>
+            And on your behalf, we get access to hospitality: tickets and tables at the finest venues in town.
+          </h2>
+          <p>We offer a wide range of hospitality services – restaurant bookings, on-site catering, and city tours. We present a hospitality concept tailored to your specific needs, budget, and the event’s setting.</p>
+
+          <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">
+            <span class="hero-link-cta__text">Get in Touch</span>
+            <span class="hero-link-cta__icon" aria-hidden="true">
+              <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+                <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
