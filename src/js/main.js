@@ -11,20 +11,36 @@
   const parallaxItems = Array.from(document.querySelectorAll('.dynamic-media'));
   const letterRevealBlocks = Array.from(document.querySelectorAll('[data-letter-reveal]')).map((el) => {
     const fragment = document.createDocumentFragment();
+    const appendWord = (word) => {
+      if (!word) return;
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'letter-reveal-word';
+
+      Array.from(word).forEach((char) => {
+        const span = document.createElement('span');
+        span.className = 'letter-reveal-char';
+        span.textContent = char;
+        wordSpan.appendChild(span);
+      });
+
+      fragment.appendChild(wordSpan);
+    };
 
     Array.from(el.childNodes).forEach((node) => {
       if (node.nodeType === Node.TEXT_NODE) {
+        let currentWord = '';
+
         Array.from(node.textContent).forEach((char) => {
-          const span = document.createElement('span');
-          span.className = 'letter-reveal-char';
           if (char === ' ') {
-            span.innerHTML = '&nbsp;';
-            span.dataset.space = 'true';
+            appendWord(currentWord);
+            currentWord = '';
+            fragment.appendChild(document.createTextNode(' '));
           } else {
-            span.textContent = char;
+            currentWord += char;
           }
-          fragment.appendChild(span);
         });
+
+        appendWord(currentWord);
         return;
       }
 
@@ -37,7 +53,7 @@
 
     return {
       el,
-      chars: Array.from(el.querySelectorAll('.letter-reveal-char')).filter((char) => char.dataset.space !== 'true')
+      chars: Array.from(el.querySelectorAll('.letter-reveal-char'))
     };
   });
 

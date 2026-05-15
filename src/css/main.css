@@ -238,6 +238,7 @@ body.subpage-home main{overflow:hidden}
 .services-showcase__media:hover img{transform:scale(1.07)}
 .services-showcase__content{grid-area:content;display:grid;align-content:start;justify-items:start;row-gap:clamp(18px,2.4vw,28px);padding-top:clamp(12px,.8vw,18px)}
 .services-showcase__headline{margin:0;max-width:none;font-family:var(--sans);font-size:clamp(38px,4.35vw,66px);line-height:.95;font-weight:500;letter-spacing:-.058em;color:#cfd4da;text-wrap:pretty;word-break:normal;overflow-wrap:normal;hyphens:none}
+.services-showcase__headline .letter-reveal-word{display:inline-block;white-space:nowrap}
 .services-showcase__headline .letter-reveal-char{display:inline-block;color:#cfd4da;transition:color .28s ease}
 .services-showcase__content p{margin:0;max-width:none;font-family:var(--sans);font-size:clamp(16px,1.28vw,20px);line-height:1.72;letter-spacing:-.012em;color:#0b1020}
 .services-showcase__cta{margin-top:clamp(6px,.7vw,10px);font-size:clamp(22px,2.8vw,36px);line-height:1.02;letter-spacing:-.04em;color:#0b1020;text-decoration:none !important}
