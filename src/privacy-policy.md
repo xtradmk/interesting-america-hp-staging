@@ -12,6 +12,10 @@ hero_image2: /images/uploads/hero-dallas-tx.jpg
 hero_caption2: Dallas, TX · 2026 Soccer World Cup Host City
 hero_image3: /images/uploads/hero-santa-monica-ca.jpg
 hero_caption3: Santa Monica, CA · Illustrative destination imagery
+hero_image4: /images/uploads/hero-paris-stadium.jpg
+hero_caption4: Stade de France, Paris, France · Summer Olympics 2024
+hero_image5: /images/uploads/hero-southafrica.jpeg
+hero_caption5: Soccer City Stadium, Johannesburg, South Africa · World Cup 2010
 hero_title: Privacy Policy<br>for website use,<br>contact forms,<br>and newsletter signups.
 hero_copy: How we collect, use, disclose, and safeguard information when you visit this website or communicate with us.
 hero_link_label: Contact Us

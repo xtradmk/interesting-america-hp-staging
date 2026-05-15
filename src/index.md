@@ -19,6 +19,10 @@ hero_image7: /images/uploads/hero-colony-hotel-mia.jpg
 hero_caption7: The Colony Hotel*** · Miami Beach, FL
 hero_image8: /images/uploads/hero-sofi-2025.jpg
 hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Venue
+hero_image9: /images/uploads/hero-paris-stadium.jpg
+hero_caption9: Stade de France, Paris, France · Summer Olympics 2024
+hero_image10: /images/uploads/hero-southafrica.jpeg
+hero_caption10: Soccer City Stadium, Johannesburg, South Africa · World Cup 2010
 ---
 
 <section class="hero section hero--photo" id="home"
@@ -38,7 +42,11 @@ hero_caption8: 2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Ve
   data-image7="{{ hero_image7 | url }}"
   data-caption7="{{ hero_caption7 }}"
   data-image8="{{ hero_image8 | url }}"
-  data-caption8="{{ hero_caption8 }}">
+  data-caption8="{{ hero_caption8 }}"
+  data-image9="{{ hero_image9 | url }}"
+  data-caption9="{{ hero_caption9 }}"
+  data-image10="{{ hero_image10 | url }}"
+  data-caption10="{{ hero_caption10 }}">
   <div class="hero-bg-track" aria-hidden="true">
     <div class="hero-bg hero-bg--active" style="background-image:url('{{ hero_image1 | url }}')"></div>
     <div class="hero-bg hero-bg--next" style="background-image:url('{{ hero_image2 | url }}')"></div>

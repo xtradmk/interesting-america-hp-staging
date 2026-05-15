@@ -7,7 +7,9 @@
   {% if hero_image3 %}data-image3="{{ hero_image3 | url }}"{% endif %}
   {% if hero_caption3 %}data-caption3="{{ hero_caption3 }}"{% endif %}
   {% if hero_image4 %}data-image4="{{ hero_image4 | url }}"{% endif %}
-  {% if hero_caption4 %}data-caption4="{{ hero_caption4 }}"{% endif %}>
+  {% if hero_caption4 %}data-caption4="{{ hero_caption4 }}"{% endif %}
+  {% if hero_image5 %}data-image5="{{ hero_image5 | url }}"{% endif %}
+  {% if hero_caption5 %}data-caption5="{{ hero_caption5 }}"{% endif %}>
   <div class="hero-bg-track" aria-hidden="true">
     <div class="hero-bg hero-bg--active" style="background-image:url('{{ hero_image1 | url }}')"></div>
     <div class="hero-bg hero-bg--next" style="background-image:url('{{ (hero_image2 or hero_image1) | url }}')"></div>
@@ -15,6 +17,7 @@
     {% if hero_image2 %}<div class="hero-bg hero-bg--css hero-bg--2" style="background-image:url('{{ hero_image2 | url }}')"></div>{% endif %}
     {% if hero_image3 %}<div class="hero-bg hero-bg--css hero-bg--3" style="background-image:url('{{ hero_image3 | url }}')"></div>{% endif %}
     {% if hero_image4 %}<div class="hero-bg hero-bg--css hero-bg--4" style="background-image:url('{{ hero_image4 | url }}')"></div>{% endif %}
+    {% if hero_image5 %}<div class="hero-bg hero-bg--css hero-bg--5" style="background-image:url('{{ hero_image5 | url }}')"></div>{% endif %}
     <div class="hero-bg-overlay"></div>
   </div>
 

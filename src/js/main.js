@@ -122,7 +122,9 @@
       { image: hero.dataset.image5, caption: hero.dataset.caption5 || 'Santa Monica, CA' },
       { image: hero.dataset.image6, caption: hero.dataset.caption6 || 'Maracana Stadium, Rio de Janiero, Brazil · 2014 World Cup Final Venue' },
       { image: hero.dataset.image7, caption: hero.dataset.caption7 || 'The Colony Hotel*** · Miami Beach, FL' },
-      { image: hero.dataset.image8, caption: hero.dataset.caption8 || '2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Venue' }
+      { image: hero.dataset.image8, caption: hero.dataset.caption8 || '2028 Stadium, Inglewood, CA · Olympic Ceremonies and Swimming Venue' },
+      { image: hero.dataset.image9, caption: hero.dataset.caption9 || 'Stade de France, Paris, France · Summer Olympics 2024' },
+      { image: hero.dataset.image10, caption: hero.dataset.caption10 || 'Soccer City Stadium, Johannesburg, South Africa · World Cup 2010' }
     ].filter((slide) => slide.image);
 
     if (!slides.length) return;
