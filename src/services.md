@@ -62,8 +62,8 @@ hero_link_url: /contact/
             We also transfer your staff and guests. On arrival, on departure, and on match day.
           </h2>
           <div class="services-showcase__copy">
-            <p>We provide reliable air and ground transportation tailored to the demands of sports events. From airport pickups, shuttle services to hotel-to-stadium transfers, we focus on understanding your needs and delivering solutions that cover every aspect of your event.</p>
-            <p>Whether you require precision logistics for a global championship or a smaller, highly customized setup, we handle pre-event and post-event travel end to end. Sedans, SUVs, minibuses, and motor coaches available.</p>
+            <p>We provide reliable air and ground transportation tailored to the demands of sports events. From airport pickups and shuttle services to hotel-to-stadium transfers, we focus on understanding your needs and delivering solutions that cover every aspect of your event.</p>
+            <p>Whether you require precision logistics for a global championship or a smaller, highly customized setup, we handle pre-event and post-event travel end to end.</p>
           </div>
 
           <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">
@@ -87,8 +87,7 @@ hero_link_url: /contact/
             And on your behalf, we get access to hospitality: tickets and tables at the finest venues in town.
           </h2>
           <div class="services-showcase__copy">
-            <p>We offer a wide range of hospitality services – restaurant bookings, on-site catering, and city tours.</p>
-            <p>We present a hospitality concept tailored to your specific needs, budget, and the event’s setting.</p>
+            <p>From restaurant bookings and on-site catering to city tours, we offer a wide range of hospitality services. We present you with a hospitality concept shaped around your event, your guests, and your budget to create meaningful and memorable experiences for your groups between match days.</p>
           </div>
 
           <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">
