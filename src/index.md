@@ -2,6 +2,7 @@
 layout: base.njk
 title: INTERESTING AMERICA
 description: Accommodation, transfers and hospitality for major global sports events.
+pageClasses: page-home
 hero_dimming_percent: 100
 hero_image1: /images/uploads/hero-atl-marriott-marquis.jpg
 hero_caption1: Marriott Marquis**** · Atlanta, GA
