@@ -513,7 +513,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   main{padding-bottom:90px}
   .page-home main,
   .page-404 main,
-  .page-thank-you main{padding-bottom:0}
+  .page-thank-you main{padding-bottom:90px;background:#000}
   .site-footer{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
   .footer-signup-row{grid-template-columns:1fr;align-items:start}
   .footer-bottom__main{grid-template-columns:1fr;gap:18px}
