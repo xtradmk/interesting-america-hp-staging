@@ -230,6 +230,16 @@ body.subpage-home main{overflow:hidden}
 .subpage-home-figure:hover img{transform:scale(1.07)}
 .subpage-home-figure figcaption{display:none}
 
+.services-showcase{display:grid;grid-template-columns:minmax(220px,.76fr) minmax(0,1.24fr);grid-template-areas:"media headline" ". body";column-gap:clamp(30px,4.5vw,82px);row-gap:clamp(28px,3.6vw,44px);align-items:start}
+.services-showcase__media{grid-area:media;position:relative;margin:0;overflow:hidden;border-radius:28px;aspect-ratio:4 / 5;background:#e8eaee}
+.services-showcase__media img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.035);transition:transform .55s ease}
+.services-showcase__media:hover img{transform:scale(1.07)}
+.services-showcase__headline-wrap{grid-area:headline;align-self:center}
+.services-showcase__headline{margin:0;max-width:11ch;font-family:var(--sans);font-size:clamp(38px,4.35vw,66px);line-height:.95;font-weight:500;letter-spacing:-.058em;color:#cfd4da;text-wrap:balance}
+.services-showcase__headline .letter-reveal-char{display:inline-block;color:#cfd4da;transition:color .28s ease}
+.services-showcase__body{grid-area:body;max-width:68ch}
+.services-showcase__body p{margin:0;font-family:var(--sans);font-size:clamp(16px,1.28vw,20px);line-height:1.72;letter-spacing:-.012em;color:#0b1020}
+
 .subpage-home-contact-grid{grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr)}
 .subpage-home-contact-grid .inquiry-form{padding:28px;border-radius:28px;box-shadow:0 18px 42px rgba(15,23,42,.08)}
 .subpage-home-contact-grid .form-grid label{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:-.01em;color:#1b2431}
@@ -463,6 +473,11 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .page-terms .hero-mobile-hide{display:none}
   .hero-home-subcopy{max-width:none;font-size:17px}
   .page-contact .subpage-home-section--contact-entry{padding-top:92px}
+  .services-showcase{grid-template-columns:1fr;grid-template-areas:"headline" "media" "body";row-gap:24px}
+  .services-showcase__headline{max-width:none;font-size:clamp(32px,10vw,44px);line-height:1.02}
+  .services-showcase__media{max-width:min(360px,100%);aspect-ratio:4 / 5}
+  .services-showcase__body{max-width:none}
+  .services-showcase__body p{font-size:17px;line-height:1.68}
   .hero-photo-caption{display:none}
   .hero-slider-ui{display:none}
   .placeholder-media{min-height:260px}

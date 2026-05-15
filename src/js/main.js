@@ -9,6 +9,37 @@
 
   const header = document.querySelector('.site-header');
   const parallaxItems = Array.from(document.querySelectorAll('.dynamic-media'));
+  const letterRevealBlocks = Array.from(document.querySelectorAll('[data-letter-reveal]')).map((el) => {
+    const fragment = document.createDocumentFragment();
+
+    Array.from(el.childNodes).forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        Array.from(node.textContent).forEach((char) => {
+          const span = document.createElement('span');
+          span.className = 'letter-reveal-char';
+          if (char === ' ') {
+            span.innerHTML = '&nbsp;';
+            span.dataset.space = 'true';
+          } else {
+            span.textContent = char;
+          }
+          fragment.appendChild(span);
+        });
+        return;
+      }
+
+      if (node.nodeName === 'BR') {
+        fragment.appendChild(document.createElement('br'));
+      }
+    });
+
+    el.replaceChildren(fragment);
+
+    return {
+      el,
+      chars: Array.from(el.querySelectorAll('.letter-reveal-char')).filter((char) => char.dataset.space !== 'true')
+    };
+  });
 
   const syncHeaderState = () => {
     if (!header) return;
@@ -27,13 +58,42 @@
     });
   };
 
+  const syncLetterReveal = () => {
+    if (!letterRevealBlocks.length) return;
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const mix = (from, to, progress) => Math.round(from + (to - from) * progress);
+
+    letterRevealBlocks.forEach(({ el, chars }) => {
+      if (!chars.length) return;
+
+      const rect = el.getBoundingClientRect();
+      const start = window.innerHeight * 0.86;
+      const end = -rect.height * 0.22;
+      const progress = clamp((start - rect.top) / (start - end), 0, 1);
+      const scaled = progress * (chars.length + 3);
+
+      chars.forEach((char, index) => {
+        const charProgress = clamp(scaled - index, 0, 1);
+        const r = mix(207, 11, charProgress);
+        const g = mix(212, 16, charProgress);
+        const b = mix(218, 32, charProgress);
+        char.style.color = `rgb(${r}, ${g}, ${b})`;
+      });
+    });
+  };
+
   const onScroll = () => {
     syncHeaderState();
     syncParallax();
+    syncLetterReveal();
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', syncParallax, { passive: true });
+  window.addEventListener('resize', () => {
+    syncParallax();
+    syncLetterReveal();
+  }, { passive: true });
 
   const initHeroSlider = () => {
     const hero = document.querySelector('.hero--photo');
@@ -275,6 +335,7 @@
 
   syncHeaderState();
   syncParallax();
+  syncLetterReveal();
   initHeroSlider();
   runTypewriter();
   initMobileMenu();

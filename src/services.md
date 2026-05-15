@@ -21,33 +21,19 @@ hero_link_url: /contact/
 
 <section class="story-section story-section--reverse subpage-home-section" id="services-content">
   <div class="wrap-wide">
-    <div class="story-grid">
-      <div class="story-dynamic fade">
-        <figure class="subpage-home-figure dynamic-media" data-speed="0.14" data-max-offset="30">
-          <img src="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}" alt="Interior of the Marriott Marquis in Atlanta" style="object-position:center 38%;">
-          <figcaption>Hotel sourcing, guest flow and stay execution</figcaption>
-        </figure>
+    <div class="services-showcase">
+      <figure class="services-showcase__media dynamic-media" data-speed="0.14" data-max-offset="30">
+        <img src="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}" alt="Interior of the Marriott Marquis in Atlanta" style="object-position:center 38%;">
+      </figure>
+
+      <div class="services-showcase__headline-wrap">
+        <h2 class="services-showcase__headline" data-letter-reveal>
+          We secure rooms<br>for your groups<br>at major global<br>sports events.
+        </h2>
       </div>
 
-      <div class="story-static fade">
-        <p class="eyebrow">Services</p>
-        <h2 class="section-title">Each service line works better when the whole week is considered together.</h2>
-        <p class="section-lead">We build hotel, transfer and hospitality decisions as one operating system instead of separate handoffs.</p>
-
-        <div class="subpage-home-rows">
-          <article>
-            <h3>Hotel Brokerage</h3>
-            <p>Room blocks shaped around venue logic, guest level, flexibility, and timing pressure.</p>
-          </article>
-          <article>
-            <h3>Transfers</h3>
-            <p>Arrival, departure and event-day movement planned to support the stay rather than complicate it.</p>
-          </article>
-          <article>
-            <h3>Hospitality Access</h3>
-            <p>Premium pathways for programs where guest-facing experience matters as much as logistics.</p>
-          </article>
-        </div>
+      <div class="services-showcase__body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </div>
     </div>
   </div>
