@@ -28,19 +28,13 @@
 
     Array.from(el.childNodes).forEach((node) => {
       if (node.nodeType === Node.TEXT_NODE) {
-        let currentWord = '';
+        const normalizedText = node.textContent.replace(/\s+/g, ' ').trim();
+        if (!normalizedText) return;
 
-        Array.from(node.textContent).forEach((char) => {
-          if (char === ' ') {
-            appendWord(currentWord);
-            currentWord = '';
-            fragment.appendChild(document.createTextNode(' '));
-          } else {
-            currentWord += char;
-          }
+        normalizedText.split(' ').forEach((word, index) => {
+          if (index > 0) fragment.appendChild(document.createTextNode(' '));
+          appendWord(word);
         });
-
-        appendWord(currentWord);
         return;
       }
 
