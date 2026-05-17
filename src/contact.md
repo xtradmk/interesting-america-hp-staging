@@ -18,19 +18,19 @@ templateEngineOverride: njk
         <div class="contact-funnel__grid">
           <label>
             <span>Full Name*</span>
-            <input type="text" name="full_name" required>
+            <input type="text" name="full_name" placeholder="Jane Doe" required>
           </label>
           <label>
             <span>Company*</span>
-            <input type="text" name="company" required>
+            <input type="text" name="company" placeholder="Agency, federation, brand" required>
           </label>
           <label>
             <span>Work Email*</span>
-            <input type="email" name="email" required>
+            <input type="email" name="email" placeholder="name@company.com" required>
           </label>
           <label>
             <span>Phone / WhatsApp</span>
-            <input type="text" name="phone">
+            <input type="text" name="phone" placeholder="+1 310 555 0124">
           </label>
           <label>
             <span>Event*</span>
@@ -45,7 +45,7 @@ templateEngineOverride: njk
           </label>
           <label>
             <span>Host City / Area*</span>
-            <input type="text" name="city_area" required>
+            <input type="text" name="city_area" placeholder="e.g. Los Angeles" required>
           </label>
           <label>
             <span>Check-in*</span>
@@ -65,11 +65,11 @@ templateEngineOverride: njk
 
           <label>
             <span>Total Rooms*</span>
-            <input type="number" name="rooms_total" min="1" required>
+            <input type="number" name="rooms_total" min="1" placeholder="e.g. 40" required>
           </label>
           <label>
             <span>Budget per Room / Night (USD)</span>
-            <input type="text" name="budget">
+            <input type="text" name="budget" placeholder="e.g. 450">
           </label>
           <label>
             <span>Main Guest Mix</span>
@@ -86,9 +86,9 @@ templateEngineOverride: njk
             <span>Required Services</span>
             <select name="services_scope">
               <option value="" selected disabled>Select scope</option>
-              <option>Hotel only</option>
-              <option>Hotel + transfers</option>
-              <option>Hotel + hospitality access</option>
+              <option>Accommodation only</option>
+              <option>Accommodation + transfers</option>
+              <option>Accommodation + hospitality access</option>
               <option>Full package</option>
             </select>
           </label>

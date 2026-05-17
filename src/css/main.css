@@ -252,16 +252,18 @@ body.subpage-home main{overflow:hidden}
 .contact-funnel__form{width:min(760px,100%);display:grid;gap:clamp(28px,3vw,38px)}
 .contact-funnel__grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px}
 .contact-funnel__grid label{display:block}
-.contact-funnel__grid label span{display:block;margin-bottom:10px;font-family:var(--sans);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:#667085}
+.contact-funnel__grid label span{display:block;margin-bottom:10px;font-family:var(--sans);font-size:15px;font-weight:500;line-height:1.2;letter-spacing:-.02em;text-transform:none;color:#0b1020}
 .contact-funnel__grid input,
 .contact-funnel__grid select,
-.contact-funnel__grid textarea{width:100%;padding:0 0 14px;border:none;border-bottom:1px solid rgba(11,16,32,.16);border-radius:0;background:transparent;font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.45;letter-spacing:-.02em;color:#0b1020;-webkit-appearance:none;appearance:none;transition:border-color .2s ease,box-shadow .2s ease}
+.contact-funnel__grid textarea{width:100%;padding:16px 18px;border:1px solid #d5d9df;border-radius:18px;background:#f6f7f8;font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.45;letter-spacing:-.02em;color:#0b1020;-webkit-appearance:none;appearance:none;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
 .contact-funnel__grid input::placeholder,
-.contact-funnel__grid textarea::placeholder{color:#8f98a6}
-.contact-funnel__grid textarea{min-height:156px;resize:vertical;padding-top:2px}
+.contact-funnel__grid textarea::placeholder{color:#8f98a6;font-family:var(--sans);font-weight:400}
+.contact-funnel__grid textarea{min-height:156px;resize:vertical}
+.contact-funnel__grid select:invalid{color:#8f98a6}
+.contact-funnel__grid select option{color:#0b1020}
 .contact-funnel__grid input:focus,
 .contact-funnel__grid select:focus,
-.contact-funnel__grid textarea:focus{outline:none;border-bottom-color:#0b1020;box-shadow:0 1px 0 0 #0b1020}
+.contact-funnel__grid textarea:focus{outline:none;border-color:#0b1020;box-shadow:0 0 0 4px rgba(11,16,32,.06);background:#fff}
 .contact-funnel__field--full{grid-column:1 / -1}
 .contact-funnel__toggle{display:flex !important;align-items:flex-start;gap:14px;padding-top:2px}
 .contact-funnel__toggle input{width:18px;height:18px;min-width:18px;margin:2px 0 0;padding:0;border:1px solid rgba(11,16,32,.24);border-radius:4px;background:#fff;box-shadow:none;accent-color:#0b1020}
