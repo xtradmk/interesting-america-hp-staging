@@ -41,6 +41,7 @@ templateEngineOverride: njk
               <option>Champions League Final 2027</option>
               <option>Summer Olympics 2028</option>
               <option>Winter Olympics 2030</option>
+              <option>Other</option>
             </select>
           </label>
           <label>
