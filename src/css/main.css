@@ -266,7 +266,11 @@ body.subpage-home main{overflow:hidden}
 .contact-funnel__grid textarea:focus{outline:none;border-color:#0b1020;box-shadow:0 0 0 4px rgba(11,16,32,.06);background:#fff}
 .contact-funnel__field--full{grid-column:1 / -1}
 .contact-funnel__toggle{display:flex !important;align-items:flex-start;gap:14px;padding-top:2px}
-.contact-funnel__toggle input{width:18px;height:18px;min-width:18px;margin:2px 0 0;padding:0;border:1px solid rgba(11,16,32,.24);border-radius:4px;background:#fff;box-shadow:none;accent-color:#0b1020}
+.contact-funnel__toggle input{position:relative;display:grid;place-items:center;width:18px;height:18px;min-width:18px;margin:2px 0 0;padding:0;border:1px solid rgba(11,16,32,.24);border-radius:4px;background:#fff;box-shadow:none;-webkit-appearance:none;appearance:none;cursor:pointer}
+.contact-funnel__toggle input::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transform-origin:center;transition:transform .16s ease}
+.contact-funnel__toggle input:checked{background:#0b1020;border-color:#0b1020}
+.contact-funnel__toggle input:checked::after{transform:rotate(45deg) scale(1)}
+.contact-funnel__toggle input:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(11,16,32,.08)}
 .contact-funnel__toggle span{margin:0 !important;font-size:15px !important;font-weight:400 !important;line-height:1.5 !important;letter-spacing:-.015em !important;text-transform:none !important;color:#0b1020 !important}
 .contact-funnel__hint{margin:-10px 0 0;font-family:var(--sans);font-size:15px;line-height:1.6;letter-spacing:-.015em;color:#5a6472}
 .contact-funnel__actions{display:grid;gap:14px;justify-items:center;padding-top:6px}
