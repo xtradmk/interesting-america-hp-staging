@@ -13,6 +13,7 @@ const KNOWN_CONTACT_FIELDS = [
   ["services_scope", "Required Services"],
   ["request_details", "Request Details"],
   ["decision_deadline", "Decision Deadline"],
+  ["accept_legal", "Accepted Terms and Privacy"],
 ];
 const KNOWN_NEWSLETTER_FIELDS = [
   ["email", "Email Address"],
@@ -30,6 +31,7 @@ const REQUIRED_CONTACT_FIELDS = new Set([
   "check_out",
   "rooms_total",
   "request_details",
+  "accept_legal",
 ]);
 const REQUIRED_NEWSLETTER_FIELDS = new Set([
   "email",
@@ -268,6 +270,14 @@ function fieldsToPayload(fields) {
 }
 
 function validateContactSubmission(payload) {
+  if (!payload.accept_legal) {
+    return {
+      valid: false,
+      message: "Please accept the Terms and Conditions and Privacy Policy before submitting.",
+      status: 400,
+    };
+  }
+
   const missingFields = [...REQUIRED_CONTACT_FIELDS].filter((field) => !payload[field]);
   if (missingFields.length) {
     return {

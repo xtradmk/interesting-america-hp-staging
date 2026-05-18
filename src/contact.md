@@ -105,7 +105,7 @@ templateEngineOverride: njk
           <div class="contact-funnel__field--full contact-funnel__toggle contact-funnel__toggle--legal">
             <input id="accept-legal" type="checkbox" name="accept_legal" required>
             <label for="accept-legal">
-              <span>I accept the <button type="button" class="contact-funnel__legal-link" data-open-legal="terms">Terms and Conditions</button> and <button type="button" class="contact-funnel__legal-link" data-open-legal="privacy">Privacy Policy</button>.</span>
+              <span>I accept the <button type="button" class="contact-funnel__legal-link" data-open-legal="terms">Terms and Conditions</button> and <button type="button" class="contact-funnel__legal-link" data-open-legal="privacy">Privacy Policy</button>.*</span>
             </label>
           </div>
         </div>
