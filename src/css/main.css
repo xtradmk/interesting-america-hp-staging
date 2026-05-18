@@ -266,12 +266,18 @@ body.subpage-home main{overflow:hidden}
 .contact-funnel__grid textarea:focus{outline:none;border-color:#0b1020;box-shadow:0 0 0 4px rgba(11,16,32,.06);background:#fff}
 .contact-funnel__field--full{grid-column:1 / -1}
 .contact-funnel__toggle{display:flex !important;align-items:flex-start;gap:14px;padding-top:2px}
+.contact-funnel__toggle label{display:block}
 .contact-funnel__toggle input{position:relative;display:grid;place-items:center;width:18px;height:18px;min-width:18px;margin:2px 0 0;padding:0;border:1px solid rgba(11,16,32,.24);border-radius:4px;background:#fff;box-shadow:none;-webkit-appearance:none;appearance:none;cursor:pointer}
 .contact-funnel__toggle input::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transform-origin:center;transition:transform .16s ease}
 .contact-funnel__toggle input:checked{background:#0b1020;border-color:#0b1020}
 .contact-funnel__toggle input:checked::after{transform:rotate(45deg) scale(1)}
 .contact-funnel__toggle input:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(11,16,32,.08)}
 .contact-funnel__toggle span{margin:0 !important;font-size:15px !important;font-weight:400 !important;line-height:1.5 !important;letter-spacing:-.015em !important;text-transform:none !important;color:#0b1020 !important}
+.contact-funnel__toggle--legal{align-items:flex-start}
+.contact-funnel__toggle--legal label{cursor:pointer}
+.contact-funnel__legal-link{padding:0;border:none;background:transparent;font-family:var(--sans);font-size:inherit;font-weight:500;line-height:inherit;letter-spacing:inherit;color:#0b1020;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}
+.contact-funnel__legal-link:hover{opacity:.72}
+.contact-funnel__legal-link:focus-visible{outline:none;opacity:.72}
 .contact-funnel__hint{margin:-10px 0 0;font-family:var(--sans);font-size:15px;line-height:1.6;letter-spacing:-.015em;color:#5a6472}
 .contact-funnel__actions{display:grid;gap:14px;justify-items:center;padding-top:6px}
 .contact-funnel__submit{display:inline-flex;align-items:center;gap:14px;padding:0;border:none;background:transparent;font-family:var(--sans);font-size:clamp(22px,2.8vw,36px);font-weight:500;line-height:1.02;letter-spacing:-.04em;color:#0b1020;cursor:pointer}
@@ -286,6 +292,21 @@ body.subpage-home main{overflow:hidden}
 .contact-funnel__note a{color:#0b1020;text-decoration:none;border-bottom:1px solid rgba(11,16,32,.18)}
 .contact-funnel__trust{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(11,16,32,.1);border-radius:999px;background:#f8f9fb;font-family:var(--sans);font-size:12px;font-weight:500;line-height:1;letter-spacing:.08em;text-transform:uppercase;color:#4b5565}
 .contact-funnel__trust svg{width:16px;height:16px;display:block;color:#0b1020}
+
+body.legal-overlay-open{overflow:hidden}
+.legal-overlay{position:fixed;inset:0;z-index:220;display:grid;place-items:center;padding:24px}
+.legal-overlay__backdrop{position:absolute;inset:0;background:rgba(10,16,28,.46);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.legal-overlay__dialog{position:relative;z-index:1;width:min(980px,100%);max-height:min(88svh,920px);display:grid;grid-template-rows:auto minmax(0,1fr);border-radius:30px;border:1px solid rgba(11,16,32,.08);background:#fff;box-shadow:0 34px 90px rgba(15,23,42,.18);overflow:hidden}
+.legal-overlay__header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid rgba(11,16,32,.08)}
+.legal-overlay__header h2{margin:0;font-family:var(--sans);font-size:clamp(24px,2.6vw,34px);font-weight:500;line-height:1.05;letter-spacing:-.04em;color:#0b1020}
+.legal-overlay__close{padding:0;border:none;background:transparent;font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:-.02em;color:#556173;cursor:pointer}
+.legal-overlay__close:hover{color:#0b1020}
+.legal-overlay__close:focus-visible{outline:none;color:#0b1020}
+.legal-overlay__body{min-height:0;overflow:auto;padding:28px 30px 34px}
+.legal-overlay__body .legal-text-flow{max-width:none}
+.legal-overlay__body .legal-text-flow h3{margin:28px 0 10px;font-size:clamp(18px,1.55vw,22px)}
+.legal-overlay__body .legal-text-flow p{font-size:clamp(15px,1.12vw,18px);line-height:1.7}
+.legal-overlay__body .legal-text-flow p + p{margin-top:16px}
 
 .subpage-home-contact-grid{grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr)}
 .subpage-home-contact-grid .inquiry-form{padding:28px;border-radius:28px;box-shadow:0 18px 42px rgba(15,23,42,.08)}
@@ -532,6 +553,13 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .contact-funnel__actions{gap:12px;padding-top:2px}
   .contact-funnel__submit{font-size:clamp(20px,7vw,32px)}
   .contact-funnel__trust{justify-self:center}
+  .legal-overlay{padding:14px}
+  .legal-overlay__dialog{max-height:min(92svh,920px);border-radius:24px}
+  .legal-overlay__header{padding:18px 20px}
+  .legal-overlay__header h2{font-size:clamp(21px,7vw,28px)}
+  .legal-overlay__body{padding:22px 20px 26px}
+  .legal-overlay__body .legal-text-flow h3{margin:24px 0 8px;font-size:20px}
+  .legal-overlay__body .legal-text-flow p{font-size:16px;line-height:1.66}
   .services-showcase-stack{row-gap:96px}
   .services-showcase,
   .services-showcase--reverse{grid-template-columns:1fr;grid-template-areas:"content" "media";row-gap:64px}

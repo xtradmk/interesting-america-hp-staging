@@ -327,6 +327,47 @@
     sync();
   };
 
+  const initLegalOverlays = () => {
+    const openers = Array.from(document.querySelectorAll('[data-open-legal]'));
+    const overlays = Array.from(document.querySelectorAll('[data-legal-overlay]'));
+    if (!openers.length || !overlays.length) return;
+
+    const closeAll = () => {
+      overlays.forEach((overlay) => {
+        overlay.hidden = true;
+      });
+      document.body.classList.remove('legal-overlay-open');
+    };
+
+    const openOverlay = (name) => {
+      let opened = false;
+      overlays.forEach((overlay) => {
+        const isMatch = overlay.getAttribute('data-legal-overlay') === name;
+        overlay.hidden = !isMatch;
+        opened = opened || isMatch;
+      });
+      document.body.classList.toggle('legal-overlay-open', opened);
+    };
+
+    openers.forEach((opener) => {
+      opener.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        openOverlay(opener.getAttribute('data-open-legal'));
+      });
+    });
+
+    overlays.forEach((overlay) => {
+      overlay.querySelectorAll('[data-close-legal]').forEach((closer) => {
+        closer.addEventListener('click', closeAll);
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeAll();
+    });
+  };
+
   const initErrorPage = () => {
     if (!document.body.classList.contains('page-404')) return;
 
@@ -365,5 +406,6 @@
   runTypewriter();
   initMobileMenu();
   initContactFormToggles();
+  initLegalOverlays();
   initErrorPage();
 })();

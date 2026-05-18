@@ -101,11 +101,18 @@ templateEngineOverride: njk
             <span>Decision Deadline</span>
             <input type="text" name="decision_deadline" placeholder="e.g. Friday 16:00 CET">
           </label>
+
+          <div class="contact-funnel__field--full contact-funnel__toggle contact-funnel__toggle--legal">
+            <input id="accept-legal" type="checkbox" name="accept_legal" required>
+            <label for="accept-legal">
+              <span>I accept the <button type="button" class="contact-funnel__legal-link" data-open-legal="terms">Terms and Conditions</button> and <button type="button" class="contact-funnel__legal-link" data-open-legal="privacy">Privacy Policy</button>.</span>
+            </label>
+          </div>
         </div>
 
         <div class="contact-funnel__actions">
           <button class="contact-funnel__submit" type="submit">
-            <span class="hero-link-cta__text">Submit Inquiry</span>
+            <span class="hero-link-cta__text">Submit</span>
             <span class="hero-link-cta__icon" aria-hidden="true">
               <svg viewBox="0 0 19 19" role="presentation" focusable="false">
                 <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
@@ -125,3 +132,29 @@ templateEngineOverride: njk
     </div>
   </div>
 </section>
+
+<div class="legal-overlay" data-legal-overlay="terms" hidden>
+  <div class="legal-overlay__backdrop" data-close-legal></div>
+  <div class="legal-overlay__dialog" role="dialog" aria-modal="true" aria-labelledby="legal-overlay-title-terms">
+    <div class="legal-overlay__header">
+      <h2 id="legal-overlay-title-terms">Terms &amp; Conditions</h2>
+      <button type="button" class="legal-overlay__close" data-close-legal aria-label="Close Terms and Conditions overlay">Close</button>
+    </div>
+    <div class="legal-overlay__body">
+      {% include "modules/legal-terms-flow.njk" %}
+    </div>
+  </div>
+</div>
+
+<div class="legal-overlay" data-legal-overlay="privacy" hidden>
+  <div class="legal-overlay__backdrop" data-close-legal></div>
+  <div class="legal-overlay__dialog" role="dialog" aria-modal="true" aria-labelledby="legal-overlay-title-privacy">
+    <div class="legal-overlay__header">
+      <h2 id="legal-overlay-title-privacy">Privacy Policy</h2>
+      <button type="button" class="legal-overlay__close" data-close-legal aria-label="Close Privacy Policy overlay">Close</button>
+    </div>
+    <div class="legal-overlay__body">
+      {% include "modules/legal-privacy-flow.njk" %}
+    </div>
+  </div>
+</div>
