@@ -295,6 +295,7 @@ body.subpage-home main{overflow:hidden}
 
 body.legal-overlay-open{overflow:hidden}
 .legal-overlay{position:fixed;inset:0;z-index:220;display:grid;place-items:center;padding:24px}
+.legal-overlay[hidden]{display:none}
 .legal-overlay__backdrop{position:absolute;inset:0;background:rgba(10,16,28,.46);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .legal-overlay__dialog{position:relative;z-index:1;width:min(980px,100%);max-height:min(88svh,920px);display:grid;grid-template-rows:auto minmax(0,1fr);border-radius:30px;border:1px solid rgba(11,16,32,.08);background:#fff;box-shadow:0 34px 90px rgba(15,23,42,.18);overflow:hidden}
 .legal-overlay__header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid rgba(11,16,32,.08)}
