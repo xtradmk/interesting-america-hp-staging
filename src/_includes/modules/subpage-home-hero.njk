@@ -27,7 +27,9 @@
         <p class="hero-kicker">{{ hero_kicker }}</p>
       {% endif %}
       <h1 class="hero-page-title">{{ hero_title | safe }}</h1>
-      {% if hero_copy %}
+      {% if hero_copy_html %}
+        {{ hero_copy_html | safe }}
+      {% elif hero_copy %}
         <p class="hero-page-copy">{{ hero_copy }}</p>
       {% endif %}
       {% if hero_link_url and hero_link_label %}
