@@ -645,6 +645,7 @@ body.subpage-editorial .section{padding:clamp(84px,9vw,140px) 0;border-bottom:1p
   .about-page-feedback-grid{grid-template-columns:1fr;gap:18px}
   .about-page-feedback-card{padding:20px 18px 22px;border-radius:18px}
   .about-page-feedback-card blockquote{font-size:17px;line-height:1.58}
+  .page-about main{padding-bottom:0}
   .legal-text-section{padding:62px 0}
   .legal-text-title{max-width:none;font-size:clamp(30px,9.4vw,42px)}
   .legal-text-flow h3{margin:26px 0 10px;font-size:20px}

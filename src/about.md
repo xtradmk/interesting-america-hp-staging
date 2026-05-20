@@ -15,7 +15,7 @@ hero_image4: /images/uploads/hero-paris-stadium.jpg
 hero_caption4: Stade de France, Paris, France · Summer Olympics 2024
 hero_image5: /images/uploads/hero-southafrica.jpeg
 hero_caption5: Soccer City Stadium, Johannesburg, South Africa · World Cup 2010
-hero_title: Specialized sourcing,<br>close coordination,<br>precise execution,<br>as required by complex event travel.
+hero_title: Specialized sourcing,<br>close coordination,<br>precise execution,<br>as required by complex<br>event travel.
 hero_copy: >
   Clients work with us when the project matters, timelines are tight, and a standard booking process is not enough - as usually the case at high-stakes sports events.
 hero_link_label: Start an Inquiry
@@ -28,7 +28,7 @@ hero_link_url: /contact/
   <div class="wrap-wide">
     <div class="about-page-shell">
       <div class="about-page-intro-card fade">
-        <h2 class="about-page-card-title">How we work:</h2>
+        <h2 class="about-page-card-title">How we work</h2>
         <p class="about-page-card-copy">Lorem ipsum dolor sit amet</p>
       </div>
     </div>
@@ -112,7 +112,7 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--timeline">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade">Additional event experience</h2>
+      <h2 class="about-page-heading fade">Additional event highlights</h2>
 
       <div class="about-page-timeline">
         <article class="about-page-timeline-entry fade">
