@@ -29,7 +29,11 @@ hero_link_url: /contact/
     <div class="about-page-shell">
       <div class="about-page-intro-card fade">
         <h2 class="about-page-card-title">How we work</h2>
-        <p class="about-page-card-copy">Lorem ipsum dolor sit amet</p>
+        <div class="about-page-card-copy">
+          <p>We start by understanding the group's requirements and preferences, as well as the location, the timing, and the budget.</p>
+          <p>Then we source the right accommodation and, if required, the transportation and hospitality set-up, negotiate the terms, and coordinate the details with everyone involved.</p>
+          <p>We stay hands-on and close to the process from arrival to departure.</p>
+        </div>
       </div>
     </div>
   </div>
