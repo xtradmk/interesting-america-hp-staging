@@ -116,7 +116,7 @@ hero_link_url: /contact/
 
       <div class="about-page-timeline">
         <article class="about-page-timeline-entry fade">
-          <h3>2010 FIFA World Cup, South Africa</h3>
+          <h3>2010 World Cup, South Africa</h3>
           <p>NOKIA LatAm VIP Final program in Johannesburg, including premium accommodation, match transfers, curated experiences and hospitality.</p>
         </article>
 
@@ -126,12 +126,12 @@ hero_link_url: /contact/
         </article>
 
         <article class="about-page-timeline-entry fade">
-          <h3>2018 FIFA World Cup, Russia</h3>
+          <h3>2018 World Cup, Russia</h3>
           <p>Full logistics for an 80-person Nestlé Mexico guest program, including charter flights, hotel, hospitality and staffing.</p>
         </article>
 
         <article class="about-page-timeline-entry fade">
-          <h3>2022 FIFA World Cup, Qatar</h3>
+          <h3>2022 World Cup, Qatar</h3>
           <p>Accommodation sourcing for national team friends &amp; family programs, sponsors and broadcasters, including projects for Netflix documentary production and RFEF player families.</p>
         </article>
 
