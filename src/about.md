@@ -46,7 +46,7 @@ hero_link_url: /contact/
             <img src="{{ '/images/uploads/brazil 2014.jpg' | url }}" alt="Brazil host city setting for the 2014 World Cup project">
           </figure>
           <div class="about-page-project-card__body">
-            <h3 class="about-page-project-card__title">2014 FIFA World Cup, Brazil</h3>
+            <h3 class="about-page-project-card__title">2014 World Cup, Brazil</h3>
             <p>Delivered 50,000+ room nights across all Brazilian host cities, managing accommodation, transfers, tours and hospitality for corporate clients, tour operators, sponsors and federations.</p>
             <p><strong>Key clients included</strong> DFB Germany and KNVB Netherlands.</p>
             <p><strong>Highlight project:</strong> Venue sourcing for adidas at the Museum of Modern Art in Rio de Janeiro during the 2013 Confederations Cup.</p>
