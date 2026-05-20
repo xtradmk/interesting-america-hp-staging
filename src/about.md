@@ -15,7 +15,7 @@ hero_image4: /images/uploads/hero-paris-stadium.jpg
 hero_caption4: Stade de France, Paris, France · Summer Olympics 2024
 hero_image5: /images/uploads/hero-southafrica.jpeg
 hero_caption5: Soccer City Stadium, Johannesburg, South Africa · World Cup 2010
-hero_title: Specialized sourcing,<br>close coordination,<br>precise execution,<br>as required by complex<br>event travel.
+hero_title: Sourcing and<br>coordinating,<br>as required by<br>complex event travel.
 hero_copy: >
   Clients work with us when the project matters, timelines are tight, and a standard booking process is not enough - as usually the case at high-stakes sports events.
 hero_link_label: Start an Inquiry
