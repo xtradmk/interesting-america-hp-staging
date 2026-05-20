@@ -42,9 +42,9 @@ hero_link_url: /contact/
 
       <div class="about-page-projects">
         <article class="about-page-project-card fade">
-          <div class="about-page-project-card__media" aria-hidden="true">
-            <div class="about-page-project-card__placeholder">Project image</div>
-          </div>
+          <figure class="about-page-project-card__media">
+            <img src="{{ '/images/uploads/brazil 2014.jpg' | url }}" alt="Brazil host city setting for the 2014 World Cup project">
+          </figure>
           <div class="about-page-project-card__body">
             <h3 class="about-page-project-card__title">2014 FIFA World Cup, Brazil</h3>
             <p>Delivered 50,000+ room nights across all Brazilian host cities, managing accommodation, transfers, tours and hospitality for corporate clients, tour operators, sponsors and federations.</p>
@@ -54,9 +54,9 @@ hero_link_url: /contact/
         </article>
 
         <article class="about-page-project-card fade">
-          <div class="about-page-project-card__media" aria-hidden="true">
-            <div class="about-page-project-card__placeholder">Project image</div>
-          </div>
+          <figure class="about-page-project-card__media">
+            <img src="{{ '/images/uploads/tokyo 2020+1.jpg' | url }}" alt="Tokyo accommodation setting for the 2020+1 Olympic Games project">
+          </figure>
           <div class="about-page-project-card__body">
             <h3 class="about-page-project-card__title">2020+1 Olympic Games, Tokyo</h3>
             <p>Managed Olympic accommodation challenges including reservation rollovers and COVID bubble compliance.</p>
@@ -66,9 +66,9 @@ hero_link_url: /contact/
         </article>
 
         <article class="about-page-project-card fade">
-          <div class="about-page-project-card__media" aria-hidden="true">
-            <div class="about-page-project-card__placeholder">Project image</div>
-          </div>
+          <figure class="about-page-project-card__media">
+            <img src="{{ '/images/uploads/cortina 2026.jpg' | url }}" alt="Mountain hospitality setting for the 2026 Winter Olympic Games project in Milano Cortina">
+          </figure>
           <div class="about-page-project-card__body">
             <h3 class="about-page-project-card__title">2026 Winter Olympic Games, Milano Cortina</h3>
             <p>Supported NOCs, sponsors, elite athletes and VIP guests across the Games. In the Livigno Mountain Cluster alone, 24 properties were contracted, delivering 3,800 room nights for more than 200 guests including crew, athletes, senior management and sponsor VIPs.</p>
