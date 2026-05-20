@@ -15,11 +15,7 @@ hero_image4: /images/uploads/hero-paris-stadium.jpg
 hero_caption4: Stade de France, Paris, France · Summer Olympics 2024
 hero_image5: /images/uploads/hero-southafrica.jpeg
 hero_caption5: Soccer City Stadium, Johannesburg, South Africa · World Cup 2010
-hero_title: >
-  Specialized sourcing,<br>
-  close coordination,<br>
-  precise execution,<br>
-  as required by complex event travel.
+hero_title: Specialized sourcing,<br>close coordination,<br>precise execution,<br>as required by complex event travel.
 hero_copy: >
   Clients work with us when the project matters, timelines are tight, and a standard booking process is not enough - as usually the case at high-stakes sports events.
 hero_link_label: Start an Inquiry
@@ -50,7 +46,6 @@ hero_link_url: /contact/
             <div class="about-page-project-card__placeholder">Project image</div>
           </div>
           <div class="about-page-project-card__body">
-            <p class="about-page-project-card__eyebrow">Selected project</p>
             <h3 class="about-page-project-card__title">2014 FIFA World Cup, Brazil</h3>
             <p>Delivered 50,000+ room nights across all Brazilian host cities, managing accommodation, transfers, tours and hospitality for corporate clients, tour operators, sponsors and federations.</p>
             <p><strong>Key clients included</strong> DFB Germany and KNVB Netherlands.</p>
@@ -63,7 +58,6 @@ hero_link_url: /contact/
             <div class="about-page-project-card__placeholder">Project image</div>
           </div>
           <div class="about-page-project-card__body">
-            <p class="about-page-project-card__eyebrow">Selected project</p>
             <h3 class="about-page-project-card__title">2020+1 Olympic Games, Tokyo</h3>
             <p>Managed Olympic accommodation challenges including reservation rollovers and COVID bubble compliance.</p>
             <p><strong>Key clients included</strong> USTA and adidas.</p>
@@ -76,7 +70,6 @@ hero_link_url: /contact/
             <div class="about-page-project-card__placeholder">Project image</div>
           </div>
           <div class="about-page-project-card__body">
-            <p class="about-page-project-card__eyebrow">Selected project</p>
             <h3 class="about-page-project-card__title">2026 Winter Olympic Games, Milano Cortina</h3>
             <p>Supported NOCs, sponsors, elite athletes and VIP guests across the Games. In the Livigno Mountain Cluster alone, 24 properties were contracted, delivering 3,800 room nights for more than 200 guests including crew, athletes, senior management and sponsor VIPs.</p>
             <p><strong>Key clients included</strong> VISA and Octagon.</p>
