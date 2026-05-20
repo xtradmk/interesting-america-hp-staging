@@ -141,7 +141,7 @@ hero_link_url: /contact/
         </article>
 
         <article class="about-page-timeline-entry fade">
-          <h3>2024 UEFA Champions League, Istanbul</h3>
+          <h3>2024 Champions League Final, Istanbul</h3>
           <p>Full-property buyout of the Grand Hotel Pera Palace for VVIP accommodation and match hospitality.</p>
         </article>
       </div>
