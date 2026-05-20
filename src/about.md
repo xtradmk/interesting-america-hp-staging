@@ -45,41 +45,44 @@ hero_link_url: /contact/
       <h2 class="about-page-heading fade">Selected Projects</h2>
 
       <div class="about-page-projects">
-        <details class="about-page-project-card fade" open>
-          <summary>
-            <span class="about-page-project-card__eyebrow">Selected project</span>
-            <span class="about-page-project-card__title">2014 FIFA World Cup, Brazil</span>
-          </summary>
+        <article class="about-page-project-card fade">
+          <div class="about-page-project-card__media" aria-hidden="true">
+            <div class="about-page-project-card__placeholder">Project image</div>
+          </div>
           <div class="about-page-project-card__body">
+            <p class="about-page-project-card__eyebrow">Selected project</p>
+            <h3 class="about-page-project-card__title">2014 FIFA World Cup, Brazil</h3>
             <p>Delivered 50,000+ room nights across all Brazilian host cities, managing accommodation, transfers, tours and hospitality for corporate clients, tour operators, sponsors and federations.</p>
             <p><strong>Key clients included</strong> DFB Germany and KNVB Netherlands.</p>
             <p><strong>Highlight project:</strong> Venue sourcing for adidas at the Museum of Modern Art in Rio de Janeiro during the 2013 Confederations Cup.</p>
           </div>
-        </details>
+        </article>
 
-        <details class="about-page-project-card fade">
-          <summary>
-            <span class="about-page-project-card__eyebrow">Selected project</span>
-            <span class="about-page-project-card__title">2020+1 Olympic Games, Tokyo</span>
-          </summary>
+        <article class="about-page-project-card fade">
+          <div class="about-page-project-card__media" aria-hidden="true">
+            <div class="about-page-project-card__placeholder">Project image</div>
+          </div>
           <div class="about-page-project-card__body">
+            <p class="about-page-project-card__eyebrow">Selected project</p>
+            <h3 class="about-page-project-card__title">2020+1 Olympic Games, Tokyo</h3>
             <p>Managed Olympic accommodation challenges including reservation rollovers and COVID bubble compliance.</p>
             <p><strong>Key clients included</strong> USTA and adidas.</p>
             <p><strong>Highlight project:</strong> Executed emergency rebooking 48 hours before guest arrival, securing alternative high-level accommodation in Tokyo under extreme time pressure.</p>
           </div>
-        </details>
+        </article>
 
-        <details class="about-page-project-card fade">
-          <summary>
-            <span class="about-page-project-card__eyebrow">Selected project</span>
-            <span class="about-page-project-card__title">2026 Winter Olympic Games, Milano Cortina</span>
-          </summary>
+        <article class="about-page-project-card fade">
+          <div class="about-page-project-card__media" aria-hidden="true">
+            <div class="about-page-project-card__placeholder">Project image</div>
+          </div>
           <div class="about-page-project-card__body">
+            <p class="about-page-project-card__eyebrow">Selected project</p>
+            <h3 class="about-page-project-card__title">2026 Winter Olympic Games, Milano Cortina</h3>
             <p>Supported NOCs, sponsors, elite athletes and VIP guests across the Games. In the Livigno Mountain Cluster alone, 24 properties were contracted, delivering 3,800 room nights for more than 200 guests including crew, athletes, senior management and sponsor VIPs.</p>
             <p><strong>Key clients included</strong> VISA and Octagon.</p>
             <p><strong>Highlight project:</strong> Media hub venue and VVIP accommodation for ABInBev / Corona.</p>
           </div>
-        </details>
+        </article>
       </div>
     </div>
   </div>
