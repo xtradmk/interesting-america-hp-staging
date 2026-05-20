@@ -217,7 +217,7 @@ body.subpage-home main{overflow:hidden}
 
 .about-page-intro-card{width:100%;padding:clamp(34px,3.2vw,42px) clamp(28px,3vw,38px);border:1px solid rgba(11,16,32,.08);border-radius:24px;background:#fff;box-shadow:0 16px 40px rgba(15,23,42,.05)}
 .about-page-card-title{margin:0 0 12px;font-family:var(--sans);font-size:clamp(24px,2.4vw,34px);line-height:1.08;font-weight:500;letter-spacing:-.035em;color:#0b1020}
-.about-page-card-copy{display:grid;gap:14px;max-width:74ch}
+.about-page-card-copy{display:grid;gap:14px;max-width:none}
 .about-page-card-copy p{margin:0;font-family:var(--sans);font-size:clamp(18px,1.45vw,22px);line-height:1.62;letter-spacing:-.018em;color:#4b5563}
 
 .about-page-projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,2.4vw,34px)}
