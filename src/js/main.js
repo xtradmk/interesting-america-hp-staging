@@ -448,11 +448,6 @@
     }
 
     if (timeline && timelineEntries.length) {
-      const dot = document.createElement('div');
-      dot.className = 'about-page-timeline__dot';
-      dot.setAttribute('aria-hidden', 'true');
-      timeline.appendChild(dot);
-
       const syncTimeline = () => {
         const focusY = window.innerHeight * 0.5;
         let activeEntry = timelineEntries[0];
@@ -474,9 +469,9 @@
 
         const timelineRect = timeline.getBoundingClientRect();
         const activeRect = activeEntry.getBoundingClientRect();
-        const progress = Math.max(0, activeRect.top + activeRect.height * 0.5 - timelineRect.top);
+        const nodeOffset = parseFloat(getComputedStyle(timeline).getPropertyValue('--about-timeline-node-offset')) || 16.5;
+        const progress = Math.max(0, activeRect.top - timelineRect.top + nodeOffset);
         timeline.style.setProperty('--about-timeline-progress', `${progress.toFixed(1)}px`);
-        timeline.style.setProperty('--about-timeline-dot', `${progress.toFixed(1)}px`);
       };
 
       window.addEventListener('scroll', syncTimeline, { passive: true });

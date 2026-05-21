@@ -27,25 +27,59 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--panel" id="about-content">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <div class="about-page-intro-card fade">
-        <h2 class="about-page-card-title">How we work</h2>
-        <div class="about-page-process-grid">
-          <article class="about-page-process-step is-active" data-about-step>
+      <h2 class="about-page-heading fade">How we work</h2>
+      <div class="about-page-process-grid">
+        <article class="about-page-process-step fade is-active" data-about-step>
+          <div class="about-page-process-step__top">
+            <span class="about-page-process-step__icon about-page-process-step__icon--blue" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="presentation" focusable="false">
+                <rect x="6" y="5" width="20" height="22" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="11" y="3" width="10" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M11 13.5H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M11 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <rect x="21.5" y="21.5" width="5" height="5" fill="#0E74C8"/>
+              </svg>
+            </span>
             <p class="about-page-process-step__index">01</p>
-            <h3>Understand the brief</h3>
-            <p>We start by understanding the group's requirements and preferences, as well as the location, the timing, and the budget.</p>
-          </article>
-          <article class="about-page-process-step" data-about-step>
+          </div>
+          <h3>Understand the brief</h3>
+          <p>We start by understanding the group's requirements and preferences, as well as the location, the timing, and the budget.</p>
+        </article>
+        <article class="about-page-process-step fade" data-about-step>
+          <div class="about-page-process-step__top">
+            <span class="about-page-process-step__icon about-page-process-step__icon--red" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="presentation" focusable="false">
+                <rect x="6" y="8" width="8" height="18" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="14" y="5" width="12" height="21" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M9.5 12.5H10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M9.5 17H10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M18 10.5H22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M18 15H22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M18 19.5H22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <rect x="5.5" y="21.5" width="5" height="5" fill="#FF3B30"/>
+              </svg>
+            </span>
             <p class="about-page-process-step__index">02</p>
-            <h3>Source and negotiate</h3>
-            <p>Then we source the right accommodation and, if required, the transportation and hospitality set-up, negotiate the terms, and coordinate the details with everyone involved.</p>
-          </article>
-          <article class="about-page-process-step" data-about-step>
+          </div>
+          <h3>Source and negotiate</h3>
+          <p>Then we source the right accommodation and, if required, the transportation and hospitality set-up, negotiate the terms, and coordinate the details with everyone involved.</p>
+        </article>
+        <article class="about-page-process-step fade" data-about-step>
+          <div class="about-page-process-step__top">
+            <span class="about-page-process-step__icon about-page-process-step__icon--dark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" role="presentation" focusable="false">
+                <rect x="5" y="7" width="6" height="6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <rect x="21" y="19" width="6" height="6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M11 10H17C20.314 10 23 12.686 23 16V19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M18.5 15.5L23 20L27.5 15.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="13.5" y="5.5" width="5" height="5" fill="#0B1020"/>
+              </svg>
+            </span>
             <p class="about-page-process-step__index">03</p>
-            <h3>Coordinate to delivery</h3>
-            <p>We stay hands-on and close to the process from arrival to departure.</p>
-          </article>
-        </div>
+          </div>
+          <h3>Coordinate to delivery</h3>
+          <p>We stay hands-on and close to the process from arrival to departure.</p>
+        </article>
       </div>
     </div>
   </div>
