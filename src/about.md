@@ -29,7 +29,7 @@ hero_link_url: /contact/
     <div class="about-page-shell">
       <h2 class="about-page-heading fade">How we work</h2>
       <div class="about-page-process-grid">
-        <article class="about-page-process-step fade is-active" data-about-step>
+        <article class="about-page-process-step fade" data-about-step role="button" tabindex="0" aria-pressed="false">
           <div class="about-page-process-step__top">
             <span class="about-page-process-step__icon about-page-process-step__icon--blue" aria-hidden="true">
               <svg viewBox="0 0 32 32" role="presentation" focusable="false">
@@ -45,7 +45,7 @@ hero_link_url: /contact/
           <h3>Understand the brief</h3>
           <p>We start by understanding the group's requirements and preferences, as well as the location, the timing, and the budget.</p>
         </article>
-        <article class="about-page-process-step fade" data-about-step>
+        <article class="about-page-process-step fade" data-about-step role="button" tabindex="0" aria-pressed="false">
           <div class="about-page-process-step__top">
             <span class="about-page-process-step__icon about-page-process-step__icon--red" aria-hidden="true">
               <svg viewBox="0 0 32 32" role="presentation" focusable="false">
@@ -64,7 +64,7 @@ hero_link_url: /contact/
           <h3>Source and negotiate</h3>
           <p>Then we source the right accommodation and, if required, the transportation and hospitality set-up, negotiate the terms, and coordinate the details with everyone involved.</p>
         </article>
-        <article class="about-page-process-step fade" data-about-step>
+        <article class="about-page-process-step fade" data-about-step role="button" tabindex="0" aria-pressed="false">
           <div class="about-page-process-step__top">
             <span class="about-page-process-step__icon about-page-process-step__icon--dark" aria-hidden="true">
               <svg viewBox="0 0 32 32" role="presentation" focusable="false">

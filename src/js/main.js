@@ -403,34 +403,52 @@
     if (!document.body.classList.contains('page-about')) return;
 
     const processSteps = Array.from(document.querySelectorAll('[data-about-step]'));
+    const processGrid = document.querySelector('.about-page-process-grid');
     const projectCards = Array.from(document.querySelectorAll('[data-about-project-card]'));
     const timeline = document.querySelector('[data-about-timeline]');
     const timelineEntries = Array.from(document.querySelectorAll('[data-about-timeline-entry]'));
 
     if (processSteps.length) {
-      const syncProcessSteps = () => {
-        const focusY = window.innerHeight * 0.52;
-        let active = processSteps[0];
-        let bestDistance = Number.POSITIVE_INFINITY;
+      const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+      let pinnedStep = null;
 
+      const setActiveStep = (activeStep = null) => {
         processSteps.forEach((step) => {
-          const rect = step.getBoundingClientRect();
-          const center = rect.top + rect.height * 0.5;
-          const distance = Math.abs(center - focusY);
-          if (distance < bestDistance) {
-            bestDistance = distance;
-            active = step;
-          }
-        });
-
-        processSteps.forEach((step) => {
-          step.classList.toggle('is-active', step === active);
+          const isActive = step === activeStep;
+          step.classList.toggle('is-active', isActive);
+          step.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
       };
 
-      window.addEventListener('scroll', syncProcessSteps, { passive: true });
-      window.addEventListener('resize', syncProcessSteps, { passive: true });
-      syncProcessSteps();
+      processSteps.forEach((step) => {
+        step.addEventListener('mouseenter', () => {
+          if (!supportsHover.matches || pinnedStep) return;
+          setActiveStep(step);
+        });
+
+        step.addEventListener('focusin', () => {
+          if (pinnedStep) return;
+          setActiveStep(step);
+        });
+
+        step.addEventListener('click', () => {
+          pinnedStep = pinnedStep === step ? null : step;
+          setActiveStep(pinnedStep);
+        });
+
+        step.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter' && event.key !== ' ') return;
+          event.preventDefault();
+          pinnedStep = pinnedStep === step ? null : step;
+          setActiveStep(pinnedStep);
+        });
+      });
+
+      processGrid?.addEventListener('mouseleave', () => {
+        if (supportsHover.matches && !pinnedStep) setActiveStep(null);
+      });
+
+      if (supportsHover.matches) setActiveStep(null);
     }
 
     if (projectCards.length) {
