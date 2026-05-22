@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% set siteName = cms.seoSettings.siteName or site.name %}
+  {% set pageTitle = metaTitle or title or siteName %}
+  {% set pageDescription = description or cms.seoSettings.defaultDescription or site.description %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.url == '/' %}{{ site.name }}{% elif title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
-  <meta name="description" content="{{ description or site.description }}">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  {% if metaOgImage %}
+    <meta property="og:image" content="{{ metaOgImage }}">
+  {% endif %}
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDescription }}">
   <link rel="icon" type="image/png" sizes="512x512" href="{{ '/images/uploads/favicon-512.png' | url }}">
   <link rel="shortcut icon" href="{{ '/images/uploads/favicon-512.png' | url }}">
   <link rel="apple-touch-icon" href="{{ '/images/uploads/favicon-512.png' | url }}">
@@ -27,7 +35,7 @@
     {{ content | safe }}
   </main>
   
-  {% if not hide_footer %}
+  {% if not hideFooter %}
     {% include "footer.njk" %}
   {% endif %}
 

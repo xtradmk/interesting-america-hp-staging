@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "INTERESTING AMERICA - Modular 11ty Website",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve --watch",
-    "start": "eleventy --serve",
-    "debug": "DEBUG=* eleventy"
+    "cms:install": "npm --prefix cms ci",
+    "cms:dev": "npm --prefix cms run dev",
+    "cms:build": "npm --prefix cms run build",
+    "cms:seed": "npm --prefix cms run seed",
+    "cms:create-admin": "npm --prefix cms run create-admin",
+    "build": "npm run cms:install && eleventy",
+    "serve": "npm run cms:install && eleventy --serve --watch",
+    "start": "npm run cms:install && eleventy --serve",
+    "debug": "npm run cms:install && DEBUG=* eleventy"
   },
   "keywords": [
     "11ty",
