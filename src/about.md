@@ -122,8 +122,8 @@ hero_link_url: /contact/
           <div class="about-page-project-card__body">
             <h3 class="about-page-project-card__title">2026 Winter Olympic Games, Milano Cortina</h3>
             <p class="about-page-project-card__summary">Supported NOCs, sponsors, elite athletes and VIP guests across the Games. In the Livigno Mountain Cluster alone, 24 properties were contracted, delivering 3,800 room nights for more than 200 guests including crew, athletes, senior management and sponsor VIPs.</p>
-            <p class="about-page-project-card__detail"><strong>Key clients included</strong> VISA and Octagon.</p>
-            <p class="about-page-project-card__detail"><strong>Highlight project:</strong> Media hub venue and VVIP accommodation for ABInBev / Corona.</p>
+            <p class="about-page-project-card__detail"><strong>Key clients included</strong> VISA and ABInBev.</p>
+            <p class="about-page-project-card__detail"><strong>Highlight project:</strong> Media hub venue and VVIP accommodation for ABInBev's Corona brand.</p>
           </div>
         </article>
       </div>
