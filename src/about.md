@@ -27,7 +27,7 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--panel" id="about-content">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade">How we work</h2>
+      <h2 class="about-page-heading fade" data-letter-reveal>How we work</h2>
       <div class="about-page-process-grid">
         <article class="about-page-process-step fade" data-about-step role="button" tabindex="0" aria-pressed="false">
           <div class="about-page-process-step__top">
@@ -88,7 +88,7 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--projects">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade">Selected Projects</h2>
+      <h2 class="about-page-heading fade" data-letter-reveal>Selected Projects</h2>
 
       <div class="about-page-projects">
         <article class="about-page-project-card fade is-active" data-about-project-card tabindex="0">
@@ -134,7 +134,7 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--clients">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade">Selected clients include</h2>
+      <h2 class="about-page-heading fade" data-letter-reveal>Selected clients include</h2>
 
       <ul class="about-page-client-grid fade" aria-label="Selected clients include">
         <li>Adidas</li>
@@ -162,7 +162,7 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--timeline">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade">Additional event highlights</h2>
+      <h2 class="about-page-heading fade" data-letter-reveal>Additional event highlights</h2>
 
       <div class="about-page-timeline" data-about-timeline>
         <article class="about-page-timeline-entry fade is-active" data-about-timeline-entry>
@@ -202,7 +202,7 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--feedback">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade">Client feedback</h2>
+      <h2 class="about-page-heading fade" data-letter-reveal>Client feedback</h2>
 
       <div class="about-page-feedback-grid">
         <figure class="about-page-feedback-card fade">
