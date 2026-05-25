@@ -46,21 +46,30 @@ PAYLOAD_ADMIN_PASSWORD=ChangeMe123!
 PAYLOAD_ADMIN_NAME=Interesting America Admin
 ```
 
+## Important limitation
+
+- the public staging website is hosted on **GitHub Pages**
+- GitHub Pages is **static only**
+- Payload CMS needs a **server runtime**
+- therefore the public staging path `/admin/` is only an info page right now, not the actual Payload admin app
+- the working Payload admin currently runs **locally**
+- a real public CMS staging URL requires a separate deployment target for the `cms/` app
+
 ## First local bootstrap
 
-1. Seed content and create the admin user:
+Run once:
 
 ```bash
-npm run cms:seed
+npm run cms:bootstrap
 ```
 
-2. Start the CMS:
+Then start the CMS:
 
 ```bash
 npm run cms:dev
 ```
 
-3. In a second terminal start the frontend:
+In a second terminal start the frontend:
 
 ```bash
 npm start
@@ -71,6 +80,7 @@ npm start
 - CMS admin: `http://127.0.0.1:3000/admin`
 - draft preview: `http://127.0.0.1:3000/preview/<slug>?secret=<PAYLOAD_PREVIEW_SECRET>`
 - frontend: `http://127.0.0.1:8080`
+- public staging `/admin/`: info page only
 
 ## Login
 
@@ -136,6 +146,7 @@ npm run build
 
 ## Test checklist
 
+- [ ] `npm run cms:bootstrap` succeeds
 - [ ] `npm run cms:seed` succeeds
 - [ ] `npm --prefix cms run build` succeeds
 - [ ] `npm run build` succeeds

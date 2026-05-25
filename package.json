@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "INTERESTING AMERICA - Modular 11ty Website",
   "scripts": {
-    "cms:install": "npm --prefix cms ci",
-    "cms:dev": "npm --prefix cms run dev",
-    "cms:build": "npm --prefix cms run build",
-    "cms:seed": "npm --prefix cms run seed",
-    "cms:create-admin": "npm --prefix cms run create-admin",
-    "build": "npm run cms:install && eleventy",
-    "serve": "npm run cms:install && eleventy --serve --watch",
-    "start": "npm run cms:install && eleventy --serve",
-    "debug": "npm run cms:install && DEBUG=* eleventy"
+    "cms:install": "npm --prefix cms install",
+    "cms:install:ci": "npm --prefix cms ci",
+    "cms:bootstrap": "npm run cms:install && node -e \"const fs=require('fs'); if(!fs.existsSync('cms/.env')) fs.copyFileSync('cms/.env.example','cms/.env')\" && npm --prefix cms run seed",
+    "cms:dev": "npm run cms:install && npm --prefix cms run dev",
+    "cms:build": "npm run cms:install && npm --prefix cms run build",
+    "cms:seed": "npm run cms:install && npm --prefix cms run seed",
+    "cms:create-admin": "npm run cms:install && npm --prefix cms run create-admin",
+    "build": "npm run cms:install:ci && eleventy",
+    "serve": "npm run cms:install:ci && eleventy --serve --watch",
+    "start": "npm run cms:install:ci && eleventy --serve",
+    "debug": "npm run cms:install:ci && DEBUG=* eleventy"
   },
   "keywords": [
     "11ty",
