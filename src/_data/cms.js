@@ -90,10 +90,15 @@ module.exports = async function() {
 
   let data
 
-  try {
-    data = await loadFromLocalPayload(options)
-  } catch (error) {
+  // CI builds do not have a writable local Payload SQLite database.
+  if (process.env.CI === 'true') {
     data = await loadFromSeed(options)
+  } else {
+    try {
+      data = await loadFromLocalPayload(options)
+    } catch (error) {
+      data = await loadFromSeed(options)
+    }
   }
 
   const companyInfo = data.globals.companyInfo || {}
