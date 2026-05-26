@@ -232,9 +232,9 @@ export async function getSeedBlueprint() {
               { text: '2028 Summer Olympics' },
             ],
             slides: [
-              { image: mediaRef('heroAtlanta'), caption: 'Marriott Marquis**** · Atlanta, GA' },
-              { image: mediaRef('heroStRegis'), caption: 'The St. Regis***** · San Francisco, CA' },
               { image: mediaRef('heroLosAngeles'), caption: 'Los Angeles, CA · Host City of the 2028 Summer Olympics' },
+              { image: mediaRef('heroStRegis'), caption: 'The St. Regis***** · San Francisco, CA' },
+              { image: mediaRef('heroAtlanta'), caption: 'Marriott Marquis**** · Atlanta, GA' },
               { image: mediaRef('heroDallas'), caption: 'Dallas, TX · 2026 Soccer World Cup Host City' },
               { image: mediaRef('heroSantaMonica'), caption: 'Santa Monica, CA' },
               { image: mediaRef('heroMaracana'), caption: 'Maracana Stadium, Rio de Janeiro, Brazil · 2014 World Cup Final Venue' },
