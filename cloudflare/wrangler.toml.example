@@ -4,5 +4,5 @@ compatibility_date = "2026-03-15"
 
 [vars]
 ALLOWED_ORIGIN = "https://xtradmk.github.io"
-ADDITIONAL_ALLOWED_ORIGINS = "https://interestingamerica.com,http://localhost:8080,http://127.0.0.1:8080"
+ADDITIONAL_ALLOWED_ORIGINS = "https://interestingamerica.com,https://www.interestingamerica.com,http://localhost:8080,http://127.0.0.1:8080"
 DISCORD_CHANNEL_ID = "1504043044834381866"
