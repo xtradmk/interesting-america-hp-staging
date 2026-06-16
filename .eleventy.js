@@ -4,6 +4,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/favicon-16x16.png");
   eleventyConfig.addPassthroughCopy("src/favicon-32x32.png");
@@ -20,17 +21,13 @@ module.exports = function(eleventyConfig) {
   // Watch targets
   eleventyConfig.addWatchTarget("./src/css/");
   eleventyConfig.addWatchTarget("./src/js/");
-  eleventyConfig.addWatchTarget("./cms/src/");
-  eleventyConfig.addWatchTarget("./cms/data/");
 
   // Year shortcode for footer
   eleventyConfig.addShortcode("year", () => {
     return new Date().getFullYear();
   });
 
-  const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-  const autoPathPrefix = repoName ? `/${repoName}/` : "/interesting-america-hp/";
-  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || autoPathPrefix;
+  const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
 
   return {
     pathPrefix,

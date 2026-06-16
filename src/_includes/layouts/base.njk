@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% set siteName = cms.seoSettings.siteName or site.name %}
-  {% set pageTitle = metaTitle or title or siteName %}
-  {% set pageDescription = description or cms.seoSettings.defaultDescription or site.description %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ pageTitle }}</title>
-  <meta name="description" content="{{ pageDescription }}">
-  {% if metaOgImage %}
-    <meta property="og:image" content="{{ metaOgImage }}">
-  {% endif %}
-  <meta property="og:title" content="{{ pageTitle }}">
-  <meta property="og:description" content="{{ pageDescription }}">
+  <title>{% if page.url == '/' %}{{ site.name }}{% elif title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
   <link rel="icon" href="{{ '/favicon-20260527.ico' | url }}" sizes="any">
   <link rel="shortcut icon" href="{{ '/favicon-20260527.ico' | url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32-20260527.png' | url }}">
@@ -21,7 +13,7 @@
   <link rel="manifest" href="{{ '/site.webmanifest' | url }}?v=20260527-favicon-03">
   <meta name="theme-color" content="#0b1020">
   
-  <link rel="stylesheet" href="{{ '/css/main.css' | url }}?v=20260616-01">
+  <link rel="stylesheet" href="{{ '/css/main.css' | url }}?v=20260522-01">
   <link rel="preload" as="image" href="{{ '/images/uploads/hero-atl-marriott-marquis.jpg' | url }}">
   <link rel="preload" as="image" href="{{ '/images/uploads/hero-st-regis-san-francisco.jpg' | url }}">
   <link rel="preload" as="image" href="{{ '/images/uploads/hero-los-angeles-ca.jpg' | url }}">
@@ -39,10 +31,10 @@
     {{ content | safe }}
   </main>
   
-  {% if not hideFooter %}
+  {% if not hide_footer %}
     {% include "footer.njk" %}
   {% endif %}
 
-  <script src="{{ '/js/main.js' | url }}?v=20260616-01" defer></script>
+  <script src="{{ '/js/main.js' | url }}?v=20260522-01" defer></script>
 </body>
 </html>

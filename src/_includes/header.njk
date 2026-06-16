@@ -1,19 +1,14 @@
-{% set headerData = cms.header %}
 <header class="site-header">
   <div class="container">
-    <a href="{{ '/' | url }}" class="logo" aria-label="{{ headerData.brandAriaLabel or ((cms.seoSettings.siteName or site.name) ~ ' - Back to Home') }}">
-      {% if headerData.logoPath %}
-        <img src="{{ headerData.logoPath | url }}" alt="{{ headerData.brandName or cms.seoSettings.siteName or site.name }}" class="logo__img">
-      {% else %}
-        {{ headerData.brandName or cms.seoSettings.siteName or site.name }}
-      {% endif %}
+    <a href="{{ '/' | url }}" class="logo" aria-label="{{ site.name }} - Back to Home">
+      <img src="{{ '/images/uploads/interesting-sports-black-.png' | url }}" alt="{{ site.name }}" class="logo__img">
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
       <ul class="nav-list nav-island">
-        {%- for item in headerData.navItems -%}
+        {%- for item in site.nav -%}
           <li class="nav-item{% if page.url == item.url %} nav-item--active{% endif %}">
-            <a href="{{ item.url | url }}" class="nav-link">{{ item.label }}</a>
+            <a href="{{ item.url | url }}" class="nav-link">{{ item.text }}</a>
           </li>
         {%- endfor -%}
       </ul>
@@ -25,9 +20,9 @@
 
     <div class="mobile-menu-panel" id="mobile-menu-panel" hidden>
       <ul class="mobile-menu-list">
-        {%- for item in headerData.navItems -%}
+        {%- for item in site.nav -%}
           <li class="mobile-menu-item">
-            <a href="{{ item.url | url }}" class="mobile-menu-link">{{ item.label }}</a>
+            <a href="{{ item.url | url }}" class="mobile-menu-link">{{ item.text }}</a>
           </li>
         {%- endfor -%}
       </ul>

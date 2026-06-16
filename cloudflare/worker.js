@@ -46,11 +46,6 @@ const DISCORD_FIELD_NAME_LIMIT = 256;
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const recentSubmissionAttempts = new Map();
-// Central terms version for Hotel Introduction confirmations.
-// Update this value whenever the Terms & Conditions change materially.
-const CURRENT_TERMS_VERSION = "2026-06-16";
-const TERMS_CONFIRMATION_CHECKBOX_TEXT = "I have reviewed and accept the Interesting America Terms & Conditions, including the Hotel Introduction Terms.";
-
 
 function escapeHtml(value) {
   return String(value || "").replace(/[&<>"']/g, (char) => ({
@@ -332,34 +327,6 @@ function validateNewsletterSubmission(payload) {
   return { valid: true };
 }
 
-
-function validateTermsConfirmation(payload) {
-  if (!payload.full_name || !String(payload.full_name).trim()) {
-    return { valid: false, message: "Please enter your full name.", status: 400 };
-  }
-
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email || "")) {
-    return { valid: false, message: "Please enter a valid email address.", status: 400 };
-  }
-
-  if (payload.accept_terms !== "yes") {
-    return { valid: false, message: "Please confirm the Terms & Conditions before continuing.", status: 400 };
-  }
-
-  return { valid: true };
-}
-
-async function sendEmailNotification(env, record) {
-  // TODO: Wire up an email provider (SMTP, SendGrid, Postmark, AWS SES, etc.)
-  // using environment variables such as SMTP_HOST, SMTP_PORT, SMTP_USER,
-  // SMTP_PASS, EMAIL_FROM, and EMAIL_TO. Until then, Telegram/Discord
-  // notifications act as the primary internal alert channel.
-  logEvent("info", "terms_confirmation_email_not_configured", {
-    confirmationId: record.id,
-    reason: "Email backend not configured.",
-  });
-  return { sent: false, reason: "Email backend not configured." };
-}
 const CONTACT_FORM_CONFIG = {
   eventPrefix: "contact_submission",
   source: "Website Contact Form",
@@ -723,183 +690,6 @@ async function handleNewsletterSubmit(req, env) {
   return handleFormSubmission(req, env, NEWSLETTER_FORM_CONFIG);
 }
 
-async function handleTermsConfirmation(req, env) {
-  if (req.method !== "POST") {
-    return new Response("Method not allowed", { status: 405, headers: { Allow: "POST" } });
-  }
-
-  const requestOrigin = getRequestOrigin(req);
-  const allowedOrigins = getAllowedOrigins(env);
-  if (!requestOrigin || !allowedOrigins.includes(requestOrigin)) {
-    return new Response("Origin not allowed", { status: 403 });
-  }
-
-  const formData = await req.formData();
-  const successPath = String(formData.get("success_path") || "/hotel-introductions/confirmation/?confirmed=1");
-  const returnUrl = getSafeReturnUrl(req, requestOrigin, "/hotel-introductions/confirmation/");
-  const clientIp = getClientIp(req);
-
-  if (String(formData.get("company_website") || "").trim()) {
-    logEvent("info", "terms_confirmation_honeypot_blocked", { clientIp });
-    return Response.redirect(buildRedirectUrl(requestOrigin, successPath), 303);
-  }
-
-  const rateLimit = consumeRateLimit(clientIp);
-  if (!rateLimit.allowed) {
-    logEvent("error", "terms_confirmation_rate_limited", {
-      clientIp,
-      retryAfterSeconds: rateLimit.retryAfterSeconds,
-    });
-    return renderErrorPage(
-      "Too many submissions",
-      "Please wait a few minutes before trying again.",
-      returnUrl,
-      429,
-      "Back to the confirmation form",
-    );
-  }
-
-  const fullName = sanitizeText(formData.get("full_name"), { singleLine: true, maxLength: 120 });
-  const email = sanitizeText(formData.get("email"), { singleLine: true, maxLength: 120 });
-  const company = sanitizeText(formData.get("company"), { singleLine: true, maxLength: 120 });
-  const inquiryReference = sanitizeText(formData.get("inquiry_reference"), { singleLine: true, maxLength: 120 });
-  const acceptTerms = String(formData.get("accept_terms") || "");
-
-  if (!fullName) {
-    logEvent("error", "terms_confirmation_validation_failed", { clientIp, field: "full_name" });
-    return renderErrorPage(
-      "Please enter your full name.",
-      "We need your full name to record the confirmation.",
-      returnUrl,
-      400,
-      "Back to the confirmation form",
-    );
-  }
-
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "")) {
-    logEvent("error", "terms_confirmation_validation_failed", { clientIp, field: "email" });
-    return renderErrorPage(
-      "Please enter a valid email address.",
-      "The email address entered does not look valid.",
-      returnUrl,
-      400,
-      "Back to the confirmation form",
-    );
-  }
-
-  if (acceptTerms !== "yes") {
-    logEvent("error", "terms_confirmation_validation_failed", { clientIp, field: "accept_terms" });
-    return renderErrorPage(
-      "Please confirm the Terms & Conditions before continuing.",
-      "The confirmation checkbox must be selected to continue.",
-      returnUrl,
-      400,
-      "Back to the confirmation form",
-    );
-  }
-
-  const confirmedAt = new Date().toISOString();
-  const record = {
-    id: crypto.randomUUID(),
-    full_name: fullName,
-    email,
-    company,
-    inquiry_reference: inquiryReference,
-    terms_version: CURRENT_TERMS_VERSION,
-    checkbox_text: TERMS_CONFIRMATION_CHECKBOX_TEXT,
-    confirmed_at: confirmedAt,
-    ip_address: clientIp,
-    user_agent: sanitizeText(req.headers.get("User-Agent") || "unknown", { singleLine: true, maxLength: 500 }),
-    page_url: returnUrl,
-  };
-
-  logEvent("info", "terms_confirmation_received", {
-    confirmationId: record.id,
-    clientIp,
-    email: record.email,
-    termsVersion: record.terms_version,
-  });
-
-  // TODO: Persist the record to a database or KV store when available.
-  // For now, structured logs plus Telegram/Discord notifications serve as the durable record.
-
-  const notificationFields = [
-    { label: "Name", value: record.full_name },
-    { label: "Email", value: record.email },
-    { label: "Company", value: record.company || "-" },
-    { label: "Inquiry Reference", value: record.inquiry_reference || "-" },
-    { label: "Terms Version", value: record.terms_version },
-    { label: "Confirmed At", value: record.confirmed_at },
-    { label: "IP Address", value: record.ip_address },
-    { label: "User Agent", value: record.user_agent },
-    { label: "Checkbox Text", value: record.checkbox_text },
-  ];
-
-  const submission = {
-    id: record.id,
-    source: "Hotel Introduction Terms Confirmation",
-    notificationTitle: `New Terms Confirmation – ${record.full_name}`,
-    submittedAt: record.confirmed_at,
-    pageUrl: record.page_url,
-    clientIp: record.ip_address,
-    notificationFields,
-  };
-
-  const notificationConfig = getNotificationChannels(env);
-  for (const incompleteChannel of notificationConfig.missing) {
-    logEvent("error", "terms_confirmation_config_missing", {
-      confirmationId: record.id,
-      channel: incompleteChannel.channel,
-      missingConfig: incompleteChannel.missingConfig,
-    });
-  }
-
-  if (!notificationConfig.channels.length) {
-    return renderErrorPage(
-      "We could not record your confirmation.",
-      "The notification backend is missing required configuration. Please try again or contact Interesting America.",
-      returnUrl,
-      500,
-      "Back to the confirmation form",
-    );
-  }
-
-  try {
-    const notificationResult = await dispatchNotifications(notificationConfig.channels, env, submission);
-    if (notificationResult.failures.length) {
-      logEvent("error", "terms_confirmation_partial_delivery", {
-        confirmationId: record.id,
-        succeededChannels: notificationResult.succeededChannels,
-        failedChannels: notificationResult.failures.map((failure) => failure.channel),
-      });
-    }
-  } catch (error) {
-    const message = error instanceof Error ? error.message : "Unknown notification error.";
-    logEvent("error", "terms_confirmation_delivery_failed", {
-      confirmationId: record.id,
-      clientIp,
-      message,
-    });
-    return renderErrorPage(
-      "We could not record your confirmation.",
-      `The notification pipeline returned an error: ${message}`,
-      returnUrl,
-      502,
-      "Back to the confirmation form",
-    );
-  }
-
-  logEvent("info", "terms_confirmation_completed", { confirmationId: record.id, clientIp });
-
-  const successUrl = new URL(successPath, requestOrigin);
-  successUrl.searchParams.set("confirmed", "1");
-  successUrl.searchParams.set("full_name", record.full_name);
-  successUrl.searchParams.set("email", record.email);
-  successUrl.searchParams.set("terms_version", record.terms_version);
-  successUrl.searchParams.set("confirmed_at", record.confirmed_at);
-  return Response.redirect(successUrl.toString(), 303);
-}
-
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
@@ -910,10 +700,6 @@ export default {
 
     if (url.pathname === "/newsletter-subscribe") {
       return handleNewsletterSubmit(req, env);
-    }
-
-    if (url.pathname === "/terms-confirmation") {
-      return handleTermsConfirmation(req, env);
     }
 
     if (url.pathname === "/auth") {

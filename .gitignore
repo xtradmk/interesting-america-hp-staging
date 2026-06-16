@@ -5,12 +5,6 @@ node_modules/
 .env
 .env.local
 .dev.vars
-cms/.env
-cms/.next/
-cms/node_modules/
-cms/data/
-src/images/uploads/cms/*
-!src/images/uploads/cms/.gitkeep
 cloudflare/*.rtf
 !cloudflare/.dev.vars.example
 *.log
