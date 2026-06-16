@@ -508,4 +508,45 @@
   initLegalOverlays();
   initErrorPage();
   initAboutInteractions();
+  initTermsConfirmation();
+  initConfirmationSuccess();
 })();
+
+function initTermsConfirmation() {
+  const form = document.querySelector('[data-terms-form]');
+  const checkbox = document.querySelector('[data-terms-checkbox]');
+  const submitBtn = document.querySelector('[data-terms-submit]');
+
+  if (!form || !checkbox || !submitBtn) return;
+
+  const updateSubmitState = () => {
+    submitBtn.disabled = !checkbox.checked;
+  };
+
+  checkbox.addEventListener('change', updateSubmitState);
+  updateSubmitState();
+
+  form.addEventListener('submit', (event) => {
+    if (!checkbox.checked) {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      return;
+    }
+  });
+}
+
+function initConfirmationSuccess() {
+  const fullNameEl = document.getElementById('success-full-name');
+  if (!fullNameEl) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const fullName = params.get('full_name');
+  const email = params.get('email');
+  const termsVersion = params.get('terms_version');
+  const confirmedAt = params.get('confirmed_at');
+
+  if (fullName) fullNameEl.textContent = decodeURIComponent(fullName);
+  if (email) document.getElementById('success-email').textContent = decodeURIComponent(email);
+  if (termsVersion) document.getElementById('success-terms-version').textContent = decodeURIComponent(termsVersion);
+  if (confirmedAt) document.getElementById('success-confirmed-at').textContent = decodeURIComponent(confirmedAt);
+}

@@ -1,0 +1,111 @@
+<section class="module module--terms-confirmation">
+  <div class="container">
+    <div class="terms-confirmation__hero">
+      <h1 class="terms-confirmation__title">Hotel Introduction Confirmation</h1>
+      <p class="terms-confirmation__subtitle">A short standard confirmation before we share specific hotel options, contacts, rates, or availability.</p>
+    </div>
+
+    <div class="terms-confirmation__card">
+      <p class="terms-confirmation__intro">
+        Interesting America works with selected hotels and partners. Before we share specific hotel names, hotel contacts, rates, availability, or proposal details, we ask clients to confirm our standard Terms &amp; Conditions.
+      </p>
+
+      <form
+        action="{{ integrations.termsConfirmEndpoint }}"
+        method="post"
+        class="form terms-confirmation__form"
+        data-terms-form
+      >
+        <input type="hidden" name="success_path" value="/hotel-introductions/confirmation-success/">
+        <p class="form-honeypot" aria-hidden="true">
+          <label>Do not fill this out: <input name="company_website"></label>
+        </p>
+
+        <div class="form__field">
+          <label for="full_name" class="form__label">Full Name *<span class="sr-only">(required)</span></label>
+          <input
+            type="text"
+            id="full_name"
+            name="full_name"
+            required
+            autocomplete="name"
+            placeholder="Your full name"
+            class="form__input"
+          >
+        </div>
+
+        <div class="form__field">
+          <label for="email" class="form__label">Email *<span class="sr-only">(required)</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="your@email.com"
+            class="form__input"
+          >
+        </div>
+
+        <div class="form__field">
+          <label for="company" class="form__label">Company <span class="form__label-hint">(optional)</span></label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            autocomplete="organization"
+            placeholder="Your company"
+            class="form__input"
+          >
+        </div>
+
+        <div class="form__field">
+          <label for="inquiry_reference" class="form__label">Inquiry Reference <span class="form__label-hint">(optional)</span></label>
+          <input
+            type="text"
+            id="inquiry_reference"
+            name="inquiry_reference"
+            placeholder="e.g. proposal or request number"
+            class="form__input"
+          >
+        </div>
+
+        <div class="terms-confirmation__review">
+          <h2 class="terms-confirmation__review-title">Review Terms &amp; Conditions</h2>
+          <ul class="terms-confirmation__links">
+            <li><a href="/t-c/" target="_blank" rel="noopener" class="link">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy-policy/" target="_blank" rel="noopener" class="link">Privacy Policy</a></li>
+            <!-- TODO: add PDF download link when Terms PDF is available -->
+          </ul>
+        </div>
+
+        <div class="form__field form__field--checkbox">
+          <label class="form__checkbox-label" for="accept_terms">
+            <input
+              type="checkbox"
+              id="accept_terms"
+              name="accept_terms"
+              value="I have reviewed and accept the Interesting America Terms &amp; Conditions, including the Hotel Introduction Terms."
+              required
+              data-terms-checkbox
+            >
+            <span class="form__checkbox-text">I have reviewed and accept the Interesting America Terms &amp; Conditions, including the Hotel Introduction Terms.</span>
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn--primary terms-confirmation__submit"
+          data-terms-submit
+          disabled
+        >
+          Confirm and Continue
+        </button>
+      </form>
+
+      <p class="terms-confirmation__privacy-note">
+        To document this confirmation, Interesting America stores the information submitted above, the time of confirmation, the accepted Terms version, and technical protocol data where available. Further details are provided in our <a href="/privacy-policy/">Privacy Policy</a>.
+      </p>
+    </div>
+  </div>
+</section>
