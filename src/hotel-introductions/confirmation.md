@@ -1,7 +1,6 @@
 ---
-layout: layouts/base.njk
+layout: base.njk
 title: Hotel Introduction Confirmation
-permalink: /hotel-introductions/confirmation/
 metaDescription: Confirm the Interesting America Terms & Conditions before we share specific hotel options, contacts, rates, or availability.
 ---
 

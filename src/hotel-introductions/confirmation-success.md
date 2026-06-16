@@ -1,5 +1,5 @@
 ---
-layout: layouts/base.njk
+layout: base.njk
 title: Confirmation Received
 permalink: /hotel-introductions/confirmation-success/
 metaDescription: Your Terms & Conditions confirmation has been received.
