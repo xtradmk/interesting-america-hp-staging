@@ -442,6 +442,9 @@ function buildSubmissionRecord(req, fields, formConfig) {
 async function storeTermsConfirmation(env, submission) {
   const kv = env.TERMS_CONFIRMATIONS_KV;
   if (!kv) {
+    logEvent("error", "terms_confirmation_kv_binding_missing", {
+      submissionId: submission.id,
+    });
     throw new Error("TERMS_CONFIRMATIONS_KV binding is not configured");
   }
 
@@ -461,6 +464,10 @@ async function storeTermsConfirmation(env, submission) {
   });
 
   await kv.put(key, value, { expirationTtl: 60 * 60 * 24 * 365 }); // 1 year
+  logEvent("info", "terms_confirmation_stored", {
+    submissionId: submission.id,
+    key,
+  });
   return { key };
 }
 
