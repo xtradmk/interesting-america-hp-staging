@@ -1,3 +1,15 @@
+const CURRENT_TERMS_VERSION = "2026-06-16";
+const TERMS_CHECKBOX_TEXT = "I have reviewed and accept the Interesting America Terms & Conditions, including the Hotel Introduction Terms.";
+
+const KNOWN_TERMS_CONFIRMATION_FIELDS = [
+  ["full_name", "Full Name"],
+  ["email", "Email"],
+  ["company", "Company"],
+  ["inquiry_reference", "Inquiry Reference"],
+];
+const TERMS_CONFIRMATION_FIELD_LABELS = new Map(KNOWN_TERMS_CONFIRMATION_FIELDS);
+const REQUIRED_TERMS_CONFIRMATION_FIELDS = new Set(["full_name", "email"]);
+
 const KNOWN_CONTACT_FIELDS = [
   ["full_name", "Full Name"],
   ["company", "Company"],
@@ -327,6 +339,35 @@ function validateNewsletterSubmission(payload) {
   return { valid: true };
 }
 
+function validateTermsConfirmation(payload) {
+  const missingFields = [...REQUIRED_TERMS_CONFIRMATION_FIELDS].filter((field) => !payload[field]);
+  if (missingFields.length) {
+    return {
+      valid: false,
+      message: "Please enter your full name and email address.",
+      status: 400,
+    };
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email || "")) {
+    return {
+      valid: false,
+      message: "Please enter a valid email address.",
+      status: 400,
+    };
+  }
+
+  if (!payload.accept_terms) {
+    return {
+      valid: false,
+      message: "Please confirm the Terms and Conditions before continuing.",
+      status: 400,
+    };
+  }
+
+  return { valid: true };
+}
+
 const CONTACT_FORM_CONFIG = {
   eventPrefix: "contact_submission",
   source: "Website Contact Form",
@@ -355,13 +396,28 @@ const NEWSLETTER_FORM_CONFIG = {
   validate: validateNewsletterSubmission,
 };
 
+const TERMS_CONFIRMATION_CONFIG = {
+  eventPrefix: "terms_confirmation",
+  source: "Hotel Introduction Terms Confirmation",
+  notificationTitle: "New Terms Confirmation",
+  fieldLabels: TERMS_CONFIRMATION_FIELD_LABELS,
+  fallbackReturnPath: "/hotel-introductions/confirmation/",
+  returnLabel: "Back to the confirmation form",
+  validationTitle: "Please complete the confirmation",
+  configErrorTitle: "Terms confirmation storage is not configured yet",
+  configErrorMessage: "The confirmation backend is missing required configuration. Please try again later.",
+  deliveryFailureTitle: "We could not record your confirmation",
+  validate: validateTermsConfirmation,
+  requiresKv: true,
+};
+
 function buildSubmissionRecord(req, fields, formConfig) {
   const referer = sanitizeText(req.headers.get("Referer"), {
     singleLine: true,
     maxLength: 500,
   });
 
-  return {
+  const record = {
     id: crypto.randomUUID(),
     eventPrefix: formConfig.eventPrefix,
     source: formConfig.source,
@@ -369,10 +425,43 @@ function buildSubmissionRecord(req, fields, formConfig) {
     submittedAt: new Date().toISOString(),
     pageUrl: referer || "",
     clientIp: getClientIp(req),
+    userAgent: sanitizeText(req.headers.get("User-Agent"), { singleLine: true, maxLength: 500 }),
     fields,
     notificationFields: fields.filter((field) => field.value),
     payload: fieldsToPayload(fields),
   };
+
+  if (formConfig.eventPrefix === "terms_confirmation") {
+    record.termsVersion = CURRENT_TERMS_VERSION;
+    record.checkboxText = TERMS_CHECKBOX_TEXT;
+  }
+
+  return record;
+}
+
+async function storeTermsConfirmation(env, submission) {
+  const kv = env.TERMS_CONFIRMATIONS_KV;
+  if (!kv) {
+    throw new Error("TERMS_CONFIRMATIONS_KV binding is not configured");
+  }
+
+  const key = `terms_confirmation:${submission.id}`;
+  const value = JSON.stringify({
+    id: submission.id,
+    full_name: submission.payload.full_name || "",
+    email: submission.payload.email || "",
+    company: submission.payload.company || "",
+    inquiry_reference: submission.payload.inquiry_reference || "",
+    terms_version: submission.termsVersion,
+    checkbox_text: submission.checkboxText,
+    confirmed_at: submission.submittedAt,
+    ip_address: submission.clientIp,
+    user_agent: submission.userAgent,
+    page_url: submission.pageUrl,
+  });
+
+  await kv.put(key, value, { expirationTtl: 60 * 60 * 24 * 365 }); // 1 year
+  return { key };
 }
 
 function buildNotificationLines(submission) {
@@ -659,6 +748,10 @@ async function handleFormSubmission(req, env, formConfig) {
         failedChannels: notificationResult.failures.map((failure) => failure.channel),
       });
     }
+
+    if (formConfig.eventPrefix === "terms_confirmation") {
+      await storeTermsConfirmation(env, submission);
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown notification error.";
     logEvent("error", `${submission.eventPrefix}_delivery_failed`, {
@@ -679,7 +772,22 @@ async function handleFormSubmission(req, env, formConfig) {
     submissionId: submission.id,
     clientIp: submission.clientIp,
   });
-  return Response.redirect(buildRedirectUrl(requestOrigin, successPath), 303);
+
+  let finalSuccessPath = successPath;
+  if (formConfig.eventPrefix === "terms_confirmation") {
+    const params = new URLSearchParams();
+    params.set("full_name", submission.payload.full_name || "");
+    params.set("email", submission.payload.email || "");
+    params.set("terms_version", submission.termsVersion || "");
+    params.set("confirmed_at", submission.submittedAt || "");
+    finalSuccessPath = `${successPath}?${params.toString()}`;
+  }
+
+  return Response.redirect(buildRedirectUrl(requestOrigin, finalSuccessPath), 303);
+}
+
+async function handleTermsConfirm(req, env) {
+  return handleFormSubmission(req, env, TERMS_CONFIRMATION_CONFIG);
 }
 
 async function handleContactSubmit(req, env) {
@@ -700,6 +808,10 @@ export default {
 
     if (url.pathname === "/newsletter-subscribe") {
       return handleNewsletterSubmit(req, env);
+    }
+
+    if (url.pathname === "/terms-confirm") {
+      return handleTermsConfirm(req, env);
     }
 
     if (url.pathname === "/auth") {

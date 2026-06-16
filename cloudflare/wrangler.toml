@@ -2,6 +2,11 @@ name = "ia-cms-oauth"
 main = "worker.js"
 compatibility_date = "2026-03-15"
 
+[[kv_namespaces]]
+binding = "TERMS_CONFIRMATIONS_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
+
 [vars]
 ALLOWED_ORIGIN = "https://xtradmk.github.io"
 GITHUB_CLIENT_ID = "Ov23lihgQkJGG0k8CBH9"
