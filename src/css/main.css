@@ -1499,3 +1499,60 @@ body.subpage-studio main{
     grid-template-columns:1fr;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────
+   Hotel Introduction Confirmation (T-C-Acceptance)
+   Route: /hotel-introductions/confirmation/
+   ────────────────────────────────────────────────────────────── */
+
+.page-terms-confirmation .logo__img{filter:none}
+.page-terms-confirmation .nav-link{color:#101828}
+.page-terms-confirmation .site-header:not(.is-scrolled) .nav-item:hover .nav-link,
+.page-terms-confirmation .site-header:not(.is-scrolled) .nav-item--active .nav-link{background:rgba(15,23,42,.08);color:#101828;box-shadow:none}
+.page-terms-confirmation main{background:#fff}
+
+.terms-confirmation-section{padding-top:clamp(112px,12vw,156px);padding-bottom:clamp(64px,8vw,100px)}
+
+.terms-confirmation__header{text-align:center;max-width:720px;margin:0 auto clamp(36px,4vw,52px)}
+.terms-confirmation__brand{margin:0 0 14px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(11,16,32,.62)}
+.terms-confirmation__title{margin:0;font-family:var(--sans);font-size:clamp(36px,4.8vw,64px);line-height:1.02;font-weight:500;letter-spacing:-.04em;color:#0b1020}
+.terms-confirmation__subtitle{margin:18px 0 0;font-family:var(--sans);font-size:clamp(18px,1.7vw,24px);line-height:1.5;letter-spacing:-.02em;color:#475569}
+
+.terms-confirmation__card{width:min(760px,100%);margin:0 auto;padding:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 24px 54px rgba(15,23,42,.07)}
+
+.terms-confirmation__explanation{margin:0 0 clamp(28px,3vw,38px);text-align:center;font-family:var(--sans);font-size:clamp(17px,1.4vw,20px);line-height:1.6;letter-spacing:-.015em;color:#475569}
+
+.terms-confirmation__form{display:grid;gap:clamp(24px,3vw,32px)}
+
+.terms-confirmation__terms-review{padding:clamp(22px,3vw,30px);border:1px solid #e5e9f0;border-radius:var(--r-sm);background:#f9fafb}
+.terms-confirmation__section-title{margin:0 0 16px;font-family:var(--sans);font-size:20px;font-weight:600;letter-spacing:-.02em;color:#0b1020}
+.terms-confirmation__terms-links{display:flex;flex-wrap:wrap;gap:12px}
+.terms-confirmation__terms-link{display:inline-flex;align-items:center;padding:12px 18px;border:1px solid #d5d9df;border-radius:999px;background:#fff;font-family:var(--sans);font-size:14px;font-weight:500;color:#0b1020;transition:border-color .2s ease,background .2s ease}
+.terms-confirmation__terms-link:hover{border-color:#0b1020;background:#fff}
+
+.terms-confirmation__submit:disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
+.terms-confirmation__submit:disabled .hero-link-cta__text:after{transform:scaleX(0) !important}
+
+.terms-confirmation__privacy-note{margin:0;text-align:center;font-family:var(--sans);font-size:13px;line-height:1.55;letter-spacing:-.01em;color:#5f6878;max-width:55ch}
+.terms-confirmation__privacy-note a{color:#0b1020;text-decoration:none;border-bottom:1px solid rgba(11,16,32,.18)}
+
+.terms-confirmation__success{text-align:center}
+.terms-confirmation__success-title{margin:0 0 12px;font-family:var(--sans);font-size:clamp(30px,3.6vw,46px);line-height:1.05;font-weight:500;letter-spacing:-.04em;color:#0b1020}
+.terms-confirmation__success-text{margin:0 auto 28px;max-width:52ch;font-family:var(--sans);font-size:clamp(17px,1.4vw,20px);line-height:1.6;letter-spacing:-.015em;color:#475569}
+.terms-confirmation__success-details{display:grid;gap:12px;max-width:480px;margin:0 auto 32px;text-align:left}
+.terms-confirmation__success-details > div{display:grid;grid-template-columns:1fr 1.5fr;gap:12px;padding:12px 0;border-bottom:1px solid #e5e9f0}
+.terms-confirmation__success-details dt{font-family:var(--sans);font-size:13px;font-weight:600;color:#5f6878}
+.terms-confirmation__success-details dd{margin:0;font-family:var(--sans);font-size:15px;font-weight:500;color:#0b1020;word-break:break-word}
+
+@media (max-width:760px){
+  .page-terms-confirmation .mobile-menu-trigger{border-color:rgba(11,16,32,.14);background:rgba(255,255,255,.88);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);color:#101828;box-shadow:0 10px 26px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.72)}
+  .terms-confirmation__header{max-width:min(560px,90%)}
+  .terms-confirmation__card{padding:24px}
+  .terms-confirmation__success-details > div{grid-template-columns:1fr}
+  .terms-confirmation__success-details dd{padding-left:0}
+}
+
+@media (max-width:420px){
+  .terms-confirmation__card{padding:20px}
+  .terms-confirmation__title{font-size:clamp(28px,9vw,40px)}
+}

@@ -508,4 +508,44 @@
   initLegalOverlays();
   initErrorPage();
   initAboutInteractions();
+  initTermsConfirmation();
+  const initTermsConfirmation = () => {
+    const form = document.querySelector('[data-terms-confirmation-form]');
+    const checkbox = document.querySelector('[data-terms-confirmation-checkbox]');
+    const submitBtn = document.querySelector('[data-terms-confirmation-submit]');
+    const success = document.querySelector('[data-terms-confirmation-success]');
+    const card = document.querySelector('[data-terms-confirmation-card]');
+
+    if (!form || !checkbox || !submitBtn) return;
+
+    const toggleSubmit = () => {
+      submitBtn.disabled = !checkbox.checked;
+    };
+    checkbox.addEventListener('change', toggleSubmit);
+    toggleSubmit();
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('confirmed') === '1' && success && card) {
+      form.hidden = true;
+      success.hidden = false;
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      success.querySelectorAll('[data-detail]').forEach((el) => {
+        const value = params.get(el.dataset.detail);
+        if (!value) {
+          el.textContent = '-';
+          return;
+        }
+        if (el.dataset.detail === 'confirmed_at') {
+          try {
+            el.textContent = new Date(value).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+            return;
+          } catch {
+            // fall through to raw value
+          }
+        }
+        el.textContent = value;
+      });
+    }
+  };
+
 })();

@@ -1,0 +1,116 @@
+<section class="story-section subpage-home-section terms-confirmation-section" id="hotel-introduction-confirmation">
+  <div class="wrap-wide">
+    <div class="terms-confirmation__header fade in">
+      <p class="terms-confirmation__brand">Interesting America</p>
+      <h1 class="terms-confirmation__title">Hotel Introduction Confirmation</h1>
+      <p class="terms-confirmation__subtitle">A short standard confirmation before we share specific hotel options, contacts, rates, or availability.</p>
+    </div>
+
+    <div class="terms-confirmation__card" data-terms-confirmation-card>
+      <p class="terms-confirmation__explanation">
+        Interesting America works with selected hotels and partners. Before we share specific hotel names, hotel contacts, rates, availability, or proposal details, we ask clients to confirm our standard Terms &amp; Conditions.
+      </p>
+
+      <form class="terms-confirmation__form" method="POST" action="{{ integrations.termsConfirmationEndpoint }}" data-terms-confirmation-form>
+        <input type="hidden" name="success_path" value="{{ '/hotel-introductions/confirmation/?confirmed=1' | url }}">
+        <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
+
+        <div class="contact-funnel__grid terms-confirmation__grid">
+          <label>
+            <span>Full Name <span aria-hidden="true">*</span><span class="sr-only">(required)</span></span>
+            <input type="text" name="full_name" placeholder="Jane Doe" required>
+          </label>
+          <label>
+            <span>Email <span aria-hidden="true">*</span><span class="sr-only">(required)</span></span>
+            <input type="email" name="email" placeholder="name@company.com" required>
+          </label>
+          <label>
+            <span>Company</span>
+            <input type="text" name="company" placeholder="Agency, federation, brand">
+          </label>
+          <label>
+            <span>Inquiry Reference</span>
+            <input type="text" name="inquiry_reference" placeholder="e.g. IA-2026-0001">
+          </label>
+        </div>
+
+        <div class="terms-confirmation__terms-review">
+          <h2 class="terms-confirmation__section-title">Review Terms &amp; Conditions</h2>
+          <div class="terms-confirmation__terms-links">
+            <a class="terms-confirmation__terms-link" href="{{ '/t-c/' | url }}">Terms &amp; Conditions</a>
+            <a class="terms-confirmation__terms-link" href="{{ '/privacy-policy/' | url }}">Privacy Policy</a>
+            {# TODO: Add a Terms & Conditions PDF download link here once the asset is available. #}
+          </div>
+        </div>
+
+        <div class="contact-funnel__toggle terms-confirmation__toggle">
+          <input id="accept-terms" type="checkbox" name="accept_terms" value="yes" required data-terms-confirmation-checkbox>
+          <label for="accept-terms">
+            <span>I have reviewed and accept the Interesting America Terms &amp; Conditions, including the Hotel Introduction Terms.</span>
+          </label>
+        </div>
+
+        <div class="contact-funnel__actions terms-confirmation__actions">
+          <button class="contact-funnel__submit terms-confirmation__submit" type="submit" data-terms-confirmation-submit disabled>
+            <span class="hero-link-cta__text">Confirm and Continue</span>
+            <span class="hero-link-cta__icon" aria-hidden="true">
+              <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+                <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </button>
+          <p class="terms-confirmation__privacy-note">
+            To document this confirmation, Interesting America stores the information submitted above, the time of confirmation, the accepted Terms version, and technical protocol data where available. Further details are provided in our <a href="{{ '/privacy-policy/' | url }}">Privacy Policy</a>.
+          </p>
+        </div>
+      </form>
+
+      <div class="terms-confirmation__success" data-terms-confirmation-success hidden>
+        <h2 class="terms-confirmation__success-title">Confirmation received</h2>
+        <p class="terms-confirmation__success-text">
+          Thank you. Your confirmation has been received. We can now continue with specific hotel introductions and proposal details.
+        </p>
+        <dl class="terms-confirmation__success-details" data-terms-confirmation-details>
+          <div><dt>Name</dt><dd data-detail="full_name"></dd></div>
+          <div><dt>Email</dt><dd data-detail="email"></dd></div>
+          <div><dt>Terms Version</dt><dd data-detail="terms_version"></dd></div>
+          <div><dt>Confirmed At</dt><dd data-detail="confirmed_at"></dd></div>
+        </dl>
+        <a class="hero-link-cta hero-link-cta--static is-visible" href="{{ '/' | url }}">
+          <span class="hero-link-cta__text">Return Home</span>
+          <span class="hero-link-cta__icon" aria-hidden="true">
+            <svg viewBox="0 0 19 19" role="presentation" focusable="false">
+              <path d="M14.458 10.687 L0 10.688 L0 8.313 L14.458 8.313 L7.808 1.663 L9.5 0 L19 9.5 L9.5 19 L7.808 17.337 Z" fill="currentColor"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="legal-overlay" data-legal-overlay="terms" hidden>
+  <div class="legal-overlay__backdrop" data-close-legal></div>
+  <div class="legal-overlay__dialog" role="dialog" aria-modal="true" aria-labelledby="legal-overlay-title-terms">
+    <div class="legal-overlay__header">
+      <h2 id="legal-overlay-title-terms">Terms &amp; Conditions</h2>
+      <button type="button" class="legal-overlay__close" data-close-legal aria-label="Close Terms and Conditions overlay">Close</button>
+    </div>
+    <div class="legal-overlay__body">
+      {% include "modules/legal-terms-flow.njk" %}
+    </div>
+  </div>
+</div>
+
+<div class="legal-overlay" data-legal-overlay="privacy" hidden>
+  <div class="legal-overlay__backdrop" data-close-legal></div>
+  <div class="legal-overlay__dialog" role="dialog" aria-modal="true" aria-labelledby="legal-overlay-title-privacy">
+    <div class="legal-overlay__header">
+      <h2 id="legal-overlay-title-privacy">Privacy Policy</h2>
+      <button type="button" class="legal-overlay__close" data-close-legal aria-label="Close Privacy Policy overlay">Close</button>
+    </div>
+    <div class="legal-overlay__body">
+      {% include "modules/legal-privacy-flow.njk" %}
+    </div>
+  </div>
+</div>
