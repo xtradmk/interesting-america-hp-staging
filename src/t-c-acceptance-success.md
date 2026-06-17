@@ -20,10 +20,7 @@ pageClasses: subpage-home page-contact
         <p><strong>Confirmed At:</strong> <span id="success-confirmed-at">—</span></p>
       </div>
       <p class="confirmation-success__cta">
-        <a id="terms-document-download" href="#" class="btn btn--primary" data-document-base="{{ integrations.termsDocumentEndpoint }}" target="_blank" rel="noopener">Download confirmation document</a>
-      </p>
-      <p class="confirmation-success__cta">
-        <a href="/" class="btn btn--primary">Back to Home</a>
+        <a id="terms-document-download" href="#" class="btn btn--primary btn--pill" data-document-base="{{ integrations.termsDocumentEndpoint }}" target="_blank" rel="noopener">Download confirmation document</a>
       </p>
     </div>
   </div>

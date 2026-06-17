@@ -103,6 +103,8 @@ body.js-slider-ready .hero-bg--css{animation:none;opacity:0}
 .hero-link-cta:hover .hero-link-cta__text:after{transform:scaleX(1)}
 .hero-link-cta:hover .hero-link-cta__icon{transform:rotate(0deg)}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;font-weight:700;font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;transition:.25s}
+.btn--pill{height:46px;padding:0 20px;border-radius:999px;font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:-.02em;text-transform:none;background:#0f172a;color:#fff}
+.btn--pill:hover{background:#1e293b;transform:translateY(-2px)}
 .btn-primary{background:var(--brand);color:#fff;box-shadow:0 12px 24px rgba(2,6,23,.2)}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{background:#fff;border:1px solid #cfd8e6;color:#1f2937}

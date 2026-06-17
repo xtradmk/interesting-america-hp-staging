@@ -1,4 +1,4 @@
-const CURRENT_TERMS_VERSION = "2026-06-16";
+const CURRENT_TERMS_VERSION = "2026-05-12";
 const TERMS_CHECKBOX_TEXT = "I have reviewed and accept the Interesting America Terms & Conditions, including the Hotel Introduction Terms.";
 
 const KNOWN_TERMS_CONFIRMATION_FIELDS = [
