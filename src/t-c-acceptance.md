@@ -11,7 +11,7 @@ templateEngineOverride: njk
     <div class="contact-funnel fade">
       <p class="contact-funnel__intro">Before we share specific hotel names, contacts, rates, availability, or proposal details, please confirm our standard Terms &amp; Conditions.</p>
 
-      <form class="contact-funnel__form" name="terms-acceptance" method="POST" action="{{ integrations.termsConfirmEndpoint }}">
+      <form class="contact-funnel__form" name="terms-acceptance" method="POST" action="{{ integrations.termsConfirmEndpoint }}" data-prefill-from-url>
         <input type="hidden" name="success_path" value="{{ '/t-c-acceptance-success/' | url }}">
         <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
 

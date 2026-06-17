@@ -510,6 +510,7 @@
   initAboutInteractions();
   initTermsConfirmation();
   initConfirmationSuccess();
+  initPrefillFromUrl();
 })();
 
 function initTermsConfirmation() {
@@ -549,4 +550,22 @@ function initConfirmationSuccess() {
   if (email) document.getElementById('success-email').textContent = decodeURIComponent(email);
   if (termsVersion) document.getElementById('success-terms-version').textContent = decodeURIComponent(termsVersion);
   if (confirmedAt) document.getElementById('success-confirmed-at').textContent = decodeURIComponent(confirmedAt);
+}
+
+function initPrefillFromUrl() {
+  const form = document.querySelector('form[data-prefill-from-url]');
+  if (!form) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const reserved = new Set(['success_path']);
+
+  params.forEach((value, key) => {
+    if (reserved.has(key)) return;
+
+    const field = form.querySelector(`[name="${CSS.escape(key)}"]`);
+    if (!field) return;
+    if (field.type === 'checkbox' || field.type === 'radio') return;
+
+    field.value = decodeURIComponent(value);
+  });
 }
