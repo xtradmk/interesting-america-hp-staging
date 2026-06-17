@@ -185,6 +185,40 @@ function clampText(value, maxLength) {
     : value;
 }
 
+async function computeConfirmationHash(env, data) {
+  const payload = [
+    data.confirmation_id,
+    data.full_name,
+    data.email,
+    data.company,
+    data.inquiry_reference,
+    data.terms_version,
+    data.confirmed_at,
+  ].join("|");
+
+  const encoder = new TextEncoder();
+  const payloadBuffer = encoder.encode(payload);
+
+  if (env.SIGNING_SECRET) {
+    const key = await crypto.subtle.importKey(
+      "raw",
+      encoder.encode(env.SIGNING_SECRET),
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"],
+    );
+    const signature = await crypto.subtle.sign("HMAC", key, payloadBuffer);
+    return Array.from(new Uint8Array(signature))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  const digest = await crypto.subtle.digest("SHA-256", payloadBuffer);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
 function consumeRateLimit(clientIp) {
   if (!clientIp || clientIp === "unknown") {
     return { allowed: true };
@@ -439,7 +473,7 @@ function buildSubmissionRecord(req, fields, formConfig) {
   return record;
 }
 
-async function storeTermsConfirmation(env, submission) {
+async function storeTermsConfirmation(env, submission, hash) {
   const kv = env.TERMS_CONFIRMATIONS_KV;
   if (!kv) {
     logEvent("error", "terms_confirmation_kv_binding_missing", {
@@ -459,6 +493,7 @@ async function storeTermsConfirmation(env, submission) {
     checkbox_text: submission.checkboxText,
     confirmed_at: submission.submittedAt,
     ip_address: submission.clientIp,
+    hash,
     user_agent: submission.userAgent,
     page_url: submission.pageUrl,
   });
@@ -488,6 +523,12 @@ function buildNotificationLines(submission) {
     ...headerLines,
     "",
     ...(fieldLines.length ? fieldLines : ["No fields submitted."]),
+    ...(submission.documentUrl
+      ? [
+          "",
+          `Confirmation document: ${submission.documentUrl}`,
+        ]
+      : []),
   ];
 }
 
@@ -508,6 +549,14 @@ function buildDiscordPayload(submission) {
     value: clampText(compactValue(field.value), DISCORD_FIELD_VALUE_LIMIT),
     inline: false,
   }));
+
+  if (submission.documentUrl) {
+    fields.push({
+      name: "Confirmation document",
+      value: submission.documentUrl,
+      inline: false,
+    });
+  }
 
   return {
     allowed_mentions: { parse: [] },
@@ -746,6 +795,22 @@ async function handleFormSubmission(req, env, formConfig) {
     );
   }
 
+  let documentUrl;
+  if (formConfig.eventPrefix === "terms_confirmation") {
+    const hash = await computeConfirmationHash(env, {
+      confirmation_id: submission.id,
+      full_name: submission.payload.full_name || "",
+      email: submission.payload.email || "",
+      company: submission.payload.company || "",
+      inquiry_reference: submission.payload.inquiry_reference || "",
+      terms_version: submission.termsVersion || "",
+      confirmed_at: submission.submittedAt || "",
+    });
+    await storeTermsConfirmation(env, submission, hash);
+    documentUrl = `${new URL("/terms-confirmation-document", new URL(req.url).origin).toString()}?confirmation_id=${encodeURIComponent(submission.id)}&hash=${encodeURIComponent(hash)}`;
+    submission.documentUrl = documentUrl;
+  }
+
   try {
     const notificationResult = await dispatchNotifications(notificationConfig.channels, env, submission);
     if (notificationResult.failures.length) {
@@ -754,10 +819,6 @@ async function handleFormSubmission(req, env, formConfig) {
         succeededChannels: notificationResult.succeededChannels,
         failedChannels: notificationResult.failures.map((failure) => failure.channel),
       });
-    }
-
-    if (formConfig.eventPrefix === "terms_confirmation") {
-      await storeTermsConfirmation(env, submission);
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown notification error.";
@@ -785,6 +846,8 @@ async function handleFormSubmission(req, env, formConfig) {
     const params = new URLSearchParams();
     params.set("full_name", submission.payload.full_name || "");
     params.set("email", submission.payload.email || "");
+    params.set("company", submission.payload.company || "");
+    params.set("inquiry_reference", submission.payload.inquiry_reference || "");
     params.set("terms_version", submission.termsVersion || "");
     params.set("confirmed_at", submission.submittedAt || "");
     finalSuccessPath = `${successPath}?${params.toString()}`;
@@ -795,6 +858,128 @@ async function handleFormSubmission(req, env, formConfig) {
 
 async function handleTermsConfirm(req, env) {
   return handleFormSubmission(req, env, TERMS_CONFIRMATION_CONFIG);
+}
+
+function renderConfirmationDocument(record) {
+  const documentDate = new Date(record.confirmed_at).toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZoneName: "short",
+  });
+
+  const rows = [
+    ["Full Name", record.full_name],
+    ["Email", record.email],
+    ["Company", record.company || "—"],
+    ["Inquiry Reference", record.inquiry_reference || "—"],
+    ["Terms Version", record.terms_version],
+    ["Confirmed At", documentDate],
+    ["Confirmation ID", record.id],
+    ["Verification Hash", record.hash],
+  ];
+
+  const tableRows = rows
+    .map(([label, value]) => `
+      <tr>
+        <th>${escapeHtml(label)}</th>
+        <td>${escapeHtml(value)}</td>
+      </tr>
+    `)
+    .join("");
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Terms &amp; Conditions Confirmation – INTERESTING AMERICA</title>
+    <style>
+      *{box-sizing:border-box}
+      body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff;color:#0f172a;line-height:1.55}
+      .page{max-width:720px;margin:0 auto;padding:64px 24px}
+      .brand{margin:0 0 8px;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#64748b}
+      h1{margin:0 0 24px;font-size:clamp(28px,5vw,40px);line-height:1.1;font-weight:500;letter-spacing:-.03em}
+      .lead{margin:0 0 32px;font-size:18px;color:#475569}
+      table{width:100%;border-collapse:collapse;margin:0 0 32px;font-size:15px}
+      th{width:38%;padding:14px 0;text-align:left;vertical-align:top;font-weight:600;color:#0f172a;border-bottom:1px solid #e2e8f0}
+      td{width:62%;padding:14px 0;vertical-align:top;color:#334155;border-bottom:1px solid #e2e8f0;word-break:break-word}
+      .hash{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;color:#475569}
+      .actions{margin-top:40px}
+      button{padding:14px 24px;border:0;border-radius:12px;background:#0f172a;color:#fff;font-size:16px;font-weight:500;cursor:pointer}
+      button:hover{background:#1e293b}
+      .footer{margin-top:48px;padding-top:24px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b}
+      @media print{
+        .no-print{display:none}
+        body{background:#fff}
+        .page{padding:0}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <p class="brand">INTERESTING AMERICA</p>
+      <h1>Terms &amp; Conditions Confirmation</h1>
+      <p class="lead">This document confirms that the undersigned accepted the INTERESTING AMERICA Terms &amp; Conditions and Privacy Policy on the date shown below.</p>
+      <table>
+        ${tableRows}
+      </table>
+      <p style="font-size:15px;color:#475569">By confirming, the signatory acknowledges the Hotel Introduction Terms included in the current Terms &amp; Conditions version.</p>
+      <div class="actions no-print">
+        <button onclick="window.print()">Save as PDF / Print</button>
+      </div>
+      <div class="footer">
+        Generated by INTERESTING AMERICA · Verification hash: <span class="hash">${escapeHtml(record.hash)}</span>
+      </div>
+    </div>
+  </body>
+</html>`;
+}
+
+async function handleTermsConfirmationDocument(req, env) {
+  const url = new URL(req.url);
+  const confirmationId = url.searchParams.get("confirmation_id");
+  const providedHash = url.searchParams.get("hash");
+
+  if (!confirmationId || !providedHash) {
+    return new Response("Missing confirmation id or hash", { status: 400 });
+  }
+
+  const kv = env.TERMS_CONFIRMATIONS_KV;
+  if (!kv) {
+    return new Response("Confirmation storage is not configured", { status: 503 });
+  }
+
+  const key = `terms_confirmation:${confirmationId}`;
+  const value = await kv.get(key);
+  if (!value) {
+    return new Response("Confirmation not found", { status: 404 });
+  }
+
+  let record;
+  try {
+    record = JSON.parse(value);
+  } catch {
+    return new Response("Invalid confirmation record", { status: 500 });
+  }
+
+  const expectedHash = await computeConfirmationHash(env, {
+    confirmation_id: record.id,
+    full_name: record.full_name,
+    email: record.email,
+    company: record.company,
+    inquiry_reference: record.inquiry_reference,
+    terms_version: record.terms_version,
+    confirmed_at: record.confirmed_at,
+  });
+
+  if (providedHash !== expectedHash) {
+    return new Response("Invalid verification hash", { status: 403 });
+  }
+
+  return htmlResponse(renderConfirmationDocument(record));
 }
 
 async function handleContactSubmit(req, env) {
@@ -819,6 +1004,10 @@ export default {
 
     if (url.pathname === "/terms-confirm") {
       return handleTermsConfirm(req, env);
+    }
+
+    if (url.pathname === "/terms-confirmation-document") {
+      return handleTermsConfirmationDocument(req, env);
     }
 
     if (url.pathname === "/auth") {

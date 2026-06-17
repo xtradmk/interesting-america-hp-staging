@@ -4,4 +4,5 @@ module.exports = {
   contactFormEndpoint: `${workerBaseUrl}/contact-submit`,
   newsletterFormEndpoint: `${workerBaseUrl}/newsletter-subscribe`,
   termsConfirmEndpoint: `${workerBaseUrl}/terms-confirm`,
+  termsDocumentEndpoint: `${workerBaseUrl}/terms-confirmation-document`,
 };

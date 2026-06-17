@@ -3,6 +3,10 @@ TELEGRAM_CHAT_ID=your-telegram-chat-id
 DISCORD_BOT_TOKEN=your-discord-bot-token
 DISCORD_CHANNEL_ID=1504043044834381866
 
+# Optional: HMAC secret used to sign terms confirmation documents.
+# If omitted, documents still get a SHA-256 integrity hash.
+SIGNING_SECRET=your-random-secret-at-least-32-chars
+
 # Optional future captcha verification
 # HCAPTCHA_SECRET=your-hcaptcha-secret
 # RECAPTCHA_SECRET=your-recaptcha-secret

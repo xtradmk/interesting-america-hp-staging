@@ -550,6 +550,19 @@ function initConfirmationSuccess() {
   if (email) document.getElementById('success-email').textContent = decodeURIComponent(email);
   if (termsVersion) document.getElementById('success-terms-version').textContent = decodeURIComponent(termsVersion);
   if (confirmedAt) document.getElementById('success-confirmed-at').textContent = decodeURIComponent(confirmedAt);
+
+  const downloadLink = document.getElementById('terms-document-download');
+  if (downloadLink) {
+    const confirmationId = params.get('confirmation_id');
+    const hash = params.get('hash');
+    if (confirmationId && hash) {
+      const base = downloadLink.dataset.documentBase || 'https://ia-cms-oauth.davidmauricekoelle.workers.dev/terms-confirmation-document';
+      const url = new URL(base);
+      url.searchParams.set('confirmation_id', confirmationId);
+      url.searchParams.set('hash', hash);
+      downloadLink.href = url.toString();
+    }
+  }
 }
 
 function initPrefillFromUrl() {
