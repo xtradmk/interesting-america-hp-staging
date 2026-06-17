@@ -796,8 +796,9 @@ async function handleFormSubmission(req, env, formConfig) {
   }
 
   let documentUrl;
+  let confirmationHash;
   if (formConfig.eventPrefix === "terms_confirmation") {
-    const hash = await computeConfirmationHash(env, {
+    confirmationHash = await computeConfirmationHash(env, {
       confirmation_id: submission.id,
       full_name: submission.payload.full_name || "",
       email: submission.payload.email || "",
@@ -806,8 +807,8 @@ async function handleFormSubmission(req, env, formConfig) {
       terms_version: submission.termsVersion || "",
       confirmed_at: submission.submittedAt || "",
     });
-    await storeTermsConfirmation(env, submission, hash);
-    documentUrl = `${new URL("/terms-confirmation-document", new URL(req.url).origin).toString()}?confirmation_id=${encodeURIComponent(submission.id)}&hash=${encodeURIComponent(hash)}`;
+    await storeTermsConfirmation(env, submission, confirmationHash);
+    documentUrl = `${new URL("/terms-confirmation-document", new URL(req.url).origin).toString()}?confirmation_id=${encodeURIComponent(submission.id)}&hash=${encodeURIComponent(confirmationHash)}`;
     submission.documentUrl = documentUrl;
   }
 
@@ -848,6 +849,8 @@ async function handleFormSubmission(req, env, formConfig) {
     params.set("email", submission.payload.email || "");
     params.set("company", submission.payload.company || "");
     params.set("inquiry_reference", submission.payload.inquiry_reference || "");
+    params.set("confirmation_id", submission.id);
+    params.set("hash", confirmationHash || "");
     params.set("terms_version", submission.termsVersion || "");
     params.set("confirmed_at", submission.submittedAt || "");
     finalSuccessPath = `${successPath}?${params.toString()}`;
