@@ -11,7 +11,7 @@ pageClasses: subpage-home page-contact
     <div class="confirmation-success__card">
       <h1 class="confirmation-success__title">Confirmation received</h1>
       <p class="confirmation-success__text">
-        Thank you. Your confirmation has been received. We can now continue with specific hotel introductions and proposal details.
+        Thank you. Your confirmation has been received. We will be in touch shortly with our proposal and additional details.
       </p>
       <div class="confirmation-success__details">
         <p><strong>Name:</strong> <span id="success-full-name">—</span></p>
