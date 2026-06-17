@@ -1,8 +1,9 @@
 ---
 layout: base.njk
 title: Confirmation Received
-permalink: /hotel-introductions/confirmation-success/
+permalink: /t-c-acceptance-success/
 metaDescription: Your Terms & Conditions confirmation has been received.
+pageClasses: subpage-home page-contact
 ---
 
 <section class="module module--confirmation-success">

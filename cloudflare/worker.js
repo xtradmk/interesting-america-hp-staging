@@ -401,7 +401,7 @@ const TERMS_CONFIRMATION_CONFIG = {
   source: "Hotel Introduction Terms Confirmation",
   notificationTitle: "New Terms Confirmation",
   fieldLabels: TERMS_CONFIRMATION_FIELD_LABELS,
-  fallbackReturnPath: "/hotel-introductions/confirmation/",
+  fallbackReturnPath: "/t-c-acceptance/",
   returnLabel: "Back to the confirmation form",
   validationTitle: "Please complete the confirmation",
   configErrorTitle: "Terms confirmation storage is not configured yet",
