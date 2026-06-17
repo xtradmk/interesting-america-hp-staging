@@ -52,7 +52,6 @@ To move forward with your customized proposal, please confirm our Terms &amp; Co
               </svg>
             </span>
           </button>
-          <p class="contact-funnel__note">Direct email also works: <a href="mailto:america@interesting.global">america@interesting.global</a></p>
         </div>
       </form>
 
