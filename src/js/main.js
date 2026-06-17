@@ -556,7 +556,7 @@ function initConfirmationSuccess() {
     const confirmationId = params.get('confirmation_id');
     const hash = params.get('hash');
     if (confirmationId && hash) {
-      const base = downloadLink.dataset.documentBase || 'https://ia-cms-oauth.davidmauricekoelle.workers.dev/terms-confirmation-document';
+      const base = downloadLink.dataset.documentBase || 'https://ia-cms-oauth.interesting-america.workers.dev/terms-confirmation-document';
       const url = new URL(base);
       url.searchParams.set('confirmation_id', confirmationId);
       url.searchParams.set('hash', hash);
