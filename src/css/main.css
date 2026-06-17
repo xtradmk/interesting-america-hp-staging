@@ -1609,12 +1609,14 @@ body.subpage-studio main{
 .confirmation-success__card{
   max-width:680px;
   margin:0 auto;
-  padding:clamp(120px,16vw,200px) 0 clamp(64px,10vw,120px);
+  padding:clamp(120px,16vw,200px) 0 clamp(100px,16vw,160px);
   text-align:center;
   background:transparent;
   box-shadow:none;
   border-radius:0;
 }
+.confirmation-success__cta{margin:0 0 24px}
+.confirmation-success__cta:last-child{margin-bottom:0}
 
 .confirmation-success__title{
   margin:0 0 16px;

@@ -911,8 +911,8 @@ function renderConfirmationDocument(record) {
       td{width:62%;padding:14px 0;vertical-align:top;color:#334155;border-bottom:1px solid #e2e8f0;word-break:break-word}
       .hash{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;color:#475569}
       .actions{margin-top:40px}
-      button{padding:14px 24px;border:0;border-radius:12px;background:#0f172a;color:#fff;font-size:16px;font-weight:500;cursor:pointer}
-      button:hover{background:#1e293b}
+      button{height:46px;padding:0 24px;border:0;border-radius:999px;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;font-weight:500;letter-spacing:-.02em;cursor:pointer}
+      button:hover{background:#1e293b;transform:translateY(-2px)}
       .footer{margin-top:48px;padding-top:24px;border-top:1px solid #e2e8f0;font-size:13px;color:#64748b}
       @media print{
         .no-print{display:none}
