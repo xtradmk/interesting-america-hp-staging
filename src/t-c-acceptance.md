@@ -9,7 +9,9 @@ templateEngineOverride: njk
 <section class="story-section subpage-home-section subpage-home-section--contact-entry" id="t-c-acceptance">
   <div class="wrap-wide">
     <div class="contact-funnel fade">
-      <p class="contact-funnel__intro">Before we share specific hotel names, contacts, rates, availability, or proposal details, please confirm our standard Terms &amp; Conditions.</p>
+      <p class="contact-funnel__intro contact-funnel__intro--full">Thank you for thinking of Interesting Sports. We’re excited to help and look forward to learning more about your needs.<br><br>
+
+To move forward with your customized proposal, please confirm our Terms &amp; Conditions and Privacy Policy below.</p>
 
       <form class="contact-funnel__form" name="terms-acceptance" method="POST" action="{{ integrations.termsConfirmEndpoint }}" data-prefill-from-url>
         <input type="hidden" name="success_path" value="{{ '/t-c-acceptance-success/' | url }}">
