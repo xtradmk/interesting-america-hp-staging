@@ -17,6 +17,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon-20260527.png");
   eleventyConfig.addPassthroughCopy("src/android-chrome-192x192-20260527.png");
   eleventyConfig.addPassthroughCopy("src/android-chrome-512x512-20260527.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-20260618.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-20260618.ico");
+  eleventyConfig.addPassthroughCopy("src/favicon-16x16-20260618.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-32x32-20260618.png");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon-20260618.png");
+  eleventyConfig.addPassthroughCopy("src/android-chrome-192x192-20260618.png");
+  eleventyConfig.addPassthroughCopy("src/android-chrome-512x512-20260618.png");
 
   // Watch targets
   eleventyConfig.addWatchTarget("./src/css/");
