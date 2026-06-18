@@ -25,3 +25,34 @@ pageClasses: subpage-home page-contact
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const fullName = params.get('full_name');
+  const email = params.get('email');
+  const termsVersion = params.get('terms_version');
+  const confirmedAt = params.get('confirmed_at');
+  const confirmationId = params.get('confirmation_id');
+  const hash = params.get('hash');
+
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el && value) el.textContent = value;
+  }
+
+  setText('success-full-name', fullName);
+  setText('success-email', email);
+  setText('success-terms-version', termsVersion);
+  setText('success-confirmed-at', confirmedAt);
+
+  const downloadLink = document.getElementById('terms-document-download');
+  if (downloadLink && confirmationId && hash) {
+    const base = downloadLink.dataset.documentBase || 'https://ia-cms-oauth.interesting-america.workers.dev/terms-confirmation-document';
+    const url = new URL(base);
+    url.searchParams.set('confirmation_id', confirmationId);
+    url.searchParams.set('hash', hash);
+    downloadLink.href = url.toString();
+  }
+})();
+</script>
