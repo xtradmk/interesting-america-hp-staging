@@ -842,21 +842,102 @@ async function handleFormSubmission(req, env, formConfig) {
     clientIp: submission.clientIp,
   });
 
-  let finalSuccessPath = successPath;
   if (formConfig.eventPrefix === "terms_confirmation") {
-    const params = new URLSearchParams();
-    params.set("full_name", submission.payload.full_name || "");
-    params.set("email", submission.payload.email || "");
-    params.set("company", submission.payload.company || "");
-    params.set("inquiry_reference", submission.payload.inquiry_reference || "");
-    params.set("confirmation_id", submission.id);
-    params.set("hash", confirmationHash || "");
-    params.set("terms_version", submission.termsVersion || "");
-    params.set("confirmed_at", submission.submittedAt || "");
-    finalSuccessPath = `${successPath}?${params.toString()}`;
+    return renderTermsConfirmationSuccessPage(submission, documentUrl, confirmationHash);
   }
 
-  return Response.redirect(buildRedirectUrl(requestOrigin, finalSuccessPath), 303);
+  return Response.redirect(buildRedirectUrl(requestOrigin, successPath), 303);
+}
+
+function renderTermsConfirmationSuccessPage(submission, documentUrl, confirmationHash) {
+  const confirmedAtFormatted = submission.submittedAt
+    ? new Date(submission.submittedAt).toLocaleString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    : "—";
+
+  const documentLink = documentUrl
+    ? `<a class="btn btn--primary btn--pill" href="${escapeHtml(documentUrl)}" target="_blank" rel="noopener">Download confirmation document</a>`
+    : "";
+
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Confirmation Received | INTERESTING AMERICA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root{--ink:#0b1020;--muted:#5f6878;--surface-2:#f0f3f7;--r-sm:12px}
+      *{box-sizing:border-box}
+      body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff;color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+      .site-header{padding:18px 24px;border-bottom:1px solid #e8ecf2}
+      .site-header .container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+      .logo img{height:36px}
+      .site-nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+      .site-nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:500}
+      .main{max-width:680px;margin:0 auto;padding:clamp(80px,12vw,160px) 24px clamp(60px,10vw,120px);text-align:center}
+      .card{text-align:center}
+      .title{margin:0 0 16px;font-size:clamp(32px,5vw,48px);line-height:1.05;font-weight:500;letter-spacing:-.03em;color:var(--ink)}
+      .text{margin:0 0 32px;font-size:18px;line-height:1.6;color:var(--muted)}
+      .details{margin:0 0 32px;padding:24px;border-radius:var(--r-sm);background:var(--surface-2);text-align:left}
+      .details p{margin:0 0 10px;font-size:15px;color:var(--ink)}
+      .details p:last-child{margin-bottom:0}
+      .cta{margin:0 0 16px}
+      .btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 20px;border:0;border-radius:999px;background:#000;color:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;font-weight:500;letter-spacing:-.02em;text-transform:none;text-decoration:none;cursor:pointer;transition:.25s}
+      .btn:hover{background:#000;transform:translateY(-2px)}
+      .footer{border-top:1px solid #e8ecf2;padding:24px;text-align:center;font-size:13px;color:var(--muted)}
+      @media(max-width:640px){.site-nav{display:none}.main{padding:64px 20px 48px}}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="logo" aria-label="INTERESTING AMERICA - Back to Home">
+          <img src="https://interesting-america.com/images/uploads/interesting-sports-black-.png" alt="INTERESTING AMERICA">
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="card">
+        <h1 class="title">Confirmation received</h1>
+        <p class="text">Thank you. Your confirmation has been received. We will be in touch shortly with our proposal and additional details.</p>
+        <div class="details">
+          <p><strong>Name:</strong> ${escapeHtml(submission.payload.full_name || "—")}</p>
+          <p><strong>Email:</strong> ${escapeHtml(submission.payload.email || "—")}</p>
+          <p><strong>Terms Version:</strong> ${escapeHtml(submission.termsVersion || "—")}</p>
+          <p><strong>Confirmed At:</strong> ${escapeHtml(confirmedAtFormatted)}</p>
+        </div>
+        <p class="cta">${documentLink}</p>
+        <p class="cta"><a class="btn" href="/">Back to Home</a></p>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>© ${new Date().getFullYear()} INTERESTING AMERICA LLC. All rights reserved.</p>
+    </footer>
+  </body>
+</html>`;
+
+  return new Response(html, {
+    status: 200,
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+      "cache-control": "no-store",
+    },
+  });
 }
 
 async function handleTermsConfirm(req, env) {
