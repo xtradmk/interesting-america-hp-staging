@@ -511,6 +511,7 @@
   initTermsConfirmation();
   initConfirmationSuccess();
   initPrefillFromUrl();
+  initMultiStepContactForm();
 })();
 
 function initTermsConfirmation() {
@@ -563,6 +564,154 @@ function initConfirmationSuccess() {
       downloadLink.href = url.toString();
     }
   }
+}
+
+function initMultiStepContactForm() {
+  const form = document.querySelector('form[data-multi-step]');
+  if (!form) return;
+
+  const steps = Array.from(form.querySelectorAll('[data-step]'));
+  const nextBtn = form.querySelector('[data-step-next]');
+  const backBtn = form.querySelector('[data-step-back]');
+  const submitBtn = form.querySelector('[data-step-submit]');
+  const progress = form.querySelector('[role="progressbar"]');
+  const progressBar = form.querySelector('[data-progress-bar]');
+  const summary = form.querySelector('[data-summary]');
+  if (!steps.length || !nextBtn || !backBtn || !submitBtn) return;
+
+  let current = 1;
+  const total = steps.length;
+
+  const getFieldsForStep = (stepEl) =>
+    Array.from(stepEl.querySelectorAll('input, select, textarea')).filter((f) => !f.disabled && f.offsetParent !== null);
+
+  const isStepValid = (stepEl) =>
+    getFieldsForStep(stepEl).every((field) => field.checkValidity());
+
+  const formatField = (field) => {
+    if (field.type === 'checkbox') return field.checked ? 'Yes' : 'No';
+    if (field.tagName === 'SELECT' && !field.value) return '—';
+    return field.value || '—';
+  };
+
+  const fieldLabels = new Map();
+  form.querySelectorAll('label, .contact-funnel__toggle').forEach((label) => {
+    const field = label.querySelector('input, select, textarea');
+    if (!field) return;
+    const span = label.querySelector('span');
+    const text = span ? span.textContent.trim() : label.textContent.trim();
+    if (text) fieldLabels.set(field.name, text.replace(/\*\s*$/, '').trim());
+  });
+
+  const updateSummary = () => {
+    if (!summary) return;
+    const entries = [];
+    const seen = new Set();
+    steps.forEach((step) => {
+      getFieldsForStep(step).forEach((field) => {
+        if (seen.has(field.name)) return;
+        seen.add(field.name);
+        const label = fieldLabels.get(field.name) || field.name;
+        const value = formatField(field);
+        if (value === '—' && field.required) return;
+        entries.push(`<div class="contact-funnel__summary-row"><dt>${label}</dt><dd>${value}</dd></div>`);
+      });
+    });
+    summary.innerHTML = `<dl class="contact-funnel__summary-list">${entries.join('')}</dl>`;
+  };
+
+  const render = () => {
+    steps.forEach((step) => {
+      const stepNumber = Number(step.getAttribute('data-step'));
+      const isActive = stepNumber === current;
+      step.classList.toggle('contact-funnel__step--active', isActive);
+      step.classList.toggle('contact-funnel__step--completed', stepNumber < current);
+      step.hidden = !isActive;
+    });
+
+    const percent = ((current - 1) / (total - 1)) * 100;
+    if (progressBar) progressBar.style.width = `${percent}%`;
+    if (progress) {
+      progress.setAttribute('aria-valuenow', current);
+      progress.setAttribute('aria-valuemax', total);
+    }
+
+    backBtn.hidden = current === 1;
+    nextBtn.hidden = current === total;
+    submitBtn.hidden = current !== total;
+
+    if (current === total) updateSummary();
+
+    const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
+    if (activeStep) {
+      const firstField = activeStep.querySelector('input, select, textarea');
+      if (firstField && document.activeElement !== firstField) {
+        window.setTimeout(() => firstField.focus(), 50);
+      }
+    }
+  };
+
+  const validateAndAdvance = () => {
+    const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
+    if (!activeStep) return;
+
+    getFieldsForStep(activeStep).forEach((field) => {
+      field.classList.toggle('is-invalid', !field.checkValidity());
+    });
+
+    if (!isStepValid(activeStep)) {
+      const firstInvalid = getFieldsForStep(activeStep).find((f) => !f.checkValidity());
+      firstInvalid?.focus();
+      return;
+    }
+
+    if (current < total) {
+      current += 1;
+      render();
+      window.setTimeout(() => {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  };
+
+  const goBack = () => {
+    if (current > 1) {
+      current -= 1;
+      render();
+      window.setTimeout(() => {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  };
+
+  nextBtn.addEventListener('click', validateAndAdvance);
+  backBtn.addEventListener('click', goBack);
+
+  form.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && current !== total && event.target.tagName !== 'TEXTAREA') {
+      event.preventDefault();
+      validateAndAdvance();
+    }
+  });
+
+  form.addEventListener('submit', (event) => {
+    const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
+    if (!activeStep || !isStepValid(activeStep)) {
+      event.preventDefault();
+      return;
+    }
+    getFieldsForStep(activeStep).forEach((field) => field.classList.remove('is-invalid'));
+  });
+
+  steps.forEach((step) => {
+    step.addEventListener('input', (event) => {
+      if (event.target.classList.contains('is-invalid')) {
+        event.target.classList.remove('is-invalid');
+      }
+    });
+  });
+
+  render();
 }
 
 function initPrefillFromUrl() {
