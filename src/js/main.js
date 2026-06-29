@@ -512,6 +512,7 @@
   initConfirmationSuccess();
   initPrefillFromUrl();
   initMultiStepContactForm();
+  initContactFunnelContinue();
 })();
 
 function initTermsConfirmation() {
@@ -576,8 +577,7 @@ function initMultiStepContactForm() {
   const submitBtn = form.querySelector('[data-step-submit]');
   const progress = form.querySelector('[role="progressbar"]');
   const progressBar = form.querySelector('[data-progress-bar]');
-  const summary = form.querySelector('[data-summary]');
-  if (!steps.length || !nextBtn || !backBtn || !submitBtn) return;
+  if (!steps.length || !submitBtn) return;
 
   let current = 1;
   const total = steps.length;
@@ -587,38 +587,6 @@ function initMultiStepContactForm() {
 
   const isStepValid = (stepEl) =>
     getFieldsForStep(stepEl).every((field) => field.checkValidity());
-
-  const formatField = (field) => {
-    if (field.type === 'checkbox') return field.checked ? 'Yes' : 'No';
-    if (field.tagName === 'SELECT' && !field.value) return '—';
-    return field.value || '—';
-  };
-
-  const fieldLabels = new Map();
-  form.querySelectorAll('label, .contact-funnel__toggle').forEach((label) => {
-    const field = label.querySelector('input, select, textarea');
-    if (!field) return;
-    const span = label.querySelector('span');
-    const text = span ? span.textContent.trim() : label.textContent.trim();
-    if (text) fieldLabels.set(field.name, text.replace(/\*\s*$/, '').trim());
-  });
-
-  const updateSummary = () => {
-    if (!summary) return;
-    const entries = [];
-    const seen = new Set();
-    steps.forEach((step) => {
-      getFieldsForStep(step).forEach((field) => {
-        if (seen.has(field.name)) return;
-        seen.add(field.name);
-        const label = fieldLabels.get(field.name) || field.name;
-        const value = formatField(field);
-        if (value === '—' && field.required) return;
-        entries.push(`<div class="contact-funnel__summary-row"><dt>${label}</dt><dd>${value}</dd></div>`);
-      });
-    });
-    summary.innerHTML = `<dl class="contact-funnel__summary-list">${entries.join('')}</dl>`;
-  };
 
   const render = () => {
     steps.forEach((step) => {
@@ -636,11 +604,9 @@ function initMultiStepContactForm() {
       progress.setAttribute('aria-valuemax', total);
     }
 
-    backBtn.hidden = current === 1;
-    nextBtn.hidden = current === total;
-    submitBtn.hidden = current !== total;
-
-    if (current === total) updateSummary();
+    if (backBtn) backBtn.hidden = current === 1;
+    if (nextBtn) nextBtn.hidden = current !== total || current === 1;
+    if (submitBtn) submitBtn.hidden = current !== 1;
 
     const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
     if (activeStep) {
@@ -651,9 +617,9 @@ function initMultiStepContactForm() {
     }
   };
 
-  const validateAndAdvance = () => {
+  const validateCurrentStep = () => {
     const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
-    if (!activeStep) return;
+    if (!activeStep) return false;
 
     getFieldsForStep(activeStep).forEach((field) => {
       field.classList.toggle('is-invalid', !field.checkValidity());
@@ -662,9 +628,13 @@ function initMultiStepContactForm() {
     if (!isStepValid(activeStep)) {
       const firstInvalid = getFieldsForStep(activeStep).find((f) => !f.checkValidity());
       firstInvalid?.focus();
-      return;
+      return false;
     }
 
+    return true;
+  };
+
+  const advance = () => {
     if (current < total) {
       current += 1;
       render();
@@ -684,23 +654,166 @@ function initMultiStepContactForm() {
     }
   };
 
-  nextBtn.addEventListener('click', validateAndAdvance);
-  backBtn.addEventListener('click', goBack);
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (!validateCurrentStep()) return;
+      advance();
+    });
+  }
+
+  if (backBtn) {
+    backBtn.addEventListener('click', goBack);
+  }
 
   form.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' && current !== total && event.target.tagName !== 'TEXTAREA') {
+    if (event.key === 'Enter' && current !== 1 && event.target.tagName !== 'TEXTAREA') {
       event.preventDefault();
-      validateAndAdvance();
+      if (!validateCurrentStep()) return;
+      advance();
     }
   });
 
   form.addEventListener('submit', (event) => {
-    const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
-    if (!activeStep || !isStepValid(activeStep)) {
+    if (!validateCurrentStep()) {
       event.preventDefault();
       return;
     }
-    getFieldsForStep(activeStep).forEach((field) => field.classList.remove('is-invalid'));
+    getFieldsForStep(steps.find((s) => Number(s.getAttribute('data-step')) === current)).forEach((field) => field.classList.remove('is-invalid'));
+  });
+
+  steps.forEach((step) => {
+    step.addEventListener('input', (event) => {
+      if (event.target.classList.contains('is-invalid')) {
+        event.target.classList.remove('is-invalid');
+      }
+    });
+  });
+
+  render();
+}
+
+function initContactFunnelContinue() {
+  const form = document.querySelector('form[data-inquiry-continue]');
+  if (!form) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const inquiryId = params.get('inquiry_id');
+  if (!inquiryId) {
+    form.innerHTML = '<p class="contact-funnel__intro">Please start from the <a href="/contact/">contact form</a>.</p>';
+    return;
+  }
+
+  const inquiryField = form.querySelector('input[name="inquiry_id"]');
+  if (inquiryField) inquiryField.value = inquiryId;
+
+  const steps = Array.from(form.querySelectorAll('[data-step]'));
+  const nextBtn = form.querySelector('[data-step-next]');
+  const backBtn = form.querySelector('[data-step-back]');
+  const progress = form.querySelector('[role="progressbar"]');
+  const progressBar = form.querySelector('[data-progress-bar]');
+  const note = form.querySelector('[data-step-note]');
+  if (!steps.length || !nextBtn) return;
+
+  let current = 1;
+  const total = steps.length;
+
+  const getFieldsForStep = (stepEl) =>
+    Array.from(stepEl.querySelectorAll('input, select, textarea')).filter((f) => !f.disabled && f.name !== 'inquiry_id' && f.offsetParent !== null);
+
+  const isStepValid = (stepEl) =>
+    getFieldsForStep(stepEl).every((field) => field.checkValidity());
+
+  const render = () => {
+    steps.forEach((step) => {
+      const stepNumber = Number(step.getAttribute('data-step'));
+      step.classList.toggle('contact-funnel__step--active', stepNumber === current);
+      step.hidden = stepNumber !== current;
+    });
+
+    const percent = ((current - 1) / (total - 1)) * 100;
+    if (progressBar) progressBar.style.width = `${percent}%`;
+    if (progress) progress.setAttribute('aria-valuenow', current);
+
+    if (backBtn) backBtn.hidden = current === 1;
+    if (nextBtn) nextBtn.textContent = current === total ? 'Save final details' : 'Save details';
+    if (note) note.hidden = true;
+  };
+
+  const saveStep = async () => {
+    const activeStep = steps.find((s) => Number(s.getAttribute('data-step')) === current);
+    if (!activeStep) return;
+
+    getFieldsForStep(activeStep).forEach((field) => {
+      field.classList.toggle('is-invalid', !field.checkValidity());
+    });
+
+    if (!isStepValid(activeStep)) {
+      const firstInvalid = getFieldsForStep(activeStep).find((f) => !f.checkValidity());
+      firstInvalid?.focus();
+      return;
+    }
+
+    const formData = new FormData(form);
+    nextBtn.disabled = true;
+    if (backBtn) backBtn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json().catch(() => ({ ok: false }));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || `Server returned ${response.status}`);
+      }
+
+      if (note) {
+        note.hidden = false;
+        note.textContent = 'Saved. Continue with the next step or close the page.';
+        note.classList.add('is-success');
+      }
+
+      if (current < total) {
+        current += 1;
+        render();
+      } else {
+        nextBtn.hidden = true;
+        if (backBtn) backBtn.hidden = true;
+        if (note) note.textContent = 'All details saved. We will be in touch shortly.';
+      }
+    } catch (error) {
+      if (note) {
+        note.hidden = false;
+        note.textContent = `Could not save: ${error.message}. Please try again.`;
+        note.classList.remove('is-success');
+      }
+    } finally {
+      nextBtn.disabled = false;
+      if (backBtn) backBtn.disabled = false;
+    }
+  };
+
+  nextBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    saveStep();
+  });
+
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      if (current > 1) {
+        current -= 1;
+        render();
+      }
+    });
+  }
+
+  form.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && event.target.tagName !== 'TEXTAREA') {
+      event.preventDefault();
+      saveStep();
+    }
   });
 
   steps.forEach((step) => {

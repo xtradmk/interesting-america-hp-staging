@@ -10,6 +10,22 @@ const KNOWN_TERMS_CONFIRMATION_FIELDS = [
 const TERMS_CONFIRMATION_FIELD_LABELS = new Map(KNOWN_TERMS_CONFIRMATION_FIELDS);
 const REQUIRED_TERMS_CONFIRMATION_FIELDS = new Set(["full_name", "email"]);
 
+const KNOWN_INQUIRY_UPDATE_FIELDS = [
+  ["phone", "Phone / WhatsApp"],
+  ["event", "Event"],
+  ["city_area", "Host City / Area"],
+  ["check_in", "Check-in"],
+  ["check_out", "Check-out"],
+  ["varying_dates", "Varying Dates"],
+  ["rooms_total", "Total Rooms"],
+  ["budget", "Budget per Room / Night (USD)"],
+  ["guest_mix", "Main Guest Mix"],
+  ["services_scope", "Required Services"],
+  ["request_details", "Request Details"],
+  ["decision_deadline", "Decision Deadline"],
+];
+const INQUIRY_UPDATE_FIELD_LABELS = new Map(KNOWN_INQUIRY_UPDATE_FIELDS);
+
 const KNOWN_CONTACT_FIELDS = [
   ["full_name", "Full Name"],
   ["company", "Company"],
@@ -324,11 +340,11 @@ function validateContactSubmission(payload) {
     };
   }
 
-  const missingFields = [...REQUIRED_CONTACT_FIELDS].filter((field) => !payload[field]);
+  const missingFields = ["full_name", "company", "email"].filter((field) => !payload[field]);
   if (missingFields.length) {
     return {
       valid: false,
-      message: "Some required information is missing. Please go back and try again.",
+      message: "Please enter your full name, company, and email address.",
       status: 400,
     };
   }
@@ -341,7 +357,27 @@ function validateContactSubmission(payload) {
     };
   }
 
-  if (!/^\d+$/.test(payload.rooms_total || "") || Number(payload.rooms_total) < 1) {
+  if (payload.rooms_total && (!/^\d+$/.test(payload.rooms_total) || Number(payload.rooms_total) < 1)) {
+    return {
+      valid: false,
+      message: "Please provide a valid room quantity.",
+      status: 400,
+    };
+  }
+
+  return { valid: true };
+}
+
+function validateContactUpdate(payload) {
+  if (!payload.inquiry_id) {
+    return {
+      valid: false,
+      message: "Missing inquiry reference. Please start from the contact form.",
+      status: 400,
+    };
+  }
+
+  if (payload.rooms_total && (!/^\d+$/.test(payload.rooms_total) || Number(payload.rooms_total) < 1)) {
     return {
       valid: false,
       message: "Please provide a valid room quantity.",
@@ -414,6 +450,20 @@ const CONTACT_FORM_CONFIG = {
   configErrorMessage: "The notification backend is missing required configuration. Please try again later.",
   deliveryFailureTitle: "We could not deliver your submission",
   validate: validateContactSubmission,
+};
+
+const INQUIRY_UPDATE_CONFIG = {
+  eventPrefix: "inquiry_update",
+  source: "Website Contact Form Update",
+  notificationTitle: "Inquiry Details Updated",
+  fieldLabels: new Map([...CONTACT_FIELD_LABELS, ...INQUIRY_UPDATE_FIELD_LABELS]),
+  fallbackReturnPath: "/thank-you/",
+  returnLabel: "Back to the thank-you page",
+  validationTitle: "Please check the update",
+  configErrorTitle: "Inquiry update notifications are not configured yet",
+  configErrorMessage: "The notification backend is missing required configuration. Please try again later.",
+  deliveryFailureTitle: "We could not deliver your update",
+  validate: validateContactUpdate,
 };
 
 const NEWSLETTER_FORM_CONFIG = {
@@ -504,6 +554,65 @@ async function storeTermsConfirmation(env, submission, hash) {
     key,
   });
   return { key };
+}
+
+async function storeInquiry(env, submission) {
+  const kv = env.TERMS_CONFIRMATIONS_KV;
+  if (!kv) {
+    logEvent("error", "inquiry_storage_kv_binding_missing", {
+      submissionId: submission.id,
+    });
+    throw new Error("KV storage binding is not configured for inquiries");
+  }
+
+  const key = `inquiry:${submission.id}`;
+  const value = JSON.stringify({
+    id: submission.id,
+    payload: submission.payload,
+    submittedAt: submission.submittedAt,
+    pageUrl: submission.pageUrl,
+    clientIp: submission.clientIp,
+    userAgent: submission.userAgent,
+  });
+
+  await kv.put(key, value, { expirationTtl: 60 * 60 * 24 * 90 }); // 90 days
+  logEvent("info", "inquiry_stored", {
+    submissionId: submission.id,
+    key,
+  });
+  return { key };
+}
+
+async function loadInquiry(env, inquiryId) {
+  const kv = env.TERMS_CONFIRMATIONS_KV;
+  if (!kv) return null;
+
+  const value = await kv.get(`inquiry:${inquiryId}`);
+  if (!value) return null;
+
+  try {
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+}
+
+async function mergeInquiryUpdate(env, inquiryId, fields) {
+  const existing = await loadInquiry(env, inquiryId);
+  if (!existing) return null;
+
+  const payload = { ...existing.payload, ...fieldsToPayload(fields) };
+  const kv = env.TERMS_CONFIRMATIONS_KV;
+  const key = `inquiry:${inquiryId}`;
+  const value = JSON.stringify({
+    ...existing,
+    payload,
+    updatedAt: new Date().toISOString(),
+  });
+
+  await kv.put(key, value, { expirationTtl: 60 * 60 * 24 * 90 });
+  logEvent("info", "inquiry_updated", { inquiryId, fieldCount: fields.length });
+  return { ...existing, payload };
 }
 
 function buildNotificationLines(submission) {
@@ -797,6 +906,7 @@ async function handleFormSubmission(req, env, formConfig) {
 
   let documentUrl;
   let confirmationHash;
+  let inquiryId;
   if (formConfig.eventPrefix === "terms_confirmation") {
     confirmationHash = await computeConfirmationHash(env, {
       confirmation_id: submission.id,
@@ -810,6 +920,9 @@ async function handleFormSubmission(req, env, formConfig) {
     await storeTermsConfirmation(env, submission, confirmationHash);
     documentUrl = `${new URL("/terms-confirmation-document", new URL(req.url).origin).toString()}?confirmation_id=${encodeURIComponent(submission.id)}&hash=${encodeURIComponent(confirmationHash)}`;
     submission.documentUrl = documentUrl;
+  } else if (formConfig.eventPrefix === "contact_submission") {
+    await storeInquiry(env, submission);
+    inquiryId = submission.id;
   }
 
   try {
@@ -844,6 +957,12 @@ async function handleFormSubmission(req, env, formConfig) {
 
   if (formConfig.eventPrefix === "terms_confirmation") {
     return renderTermsConfirmationSuccessPage(submission, documentUrl, confirmationHash);
+  }
+
+  if (formConfig.eventPrefix === "contact_submission" && inquiryId) {
+    const redirectUrl = buildRedirectUrl(requestOrigin, successPath);
+    redirectUrl.searchParams.set("inquiry_id", inquiryId);
+    return Response.redirect(redirectUrl.toString(), 303);
   }
 
   return Response.redirect(buildRedirectUrl(requestOrigin, successPath), 303);
@@ -1066,6 +1185,92 @@ async function handleTermsConfirmationDocument(req, env) {
   return htmlResponse(renderConfirmationDocument(record));
 }
 
+async function handleContactUpdate(req, env) {
+  if (req.method !== "POST") {
+    return new Response("Method not allowed", {
+      status: 405,
+      headers: { Allow: "POST" },
+    });
+  }
+
+  const requestOrigin = getRequestOrigin(req);
+  const allowedOrigins = getAllowedOrigins(env);
+  if (!requestOrigin || !allowedOrigins.includes(requestOrigin)) {
+    return new Response("Origin not allowed", { status: 403 });
+  }
+
+  const formData = await req.formData();
+  const returnUrl = getSafeReturnUrl(req, requestOrigin, INQUIRY_UPDATE_CONFIG.fallbackReturnPath);
+
+  if (String(formData.get("company_website") || "").trim()) {
+    return Response.json({ ok: true }, { status: 200 });
+  }
+
+  const inquiryId = String(formData.get("inquiry_id") || "").trim();
+  const clientIp = getClientIp(req);
+
+  const existing = await loadInquiry(env, inquiryId);
+  if (!existing) {
+    return Response.json(
+      { ok: false, message: "Inquiry not found. Please submit a new request." },
+      { status: 404 }
+    );
+  }
+
+  const fields = collectFormFields(formData, INQUIRY_UPDATE_CONFIG.fieldLabels);
+  const updatePayload = fieldsToPayload(fields);
+  const updated = await mergeInquiryUpdate(env, inquiryId, fields);
+  if (!updated) {
+    return Response.json(
+      { ok: false, message: "Could not save update. Please try again." },
+      { status: 500 }
+    );
+  }
+
+  const submission = {
+    id: inquiryId,
+    eventPrefix: INQUIRY_UPDATE_CONFIG.eventPrefix,
+    source: INQUIRY_UPDATE_CONFIG.source,
+    notificationTitle: INQUIRY_UPDATE_CONFIG.notificationTitle,
+    submittedAt: new Date().toISOString(),
+    pageUrl: existing.pageUrl || "",
+    clientIp,
+    userAgent: sanitizeText(req.headers.get("User-Agent"), { singleLine: true, maxLength: 500 }),
+    fields,
+    notificationFields: fields.filter((field) => field.value),
+    payload: { ...existing.payload, ...updatePayload },
+  };
+
+  const notificationConfig = getNotificationChannels(env);
+  for (const incompleteChannel of notificationConfig.missing) {
+    logEvent("error", `${submission.eventPrefix}_config_missing`, {
+      submissionId: submission.id,
+      channel: incompleteChannel.channel,
+      missingConfig: incompleteChannel.missingConfig,
+    });
+  }
+
+  if (notificationConfig.channels.length) {
+    try {
+      await dispatchNotifications(notificationConfig.channels, env, submission);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unknown notification error.";
+      logEvent("error", `${submission.eventPrefix}_delivery_failed`, {
+        submissionId: submission.id,
+        message,
+      });
+    }
+  }
+
+  return Response.json({ ok: true, inquiry_id: inquiryId }, {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": requestOrigin,
+      "Access-Control-Allow-Methods": "POST",
+    },
+  });
+}
+
 async function handleContactSubmit(req, env) {
   return handleFormSubmission(req, env, CONTACT_FORM_CONFIG);
 }
@@ -1080,6 +1285,10 @@ export default {
 
     if (url.pathname === "/contact-submit") {
       return handleContactSubmit(req, env);
+    }
+
+    if (url.pathname === "/contact-update") {
+      return handleContactUpdate(req, env);
     }
 
     if (url.pathname === "/newsletter-subscribe") {
