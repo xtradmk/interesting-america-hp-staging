@@ -66,7 +66,7 @@ hero_caption10: Soccer City Stadium, Johannesburg, South Africa · World Cup 201
     <div class="hero-copy-block hero-copy-block--home">
       <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
       <p class="hero-home-subcopy">
-        <span>2026 World Cup</span>
+        <span>2027 Super Bowl</span>
         <span>2027 Women's World Cup</span>
         <span>2027 Champions League Final</span>
         <span>2028 Summer Olympics</span>
