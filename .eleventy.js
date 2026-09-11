@@ -7,8 +7,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-dark.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-dark.ico");
   eleventyConfig.addPassthroughCopy("src/favicon-16x16.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-16x16-dark.png");
   eleventyConfig.addPassthroughCopy("src/favicon-32x32.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-32x32-dark.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon-precomposed.png");
   eleventyConfig.addPassthroughCopy("src/android-chrome-192x192.png");
@@ -40,6 +44,17 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon-20260619-02.png");
   eleventyConfig.addPassthroughCopy("src/android-chrome-192x192-20260619-02.png");
   eleventyConfig.addPassthroughCopy("src/android-chrome-512x512-20260619-02.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-20260911.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-dark-20260911.svg");
+  eleventyConfig.addPassthroughCopy("src/favicon-20260911.ico");
+  eleventyConfig.addPassthroughCopy("src/favicon-dark-20260911.ico");
+  eleventyConfig.addPassthroughCopy("src/favicon-16x16-20260911.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-16x16-dark-20260911.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-32x32-20260911.png");
+  eleventyConfig.addPassthroughCopy("src/favicon-32x32-dark-20260911.png");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon-20260911.png");
+  eleventyConfig.addPassthroughCopy("src/android-chrome-192x192-20260911.png");
+  eleventyConfig.addPassthroughCopy("src/android-chrome-512x512-20260911.png");
 
   // Watch targets
   eleventyConfig.addWatchTarget("./src/css/");
