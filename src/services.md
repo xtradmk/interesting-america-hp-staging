@@ -84,7 +84,7 @@ hero_link_url: /contact/
 
         <div class="services-showcase__content">
           <h2 class="services-showcase__headline" data-letter-reveal>
-            And we provide guest hospitality that fits your program
+            And we provide guest hospitality that fits your program.
           </h2>
           <div class="services-showcase__copy">
             <p>We plan dining, rooftop receptions, guest programmes, city tours and private venues around your event, guests and budget. Our team works alongside the official hospitality programme.</p>
