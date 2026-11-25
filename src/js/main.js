@@ -213,64 +213,25 @@
     const subcopy = document.querySelector('.hero-home-subcopy');
     if (!el) return;
 
-    const speedMs = 48;
-    const holdMs = 10000;
-
-    const text1 = 'We secure rooms\nfor your groups\nat major global\nsports events.';
-    const text2 = 'We also transfer your\nstaff and guests. On\narrival, on departure,\nand on match day.';
-    const text3 = 'And on your behalf, we\nget access to hospitality:\ntickets and tables at the\nfinest venues in town.';
-
-    const sequence = [text1, text2, text3];
-    let seqIndex = 0;
-
-    const typeText = (text, done) => {
-      el.textContent = '';
-      let i = 0;
-
-      const tick = () => {
-        if (i >= text.length) {
-          done();
-          return;
-        }
-        el.textContent += text.charAt(i);
-        i += 1;
-        window.setTimeout(tick, speedMs);
-      };
-
-      tick();
+    const reveal = () => {
+      cta?.classList.add('is-visible');
+      subcopy?.classList.add('is-visible');
     };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      reveal();
+      return;
+    }
 
-    const runLoop = () => {
-      const currentText = sequence[seqIndex % sequence.length];
-
-      typeText(currentText, () => {
-        if (seqIndex === 0) {
-          if (cta || subcopy) {
-            window.setTimeout(() => {
-              cta?.classList.add('is-visible');
-              subcopy?.classList.add('is-visible');
-              window.setTimeout(() => {
-                seqIndex = 1;
-                runLoop();
-              }, 5000);
-            }, 1000);
-          } else {
-            window.setTimeout(() => {
-              seqIndex = 1;
-              runLoop();
-            }, 5000);
-          }
-          return;
-        }
-
-        window.setTimeout(() => {
-          seqIndex = (seqIndex + 1) % sequence.length;
-          runLoop();
-        }, holdMs);
-      });
+    const headline = el.dataset.text;
+    const text = el.firstElementChild;
+    let length = 0;
+    const tick = () => {
+      length += 1;
+      text.textContent = headline.slice(0, length);
+      if (length < headline.length) window.setTimeout(tick, 34);
+      else reveal();
     };
-
-    runLoop();
+    tick();
   };
 
   const initMobileMenu = () => {

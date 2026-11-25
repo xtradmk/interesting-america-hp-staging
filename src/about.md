@@ -122,8 +122,8 @@ hero_link_url: /contact/
           <div class="about-page-project-card__body">
             <h3 class="about-page-project-card__title">2026 Winter Olympic Games, Milano Cortina</h3>
             <p class="about-page-project-card__summary">Supported NOCs, sponsors, elite athletes and VIP guests across the Games. In the Livigno Mountain Cluster alone, 24 properties were contracted, delivering 3,800 room nights for more than 200 guests including crew, athletes, senior management and sponsor VIPs.</p>
-            <p class="about-page-project-card__detail"><strong>Key clients included</strong> VISA and ABInBev.</p>
-            <p class="about-page-project-card__detail"><strong>Highlight project:</strong> Media hub venue and VVIP accommodation for ABInBev's Corona brand.</p>
+            <p class="about-page-project-card__detail"><strong>Key clients included</strong> VISA and AB InBev.</p>
+            <p class="about-page-project-card__detail"><strong>Highlight project:</strong> Media hub venue and VVIP accommodation for AB InBev's Corona brand.</p>
           </div>
         </article>
       </div>
@@ -137,17 +137,17 @@ hero_link_url: /contact/
       <h2 class="about-page-heading fade" data-letter-reveal>Selected clients include</h2>
 
       <ul class="about-page-client-grid fade" aria-label="Selected clients include">
-        <li>Adidas</li>
-        <li>ABInBev</li>
-        <li>Česká Televize</li>
+        <li>adidas</li>
+        <li>AB InBev</li>
+        <li>Česká televize</li>
         <li>DFB Germany</li>
         <li>JTB Japan</li>
         <li>KNVB Netherlands</li>
         <li>Nestlé</li>
-        <li>RedBull</li>
+        <li>Red Bull</li>
         <li>RFEF Spain</li>
         <li>Team USA</li>
-        <li>US Tennis Association</li>
+        <li>USTA</li>
         <li>P&amp;G</li>
         <li>Televisión Cubana</li>
         <li>SRG/SSR</li>
@@ -162,37 +162,62 @@ hero_link_url: /contact/
 <section class="story-section about-page-section about-page-section--timeline">
   <div class="wrap-wide">
     <div class="about-page-shell">
-      <h2 class="about-page-heading fade" data-letter-reveal>Additional event highlights</h2>
+      <h2 class="about-page-heading fade" data-letter-reveal>Big games since 2010</h2>
 
       <div class="about-page-timeline" data-about-timeline>
         <article class="about-page-timeline-entry fade is-active" data-about-timeline-entry>
           <h3>2010 World Cup, South Africa</h3>
-          <p>NOKIA LatAm VIP Final program in Johannesburg, including premium accommodation, match transfers, curated experiences and hospitality.</p>
+          <p>A 30-guest VIP programme for NOKIA Latin America at the World Cup Final in Johannesburg.</p>
         </article>
 
         <article class="about-page-timeline-entry fade" data-about-timeline-entry>
-          <h3>2016 Olympic Games, Brazil</h3>
-          <p>Accommodation sourcing for NOCs, sponsors, media and sports marketing firms, including long-stay crew housing for adidas House and stays involving USTA athletes.</p>
+          <h3>2012 Olympic &amp; Paralympic Games, London</h3>
+          <p>Hotels and ground transport for our clients in London.</p>
+        </article>
+
+        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
+          <h3>2014 World Cup, Brazil</h3>
+          <p>Over 50,000 room nights in every host city for the DFB, KNVB, sponsors and tour operators.</p>
+        </article>
+
+        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
+          <h3>2016 Olympic Games, Rio de Janeiro</h3>
+          <p>Rooms for NOCs, sponsors and media, including long-stay crew accommodation for the adidas House.</p>
         </article>
 
         <article class="about-page-timeline-entry fade" data-about-timeline-entry>
           <h3>2018 World Cup, Russia</h3>
-          <p>Full logistics for an 80-person Nestlé Mexico guest program, including charter flights, hotel, hospitality and staffing.</p>
+          <p>Matchday return flights between Moscow and Ekaterinburg for 80 Nestlé Mexico guests.</p>
+        </article>
+
+        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
+          <h3>2021 Olympic Games, Tokyo</h3>
+          <p>Accommodation support for clients navigating pandemic restrictions at the postponed Tokyo 2020 Games.</p>
         </article>
 
         <article class="about-page-timeline-entry fade" data-about-timeline-entry>
           <h3>2022 World Cup, Qatar</h3>
-          <p>Accommodation sourcing for national team friends &amp; family programs, sponsors and broadcasters, including projects for Netflix documentary production and RFEF player families.</p>
+          <p>Accommodation for RFEF player families and an Amazon Prime documentary crew next to the DFB base camp at Al Ruwais.</p>
         </article>
 
         <article class="about-page-timeline-entry fade" data-about-timeline-entry>
-          <h3>2024 Olympic Games, Paris</h3>
-          <p>Integrated accommodation and mobility solutions for sponsors, NOCs and broadcasters, including work for P&amp;G and SRG Television.</p>
-        </article>
-
-        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
-          <h3>2024 Champions League Final, Istanbul</h3>
+          <h3>2023 Champions League Final, Istanbul</h3>
           <p>Full-property buyout of the Grand Hotel Pera Palace for VVIP accommodation and match hospitality.</p>
+        </article>
+
+        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
+          <h3>2024 Olympic &amp; Paralympic Games, Paris</h3>
+          <p>Hotels and transfers for clients across Paris, including P&amp;G and SRG Television.</p>
+        </article>
+
+        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
+          <h3>2026 Winter Olympic Games, Milano-Cortina</h3>
+          <p>3,800 room nights for our clients in Livigno.</p>
+        </article>
+
+        <article class="about-page-timeline-entry fade" data-about-timeline-entry>
+          <h3>2026 World Cup, North America</h3>
+          <p>Support for broadcasters including Warner Bros. Discovery.</p>
         </article>
       </div>
     </div>
@@ -206,15 +231,23 @@ hero_link_url: /contact/
 
       <div class="about-page-feedback-grid">
         <figure class="about-page-feedback-card fade">
+          <blockquote>Working with you has been such a positive experience. You’ve consistently made things easy, seamless and solutions-focused for us.</blockquote>
+          <figcaption>
+            <span class="about-page-feedback-card__name">Octagon, United Kingdom</span>
+            <span class="about-page-feedback-card__type">Agency</span>
+          </figcaption>
+        </figure>
+
+        <figure class="about-page-feedback-card fade">
           <blockquote>I have to say Thank You for everything! You guys have been amazing helping out everywhere and every time!</blockquote>
           <figcaption>
-            <span class="about-page-feedback-card__name">Adidas (B. Jung), Germany</span>
+            <span class="about-page-feedback-card__name">adidas (B. Jung), Germany</span>
             <span class="about-page-feedback-card__type">Sponsor</span>
           </figcaption>
         </figure>
 
         <figure class="about-page-feedback-card fade">
-          <blockquote>Nos que agradecemos pelo apolo e cooperação!. Deu tudo certo e conseguimos proporcionar uma experiência única para os nossos clientes. Esperamos ter mais oportunidade de trabalhar com vocês.</blockquote>
+          <blockquote>Nós que agradecemos pelo apoio e cooperação! Deu tudo certo e conseguimos proporcionar uma experiência única para os nossos clientes. Esperamos ter mais oportunidade de trabalhar com vocês.</blockquote>
           <figcaption>
             <span class="about-page-feedback-card__name">PB Incoming, Brasil</span>
             <span class="about-page-feedback-card__type">Agency</span>
@@ -230,7 +263,7 @@ hero_link_url: /contact/
         </figure>
 
         <figure class="about-page-feedback-card fade">
-          <blockquote>Literally this partnership has been a life saver for us id Integral!:-) You guys are amazing. High high high five from Integral Team.</blockquote>
+          <blockquote>Literally this partnership has been a life saver for us at Integral!:-) You guys are amazing. High high high five from Integral Team.</blockquote>
           <figcaption>
             <span class="about-page-feedback-card__name">INTEGRAL, Nigeria</span>
             <span class="about-page-feedback-card__type">Agency</span>
@@ -240,13 +273,13 @@ hero_link_url: /contact/
         <figure class="about-page-feedback-card fade">
           <blockquote>Thanks so much for arranging everything. The apartment was perfect and made the stay even more enjoyable and successful.</blockquote>
           <figcaption>
-            <span class="about-page-feedback-card__name">Adidas (M. Heising), Germany</span>
+            <span class="about-page-feedback-card__name">adidas (M. Heising), Germany</span>
             <span class="about-page-feedback-card__type">Sponsor</span>
           </figcaption>
         </figure>
 
         <figure class="about-page-feedback-card fade">
-          <blockquote>Stuiten we een prachtige periode af. Bedankt voor je huip!</blockquote>
+          <blockquote>Sluiten we een prachtige periode af. Bedankt voor je hulp!</blockquote>
           <figcaption>
             <span class="about-page-feedback-card__name">Watersportverbond, Netherlands</span>
             <span class="about-page-feedback-card__type">Federation</span>

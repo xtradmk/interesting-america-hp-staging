@@ -1,7 +1,7 @@
 <section class="story-section subpage-home-section subpage-home-section--contact-entry" id="contact-form">
   <div class="wrap-wide">
     <div class="contact-funnel fade">
-      <p class="contact-funnel__intro">If email is easier, write to <a href="mailto:america@interesting.global">america@interesting.global</a>. Otherwise send a quick request below and add more details after.</p>
+      <p class="contact-funnel__intro">For general enquiries, write to <a href="mailto:sports@interesting.global">sports@interesting.global</a>. For US and LA28 enquiries, write to <a href="mailto:america@interesting.global">america@interesting.global</a> or send a request below.</p>
 
       <form class="contact-funnel__form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}" data-multi-step>
         <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}">
@@ -37,11 +37,13 @@
                 <span>Event*</span>
                 <select name="event" required>
                   <option value="" selected disabled>Select event</option>
-                  <option>World Cup 2026</option>
-                  <option>Women's World Cup 2027</option>
-                  <option>Champions League Final 2027</option>
-                  <option>Summer Olympics 2028</option>
-                  <option>Winter Olympics 2030</option>
+                  <option>Super Bowl LXI 2027</option>
+                  <option>UCL Final Madrid 2027</option>
+                  <option>Women's World Cup Brazil 2027</option>
+                  <option>LA28</option>
+                  <option>UEFA EURO 2028</option>
+                  <option>French Alps 2030</option>
+                  <option>FIFA World Cup 2030</option>
                   <option>Other</option>
                 </select>
               </label>
@@ -121,7 +123,7 @@
                   <option value="" selected disabled>Select scope</option>
                   <option>Accommodation only</option>
                   <option>Accommodation + transfers</option>
-                  <option>Accommodation + hospitality access</option>
+                  <option>Accommodation + guest hospitality</option>
                   <option>Full package</option>
                 </select>
               </label>
@@ -153,7 +155,7 @@
           <button type="button" class="contact-funnel__back" data-step-back hidden>Back</button>
           <button type="submit" class="contact-funnel__next contact-funnel__next--submit" data-step-submit>Send request</button>
           <button type="button" class="contact-funnel__next" data-step-next hidden>Save details</button>
-          <p class="contact-funnel__note">Direct email also works: <a href="mailto:america@interesting.global">america@interesting.global</a></p>
+          <p class="contact-funnel__note">General enquiries: <a href="mailto:sports@interesting.global">sports@interesting.global</a></p>
         </div>
       </form>
 

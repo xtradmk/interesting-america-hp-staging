@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Services
-description: Services by INTERESTING AMERICA
+description: Accommodation, ground operations and guest hospitality by INTERESTING SPORTS
 pageClasses: subpage-home page-services
 templateEngineOverride: njk
 hero_dimming_percent: 100
@@ -36,7 +36,7 @@ hero_link_url: /contact/
             We secure rooms for your groups at major global sports events.
           </h2>
           <div class="services-showcase__copy">
-            <p>With experience across eight World Cups and Olympic Games, we understand what major events demand from accommodation.</p>
+            <p>In the game since 2010, we understand what major events demand from accommodation.</p>
             <p>We work with sponsors and agencies to house guest-program attendees and staff during brand activations, and with media organizations to secure long-stay accommodation for technical crews, journalists, and broadcasters close to media centers.</p>
             <p>For federations, we source accommodation for friends and families of athletes and staff, placed close to the venues where their loved ones compete.</p>
           </div>
@@ -84,10 +84,10 @@ hero_link_url: /contact/
 
         <div class="services-showcase__content">
           <h2 class="services-showcase__headline" data-letter-reveal>
-            And on your behalf, we get access to hospitality: tickets and tables at the finest venues in town.
+            Guest hospitality that fits your programme.
           </h2>
           <div class="services-showcase__copy">
-            <p>From restaurant bookings and on-site catering to city tours, we offer a wide range of hospitality services. We present you with a hospitality concept shaped around your event, your guests, and your budget to create meaningful and memorable experiences for your groups between match days.</p>
+            <p>We plan dining, rooftop receptions, guest programmes, city tours and private venues around your event, guests and budget. Our team works alongside the official hospitality programme.</p>
           </div>
 
           <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">

@@ -32,8 +32,8 @@
           },
           {
             "title": "Hospitality",
-            "description": "Access to tickets, suites, and premium experiences. We open doors others can't.",
-            "features": ["Hospitality tickets", "VIP suites", "Private dining", "Exclusive events"]
+            "description": "Dining, guest programmes, rooftop receptions, tours and private venues.",
+            "features": ["Guest programmes", "Rooftop receptions", "Private dining", "City tours"]
           },
           {
             "title": "Event Logistics",
@@ -48,7 +48,7 @@
       "order": 3,
       "data": {
         "headline": "Who We Serve",
-        "text": "**Category 1 (Highest Revenue):** Sponsors (Visa, Adidas) and Agencies (Octagon, GMR, FUSE, iLuka)\n\n**Category 2:** Media (SRG, ORF)—budget long-stay for crews, upscale for journalists\n\n**Category 3:** Agencies—Gold (On Location/Beyond), Silver (Roadtrips), Bronze (ISTAA)\n\n**Category 4:** Federations (DFB, KNVB)—Friends & Families accommodation\n\n**Category 5:** B2C Individuals",
+        "text": "**Category 1 (Highest Revenue):** Sponsors (Visa, adidas) and Agencies (Octagon, GMR, FUSE, iLuka)\n\n**Category 2:** Media (SRG, ORF)—budget long-stay for crews, upscale for journalists\n\n**Category 3:** Agencies—Gold (On Location/Beyond), Silver (Roadtrips), Bronze (ISTAA)\n\n**Category 4:** Federations (DFB, KNVB)—Friends & Families accommodation\n\n**Category 5:** B2C Individuals",
         "align": "left"
       }
     },
