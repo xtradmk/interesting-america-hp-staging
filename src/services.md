@@ -36,7 +36,7 @@ hero_link_url: /contact/
             We secure rooms for your groups at major global sports events.
           </h2>
           <div class="services-showcase__copy">
-            <p>In the game since 2010, we understand what major events demand from accommodation.</p>
+            <p>With experience across ten World Cups and Olympic Games, we understand what major events demand from accommodation.</p>
             <p>We work with sponsors and agencies to house guest-program attendees and staff during brand activations, and with media organizations to secure long-stay accommodation for technical crews, journalists, and broadcasters close to media centers.</p>
             <p>For federations, we source accommodation for friends and families of athletes and staff, placed close to the venues where their loved ones compete.</p>
           </div>
