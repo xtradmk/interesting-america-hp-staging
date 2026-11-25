@@ -93,9 +93,6 @@ body.js-slider-ready .hero-bg--css{animation:none;opacity:0}
 .hero-link-cta{display:inline-flex;align-items:center;gap:14px;margin-top:0;font-family:var(--sans);font-size:clamp(26px,3.9vw,58px);font-weight:500;line-height:1.02;letter-spacing:-.04em;color:#fff;position:relative;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .22s ease,transform .22s ease}
 .hero-link-cta.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .hero-link-cta--home{align-self:start}
-.page-home .hero h1.typewriter{display:grid;width:100%;max-width:660px;min-height:0;white-space:normal}
-.typewriter::before,.typewriter > span{grid-area:1 / 1}
-.typewriter::before{content:attr(data-text) / "";visibility:hidden}
 .hero-home-subcopy{margin:0;max-width:40ch;font-family:var(--sans);font-size:clamp(18px,1.7vw,24px);line-height:1.48;letter-spacing:-.02em;color:rgba(255,255,255,.92);opacity:0;transform:translateY(10px);transition:opacity .22s ease,transform .22s ease}
 .hero-home-subcopy span{display:block}
 .hero-home-subcopy.is-visible{opacity:1;transform:translateY(0)}

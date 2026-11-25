@@ -64,9 +64,12 @@ hero_caption10: Soccer City Stadium, Johannesburg, South Africa · World Cup 201
 
   <div class="wrap-wide fade in">
     <div class="hero-copy-block hero-copy-block--home">
-      <h1 class="typewriter" data-text="Accommodation &amp; ground partner for LA28, the Super Bowl and the World Cup"><span>Accommodation &amp; ground partner for LA28, the Super Bowl and the World Cup</span></h1>
+      <h1 class="typewriter" data-text="We secure rooms&#10;for your groups&#10;at major global&#10;sports events.">We secure rooms<br>for your groups<br>at major global<br>sports events.</h1>
       <p class="hero-home-subcopy">
-        <span>Our people on the ground run the hotel desk, host your guests, coordinate transfers and manage matchday operations.</span>
+        <span>2027 Super Bowl</span>
+        <span>2027 Women's World Cup</span>
+        <span>2027 Champions League Final</span>
+        <span>2028 Summer Olympics</span>
       </p>
       <a class="hero-link-cta hero-link-cta--home" href="{{ '/contact/' | url }}">
         <span class="hero-link-cta__text">Get in Touch</span>
