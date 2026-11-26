@@ -84,7 +84,7 @@ hero_link_url: /contact/
 
         <div class="services-showcase__content">
           <h2 class="services-showcase__headline" data-letter-reveal>
-            And on your behalf, we handle the hospitality: dining, rooftops, tours, guest programs and top venues.
+            And on your behalf, we handle the hospitality: dining, rooftops, tours, and guest programs.
           </h2>
           <div class="services-showcase__copy">
             <p>From a private dinner or rooftop reception to a guided city tour or a full guest program, we find venues and experiences that suit your group, schedule, and budget.</p>

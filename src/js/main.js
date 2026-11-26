@@ -218,7 +218,7 @@
 
     const text1 = 'We secure rooms\nfor your groups\nat major global\nsports events.';
     const text2 = 'We also transfer your\nstaff and guests. On\narrival, on departure,\nand on match day.';
-    const text3 = 'And on your behalf, we\nhandle the hospitality:\ndining, rooftops, tours,\nguest programs and top venues.';
+    const text3 = 'And on your behalf, we\nhandle the hospitality:\ndining, rooftops, tours,\nand guest programs.';
 
     const sequence = [text1, text2, text3];
     let seqIndex = 0;
