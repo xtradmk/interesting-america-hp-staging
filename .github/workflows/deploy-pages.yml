@@ -33,6 +33,7 @@ jobs:
       - name: Build site
         env:
           ELEVENTY_PATH_PREFIX: /interesting-america-hp-staging/
+          CLOUDFLARE_CONTACT_WORKER_BASE_URL: https://contact-staging-ia-cms-oauth.interesting-america.workers.dev
         run: npm run build
 
       - name: Setup Pages

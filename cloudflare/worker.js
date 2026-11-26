@@ -960,7 +960,7 @@ async function handleFormSubmission(req, env, formConfig) {
   }
 
   if (formConfig.eventPrefix === "contact_submission" && inquiryId) {
-    const redirectUrl = buildRedirectUrl(requestOrigin, successPath);
+    const redirectUrl = new URL(buildRedirectUrl(requestOrigin, successPath));
     redirectUrl.searchParams.set("inquiry_id", inquiryId);
     return Response.redirect(redirectUrl.toString(), 303);
   }
@@ -1250,25 +1250,22 @@ async function handleContactUpdate(req, env) {
     });
   }
 
-  if (notificationConfig.channels.length) {
-    try {
-      await dispatchNotifications(notificationConfig.channels, env, submission);
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Unknown notification error.";
-      logEvent("error", `${submission.eventPrefix}_delivery_failed`, {
-        submissionId: submission.id,
-        message,
-      });
-    }
+  const headers = {
+    "Access-Control-Allow-Origin": requestOrigin,
+    "Access-Control-Allow-Methods": "POST",
+  };
+  try {
+    await dispatchNotifications(notificationConfig.channels, env, submission);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown notification error.";
+    logEvent("error", `${submission.eventPrefix}_delivery_failed`, {
+      submissionId: submission.id,
+      message,
+    });
+    return Response.json({ ok: false }, { status: 502, headers });
   }
 
-  return Response.json({ ok: true, inquiry_id: inquiryId }, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": requestOrigin,
-      "Access-Control-Allow-Methods": "POST",
-    },
-  });
+  return Response.json({ ok: true, inquiry_id: inquiryId }, { headers });
 }
 
 async function handleContactSubmit(req, env) {

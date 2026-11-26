@@ -1,17 +1,15 @@
 <section class="story-section subpage-home-section subpage-home-section--contact-entry" id="contact-form">
   <div class="wrap-wide">
     <div class="contact-funnel fade">
-      <p class="contact-funnel__intro">For general inquiries, write to <a href="mailto:sports@interesting.global">sports@interesting.global</a>. For US and LA28 inquiries, write to <a href="mailto:america@interesting.global">america@interesting.global</a> or send a request below.</p>
-
-      <form class="contact-funnel__form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}">
-        <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}">
+      <form class="contact-funnel__form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}" data-contact-request>
+        <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}" data-contact-return="{{ '/contact/' | url }}">
         <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
 
         <section class="contact-funnel__section">
           <div class="contact-funnel__step-header">
             <div>
               <h2 class="contact-funnel__step-title">Send your request</h2>
-              <p class="contact-funnel__step-subtitle">Enter your contact information and any event details you have.</p>
+              <p class="contact-funnel__step-subtitle">Start with your contact information and event. You can add details after sending your request.</p>
             </div>
           </div>
           <div class="contact-funnel__fields">
@@ -49,6 +47,19 @@
             </div>
           </div>
         </section>
+
+        <div class="contact-funnel__actions">
+          <button type="submit" class="contact-funnel__next contact-funnel__next--submit">Send request</button>
+        </div>
+      </form>
+
+      <form class="contact-funnel__form" name="event-inquiry-details" method="POST" action="{{ integrations.contactUpdateEndpoint }}" data-contact-details hidden>
+        <input type="hidden" name="inquiry_id">
+        <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
+        <div>
+          <h2 class="contact-funnel__step-title" tabindex="-1" data-contact-confirmation>Request received</h2>
+          <p class="contact-funnel__step-subtitle">You can share more details about your event below. These details are optional.</p>
+        </div>
 
         <section class="contact-funnel__section">
           <div class="contact-funnel__step-header">
@@ -142,8 +153,8 @@
         </section>
 
         <div class="contact-funnel__actions">
-          <button type="submit" class="contact-funnel__next contact-funnel__next--submit">Send request</button>
-          <p class="contact-funnel__note">General inquiries: <a href="mailto:sports@interesting.global">sports@interesting.global</a></p>
+          <button type="submit" class="contact-funnel__next contact-funnel__next--submit">Send additional details</button>
+          <p class="contact-funnel__note" role="status" data-contact-details-status></p>
         </div>
       </form>
 

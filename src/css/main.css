@@ -405,6 +405,8 @@ body.subpage-home main{overflow:hidden}
 .contact-funnel__step-header{display:flex;align-items:flex-start;gap:18px}
 .contact-funnel__step-title{margin:0 0 6px;font-family:var(--sans);font-size:clamp(26px,2.8vw,34px);font-weight:500;line-height:1.1;letter-spacing:-.035em;color:#0b1020}
 .contact-funnel__step-subtitle{margin:0;font-family:var(--sans);font-size:clamp(16px,1.3vw,19px);line-height:1.55;letter-spacing:-.015em;color:#5a6472;max-width:48ch}
+.contact-funnel__form[hidden]{display:none}
+.contact-funnel__note:empty{display:none}
 .contact-funnel__fields{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px}
 .contact-funnel__fields label{display:block}
 .contact-funnel__fields label span{display:block;margin-bottom:10px;font-family:var(--sans);font-size:15px;font-weight:500;line-height:1.2;letter-spacing:-.02em;text-transform:none;color:#0b1020}

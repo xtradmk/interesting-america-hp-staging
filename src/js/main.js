@@ -505,6 +505,7 @@
   initHeroSlider();
   runTypewriter();
   initMobileMenu();
+  initContactRequestDetails();
   initContactFormToggles();
   initLegalOverlays();
   initErrorPage();
@@ -513,6 +514,51 @@
   initConfirmationSuccess();
   initPrefillFromUrl();
 })();
+
+function initContactRequestDetails() {
+  const request = document.querySelector('[data-contact-request]');
+  const details = document.querySelector('[data-contact-details]');
+  if (!request || !details) return;
+
+  const returnPath = request.querySelector('[data-contact-return]');
+  returnPath.value = returnPath.dataset.contactReturn;
+
+  const inquiryId = new URLSearchParams(window.location.search).get('inquiry_id');
+  if (!inquiryId || !/^[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/i.test(inquiryId)) return;
+
+  details.elements.namedItem('inquiry_id').value = inquiryId;
+  request.hidden = true;
+  details.hidden = false;
+  request.closest('.contact-funnel').classList.add('in');
+  details.querySelector('[data-contact-confirmation]').focus();
+
+  const button = details.querySelector('button[type="submit"]');
+  const status = details.querySelector('[data-contact-details-status]');
+  details.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (button.disabled) return;
+
+    const data = new FormData(details);
+    const hasDetails = Array.from(data).some(([name, value]) =>
+      name !== 'inquiry_id' && name !== 'company_website' && String(value).trim());
+    if (!hasDetails) {
+      status.textContent = 'Add at least one event detail before sending.';
+      return;
+    }
+
+    button.disabled = true;
+    status.textContent = 'Sending additional details…';
+    try {
+      const response = await fetch(details.action, { method: 'POST', body: data });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error('Details not accepted');
+      status.textContent = 'Additional details received.';
+    } catch {
+      status.textContent = 'We could not send your additional details. Your original request was received. Please try again.';
+      button.disabled = false;
+    }
+  });
+}
 
 function initTermsConfirmation() {
   const form = document.querySelector('[data-terms-form]');
