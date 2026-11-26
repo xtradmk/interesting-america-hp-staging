@@ -84,10 +84,11 @@ hero_link_url: /contact/
 
         <div class="services-showcase__content">
           <h2 class="services-showcase__headline" data-letter-reveal>
-            And on your behalf, we get access to hospitality: tickets and tables at the finest venues in town.
+            And on your behalf, we handle the hospitality: dining, rooftops, tours, guest programs and top venues.
           </h2>
           <div class="services-showcase__copy">
-            <p>We plan dining, rooftop receptions, guest programmes, city tours and private venues around your event, guests and budget. Our team works alongside the official hospitality programme.</p>
+            <p>From a private dinner or rooftop reception to a guided city tour or a full guest program, we find venues and experiences that suit your group, schedule, and budget.</p>
+            <p>We coordinate reservations, event schedules, and transfers with venue teams, so guests know where to be and your staff has one point of contact. We work alongside the official hospitality program to fit these plans around game days and the rest of your itinerary.</p>
           </div>
 
           <a class="hero-link-cta hero-link-cta--static services-showcase__cta" href="{{ '/contact/' | url }}">

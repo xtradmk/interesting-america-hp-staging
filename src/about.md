@@ -167,7 +167,7 @@ hero_link_url: /contact/
       <div class="about-page-timeline" data-about-timeline>
         <article class="about-page-timeline-entry fade is-active" data-about-timeline-entry>
           <h3>2010 World Cup, South Africa</h3>
-          <p>A 30-guest VIP programme for NOKIA Latin America at the World Cup Final in Johannesburg.</p>
+          <p>A 30-guest VIP program for NOKIA Latin America at the World Cup Final in Johannesburg.</p>
         </article>
 
         <article class="about-page-timeline-entry fade" data-about-timeline-entry>
