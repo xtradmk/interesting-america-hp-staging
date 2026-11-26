@@ -446,6 +446,13 @@ body.subpage-home main{overflow:hidden}
 .contact-funnel__next{margin-left:auto;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border:none;border-radius:999px;background:#0b1020;font-family:var(--sans);font-size:17px;font-weight:500;line-height:1;color:#fff;cursor:pointer;transition:transform .2s ease,background .2s ease}
 .contact-funnel__next:hover{transform:translateY(-1px);background:#1f2738}
 .contact-funnel__next--submit{padding:16px 32px;font-size:18px;font-weight:600}
+.contact-funnel__actions.contact-funnel__actions--request{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.contact-funnel__actions--request .contact-funnel__trust{justify-self:start;min-width:0;line-height:1.25}
+.contact-funnel__actions--request .contact-funnel__trust svg{flex:none}
+@media (max-width:480px){
+  .contact-funnel__actions--request .contact-funnel__trust{gap:6px;padding:8px 10px;letter-spacing:0}
+  .contact-funnel__actions--request .contact-funnel__next--submit{padding-inline:14px;font-size:16px}
+}
 .contact-funnel__note.is-success,
 [data-step-note].is-success{margin-top:8px;padding:10px 14px;border-radius:12px;background:#ecfdf5;color:#065f46;font-size:15px}
 [data-step-note]:not(.is-success)[hidden]{display:none}

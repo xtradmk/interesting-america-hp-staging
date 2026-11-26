@@ -552,7 +552,7 @@ function initContactRequestDetails() {
       const response = await fetch(details.action, { method: 'POST', body: data });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error('Details not accepted');
-      status.textContent = 'Additional details received.';
+      window.location.assign(details.dataset.contactDetails);
     } catch {
       status.textContent = 'We could not send your additional details. Your original request was received. Please try again.';
       button.disabled = false;
