@@ -13,4 +13,3 @@ hero_link_url: /
 ---
 
 {% include "modules/subpage-home-hero.njk" %}
-{% include "modules/contact-funnel-continue.njk" %}

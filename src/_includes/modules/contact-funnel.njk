@@ -3,158 +3,146 @@
     <div class="contact-funnel fade">
       <p class="contact-funnel__intro">For general inquiries, write to <a href="mailto:sports@interesting.global">sports@interesting.global</a>. For US and LA28 inquiries, write to <a href="mailto:america@interesting.global">america@interesting.global</a> or send a request below.</p>
 
-      <form class="contact-funnel__form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}" data-multi-step>
+      <form class="contact-funnel__form" name="event-inquiry" method="POST" action="{{ integrations.contactFormEndpoint }}">
         <input type="hidden" name="success_path" value="{{ '/thank-you/' | url }}">
         <p class="form-honeypot" aria-hidden="true"><label>Do not fill this out: <input name="company_website"></label></p>
 
-        <div class="contact-funnel__progress" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="1" aria-label="Form progress">
-          <span class="contact-funnel__progress-bar" data-progress-bar></span>
-        </div>
+        <section class="contact-funnel__section">
+          <div class="contact-funnel__step-header">
+            <div>
+              <h2 class="contact-funnel__step-title">Send your request</h2>
+              <p class="contact-funnel__step-subtitle">Enter your contact information and any event details you have.</p>
+            </div>
+          </div>
+          <div class="contact-funnel__fields">
+            <label>
+              <span>Full Name*</span>
+              <input type="text" name="full_name" placeholder="Jane Doe" required>
+            </label>
+            <label>
+              <span>Company*</span>
+              <input type="text" name="company" placeholder="Agency, federation, brand" required>
+            </label>
+            <label>
+              <span>Work Email*</span>
+              <input type="email" name="email" placeholder="name@company.com" required>
+            </label>
+            <label>
+              <span>Event*</span>
+              <select name="event" required>
+                <option value="" selected disabled>Select event</option>
+                <option>Super Bowl LXI 2027</option>
+                <option>UCL Final Madrid 2027</option>
+                <option>Women's World Cup Brazil 2027</option>
+                <option>LA28</option>
+                <option>UEFA EURO 2028</option>
+                <option>French Alps 2030</option>
+                <option>FIFA World Cup 2030</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <div class="contact-funnel__field--full contact-funnel__toggle contact-funnel__toggle--legal">
+              <input id="accept-legal" type="checkbox" name="accept_legal" required>
+              <label for="accept-legal">
+                <span>I accept the <button type="button" class="contact-funnel__legal-link" data-open-legal="terms">Terms and Conditions</button> and <button type="button" class="contact-funnel__legal-link" data-open-legal="privacy">Privacy Policy</button>.*</span>
+              </label>
+            </div>
+          </div>
+        </section>
 
-        <ol class="contact-funnel__steps" aria-label="Inquiry steps">
-          <li class="contact-funnel__step contact-funnel__step--active" data-step="1">
-            <div class="contact-funnel__step-header">
-              <span class="contact-funnel__step-number">1</span>
-              <div>
-                <h2 class="contact-funnel__step-title">Send your request</h2>
-                <p class="contact-funnel__step-subtitle">Just the essentials. We'll reach out within the day.</p>
-              </div>
+        <section class="contact-funnel__section">
+          <div class="contact-funnel__step-header">
+            <div>
+              <h2 class="contact-funnel__step-title">Where and when?</h2>
+              <p class="contact-funnel__step-subtitle">Help us narrow down the right options.</p>
             </div>
-            <div class="contact-funnel__fields">
-              <label>
-                <span>Full Name*</span>
-                <input type="text" name="full_name" placeholder="Jane Doe" required>
-              </label>
-              <label>
-                <span>Company*</span>
-                <input type="text" name="company" placeholder="Agency, federation, brand" required>
-              </label>
-              <label>
-                <span>Work Email*</span>
-                <input type="email" name="email" placeholder="name@company.com" required>
-              </label>
-              <label>
-                <span>Event*</span>
-                <select name="event" required>
-                  <option value="" selected disabled>Select event</option>
-                  <option>Super Bowl LXI 2027</option>
-                  <option>UCL Final Madrid 2027</option>
-                  <option>Women's World Cup Brazil 2027</option>
-                  <option>LA28</option>
-                  <option>UEFA EURO 2028</option>
-                  <option>French Alps 2030</option>
-                  <option>FIFA World Cup 2030</option>
-                  <option>Other</option>
-                </select>
-              </label>
-              <div class="contact-funnel__field--full contact-funnel__toggle contact-funnel__toggle--legal">
-                <input id="accept-legal" type="checkbox" name="accept_legal" required>
-                <label for="accept-legal">
-                  <span>I accept the <button type="button" class="contact-funnel__legal-link" data-open-legal="terms">Terms and Conditions</button> and <button type="button" class="contact-funnel__legal-link" data-open-legal="privacy">Privacy Policy</button>.*</span>
-                </label>
-              </div>
-            </div>
-          </li>
+          </div>
+          <div class="contact-funnel__fields">
+            <label>
+              <span>Host City / Area</span>
+              <input type="text" name="city_area" placeholder="e.g. Los Angeles">
+            </label>
+            <label>
+              <span>Phone / WhatsApp</span>
+              <input type="text" name="phone" placeholder="+1 310 555 0124">
+            </label>
+            <label>
+              <span>Check-in</span>
+              <input type="date" name="check_in">
+            </label>
+            <label>
+              <span>Check-out</span>
+              <input type="date" name="check_out">
+            </label>
+            <label class="contact-funnel__toggle contact-funnel__toggle--solo">
+              <input type="checkbox" name="varying_dates" data-varying-dates-toggle>
+              <span>Check-in and check-out dates vary across rooms</span>
+            </label>
+            <p class="contact-funnel__hint" data-varying-dates-note hidden>Please enter the earliest check-in and latest check-out dates above. Add room-specific dates under Request Details.</p>
+          </div>
+        </section>
 
-          <li class="contact-funnel__step" data-step="2" hidden>
-            <div class="contact-funnel__step-header">
-              <span class="contact-funnel__step-number">2</span>
-              <div>
-                <h2 class="contact-funnel__step-title">Where and when?</h2>
-                <p class="contact-funnel__step-subtitle">Help us narrow down the right options.</p>
-              </div>
+        <section class="contact-funnel__section">
+          <div class="contact-funnel__step-header">
+            <div>
+              <h2 class="contact-funnel__step-title">How many rooms?</h2>
+              <p class="contact-funnel__step-subtitle">A rough count and budget are enough for now.</p>
             </div>
-            <div class="contact-funnel__fields">
-              <label>
-                <span>Host City / Area*</span>
-                <input type="text" name="city_area" placeholder="e.g. Los Angeles" required>
-              </label>
-              <label>
-                <span>Phone / WhatsApp</span>
-                <input type="text" name="phone" placeholder="+1 310 555 0124">
-              </label>
-              <label>
-                <span>Check-in</span>
-                <input type="date" name="check_in">
-              </label>
-              <label>
-                <span>Check-out</span>
-                <input type="date" name="check_out">
-              </label>
-              <label class="contact-funnel__toggle contact-funnel__toggle--solo">
-                <input type="checkbox" name="varying_dates" data-varying-dates-toggle>
-                <span>Check-in and check-out dates vary across rooms</span>
-              </label>
-              <p class="contact-funnel__hint" data-varying-dates-note hidden>Please use the earliest check-in and latest check-out below, and add room-specific dates in the next step.</p>
-            </div>
-          </li>
+          </div>
+          <div class="contact-funnel__fields">
+            <label>
+              <span>Total Rooms</span>
+              <input type="number" name="rooms_total" min="1" placeholder="e.g. 40">
+            </label>
+            <label>
+              <span>Budget per Room / Night (USD)</span>
+              <input type="text" name="budget" placeholder="e.g. 450">
+            </label>
+            <label>
+              <span>Main Guest Mix</span>
+              <select name="guest_mix">
+                <option value="" selected disabled>Select mix</option>
+                <option>Sponsor guests + staff</option>
+                <option>Media crews + journalists</option>
+                <option>Federation + families</option>
+                <option>Agency travelers</option>
+                <option>Mixed</option>
+              </select>
+            </label>
+            <label>
+              <span>Required Services</span>
+              <select name="services_scope">
+                <option value="" selected disabled>Select scope</option>
+                <option>Accommodation only</option>
+                <option>Accommodation + transfers</option>
+                <option>Accommodation + guest hospitality</option>
+                <option>Full package</option>
+              </select>
+            </label>
+          </div>
+        </section>
 
-          <li class="contact-funnel__step" data-step="3" hidden>
-            <div class="contact-funnel__step-header">
-              <span class="contact-funnel__step-number">3</span>
-              <div>
-                <h2 class="contact-funnel__step-title">How many rooms?</h2>
-                <p class="contact-funnel__step-subtitle">A rough count and budget are enough for now.</p>
-              </div>
+        <section class="contact-funnel__section">
+          <div class="contact-funnel__step-header">
+            <div>
+              <h2 class="contact-funnel__step-title">Anything else?</h2>
+              <p class="contact-funnel__step-subtitle">Add details that help us prepare the right proposal.</p>
             </div>
-            <div class="contact-funnel__fields">
-              <label>
-                <span>Total Rooms</span>
-                <input type="number" name="rooms_total" min="1" placeholder="e.g. 40">
-              </label>
-              <label>
-                <span>Budget per Room / Night (USD)</span>
-                <input type="text" name="budget" placeholder="e.g. 450">
-              </label>
-              <label>
-                <span>Main Guest Mix</span>
-                <select name="guest_mix">
-                  <option value="" selected disabled>Select mix</option>
-                  <option>Sponsor guests + staff</option>
-                  <option>Media crews + journalists</option>
-                  <option>Federation + families</option>
-                  <option>Agency travelers</option>
-                  <option>Mixed</option>
-                </select>
-              </label>
-              <label>
-                <span>Required Services</span>
-                <select name="services_scope">
-                  <option value="" selected disabled>Select scope</option>
-                  <option>Accommodation only</option>
-                  <option>Accommodation + transfers</option>
-                  <option>Accommodation + guest hospitality</option>
-                  <option>Full package</option>
-                </select>
-              </label>
-            </div>
-          </li>
-
-          <li class="contact-funnel__step" data-step="4" hidden>
-            <div class="contact-funnel__step-header">
-              <span class="contact-funnel__step-number">4</span>
-              <div>
-                <h2 class="contact-funnel__step-title">Anything else?</h2>
-                <p class="contact-funnel__step-subtitle">Add details that help us prepare the right proposal.</p>
-              </div>
-            </div>
-            <div class="contact-funnel__fields">
-              <label class="contact-funnel__field--full">
-                <span>Request Details</span>
-                <textarea name="request_details" rows="6" placeholder="Room split, level, location priorities, constraints, varying date details"></textarea>
-              </label>
-              <label>
-                <span>Decision Deadline</span>
-                <input type="text" name="decision_deadline" placeholder="e.g. Friday 16:00 CET">
-              </label>
-            </div>
-          </li>
-        </ol>
+          </div>
+          <div class="contact-funnel__fields">
+            <label class="contact-funnel__field--full">
+              <span>Request Details</span>
+              <textarea name="request_details" rows="6" placeholder="Room split, level, location priorities, constraints, varying date details"></textarea>
+            </label>
+            <label>
+              <span>Decision Deadline</span>
+              <input type="text" name="decision_deadline" placeholder="e.g. Friday 16:00 CET">
+            </label>
+          </div>
+        </section>
 
         <div class="contact-funnel__actions">
-          <button type="button" class="contact-funnel__back" data-step-back hidden>Back</button>
-          <button type="submit" class="contact-funnel__next contact-funnel__next--submit" data-step-submit>Send request</button>
-          <button type="button" class="contact-funnel__next" data-step-next hidden>Save details</button>
+          <button type="submit" class="contact-funnel__next contact-funnel__next--submit">Send request</button>
           <p class="contact-funnel__note">General inquiries: <a href="mailto:sports@interesting.global">sports@interesting.global</a></p>
         </div>
       </form>
